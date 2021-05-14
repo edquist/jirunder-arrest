@@ -82,6 +82,7 @@ _issue_html1 = u"""\
 <style>
   div   {{ max-width: 800px }}
   table {{ text-align: left }}
+  .fr   {{ float: right     }}
 </style>
 </head>
 <body>
@@ -89,6 +90,7 @@ _issue_html1 = u"""\
 {key} : {_summary}
 </h1>
 
+<div class='fr'>
 <table>
 <tr>
 <th>assignee</th>
@@ -97,6 +99,10 @@ _issue_html1 = u"""\
 <tr>
 <th>reporter</th>
 <td>{fields.reporter.displayName}</td>
+</tr>
+<tr>
+<th>created</th>
+<td>{renderedFields.created}</td>
 </tr>
 <tr>
 <th>updated</th>
@@ -111,6 +117,7 @@ _issue_html1 = u"""\
 <td>{_labels}</td>
 </tr>
 </table>
+</div>
 
 <h2>Description</h2>
 
@@ -143,6 +150,12 @@ _issue_html3 = u"""\
 </html>
 """
 
+_ignorepats = [
+    ur' *<img .*?/>',
+    ur' *<span [^>]*jira-macro-single-issue-export-pdf[^>]*>[^<]*</span>',
+    ur'\s+(?=</a>)',
+]
+
 def issue_to_html(j):
     e = easydict(j)
     e._components = u', '.join( c.name for c in e.fields.components )
@@ -152,7 +165,8 @@ def issue_to_html(j):
     for c in e.renderedFields.comment.comments:
         html += _issue_html2.format(**c)
     html += _issue_html3
-    html = re.sub(ur'<img .*?/>', '', html)
+    for pat in _ignorepats:
+        html = re.sub(pat, u'', html)
 
     return html
 
