@@ -145,9 +145,9 @@ _issue_html3 = u"""\
 
 def issue_to_html(j):
     e = easydict(j)
-    components = u', '.join( c.name for c in e.fields.components )
-    labels     = u', '.join(e.fields.labels)
-    html = _issue_html1.format(_components=components, _labels=labels, **e)
+    e._components = u', '.join( c.name for c in e.fields.components )
+    e._labels     = u', '.join(e.fields.labels)
+    html = _issue_html1.format(**e)
     for c in e.renderedFields.comment.comments:
         html += _issue_html2.format(**c)
     html += _issue_html3
