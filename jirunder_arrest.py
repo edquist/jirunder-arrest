@@ -161,26 +161,31 @@ _issue_html_links1 = """\
 
 _issue_html_links2 = """\
 <tr>
+
+<td>
+{_type} :
+<td>
+
 <th>
-{outwardIssue.key}
+{key}
 </th>
 
-<td>|</td>
+<td>|<td>
 
 <td>
-{outwardIssue.fields.priority.name}
+{fields.priority.name}
 <td>
 
-<td>|</td>
+<td>|<td>
 
 <td>
-{outwardIssue.fields.status.name}
+{fields.status.name}
 <td>
 
-<td>|</td>
+<td>|<td>
 
 <td>
-{outwardIssue.fields.summary}
+{fields.summary}
 <td>
 </tr>
 """
@@ -233,7 +238,12 @@ def issue_to_html(j):
     if 'issuelinks' in e.fields and e.fields.issuelinks:
         html += _issue_html_links1
         for il in e.fields.issuelinks:
-            html += _issue_html_links2.format(**il)
+            if 'outwardIssue' in il:
+                il.outwardIssue._type = il.type.outward
+                html += _issue_html_links2.format(**il.outwardIssue)
+            if 'inwardIssue' in il:
+                il.inwardIssue._type = il.type.inward
+                html += _issue_html_links2.format(**il.inwardIssue)
         html += _issue_html_links3
 
     html += _issue_html_comments
