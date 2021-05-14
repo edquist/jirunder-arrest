@@ -94,38 +94,52 @@ _issue_html1 = u"""\
 
 <div class='fr'>
 <table>
+
+<tr>
+<th>type</th>
+<td>{fields.issuetype.name}</td>
+</tr>
+
 <tr>
 <th>priority</th>
-<td>{fields.priority.name}</td>
+<td>(fields.priority.id}) {fields.priority.name}</td>
 </tr>
+
 <tr>
 <th>status</th>
 <td>{fields.status.name} : {fields.status.statusCategory.name}</td>
 </tr>
+
 <tr>
 <th>assignee</th>
 <td>{fields.assignee.displayName}</td>
 </tr>
+
 <tr>
 <th>reporter</th>
 <td>{fields.reporter.displayName}</td>
 </tr>
+
 <tr>
 <th>created</th>
 <td>{renderedFields.created}</td>
 </tr>
+
 <tr>
 <th>updated</th>
 <td>{renderedFields.updated}</td>
 </tr>
+
 <tr>
 <th>components</th>
 <td>{_components}</td>
 </tr>
+
 <tr>
 <th>labels</th>
 <td>{_labels}</td>
 </tr>
+
 </table>
 </div>
 
