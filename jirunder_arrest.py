@@ -102,6 +102,7 @@ _issue_html1 = u"""\
 <th>updated</th>
 <td>{renderedFields.updated}</td>
 </tr>
+<tr>
 <th>components</th>
 <td>{_components}</td>
 </tr>
