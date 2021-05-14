@@ -259,7 +259,7 @@ _landing_html = u"""\
 <!DOCTYPE html>
 <html>
 <body>
-Try sticking a "?issue=SOFTWARE-4000" after the URL.
+Try sticking a <code>?issue=SOFTWARE-4000</code> after the URL.
 </body>
 </html>
 """
