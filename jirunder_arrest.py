@@ -39,9 +39,18 @@ def add_auth_header(req):
         req.add_header("Authorization", "Basic %s" % options.authstr)
 
 
+def uri_ify(data):
+    return '?' + '&'.join(map('='.join, sorted(data.items())))
+
+
 def call_api(method, path, data):
     if data:
-        data = json.dumps(data)
+        if method == GET:
+            path = path + uri_ify(data)
+            data = None
+        else:
+            data = json.dumps(data)
+
     url = apiurl + path
 
     req = urllib2.Request(url, data)
@@ -63,7 +72,7 @@ def main(args):
 
     issue, = args
 
-    url,h,j = get_issue(issue)
+    url,h,j = get_issue(issue, expand='renderedFields')
     pp = json.dumps(j, sort_keys=1, indent=2)
     print "Headers for <%s>" % url
     print "---"
