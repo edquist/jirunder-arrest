@@ -191,6 +191,9 @@ Try sticking a "?issue=SOFTWARE-4000" after the URL.
 def landing_page():
     return _landing_html
 
+def html_header():
+    return "Content-Type: text/html; charset=utf-8\r\n\r"
+
 def main(args):
     if len(args) == 1:
         issue, = args
@@ -207,11 +210,13 @@ def main(args):
         usage("Missing ISSUE")
 
     if not params or 'issue' not in params:
+        print html_header()
         print landing_page().encode("utf-8")
         return
 
     url,h,j = get_issue(params.issue, expand='renderedFields')
-    print issue_to_html(j)
+    print html_header()
+    print issue_to_html(j).encode("utf-8")
 
 
 
