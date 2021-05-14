@@ -95,6 +95,10 @@ _issue_html1 = u"""\
 <div class='fr'>
 <table>
 <tr>
+<th>priority</th>
+<td>{fields.priority.name}</td>
+</tr>
+<tr>
 <th>status</th>
 <td>{fields.status.name} : {fields.status.statusCategory.name}</td>
 </tr>
