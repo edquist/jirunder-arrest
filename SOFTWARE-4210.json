@@ -1,0 +1,1235 @@
+{
+  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations", 
+  "fields": {
+    "aggregateprogress": {
+      "progress": 0, 
+      "total": 0
+    }, 
+    "aggregatetimeestimate": null, 
+    "aggregatetimeoriginalestimate": null, 
+    "aggregatetimespent": null, 
+    "assignee": {
+      "accountId": "5acf98b31db05e2a66fa1675", 
+      "accountType": "atlassian", 
+      "active": true, 
+      "avatarUrls": {
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf98b31db05e2a66fa1675/de8b530b-9360-4d86-b7a0-66f37845ce3c/16", 
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf98b31db05e2a66fa1675/de8b530b-9360-4d86-b7a0-66f37845ce3c/24", 
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf98b31db05e2a66fa1675/de8b530b-9360-4d86-b7a0-66f37845ce3c/32", 
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf98b31db05e2a66fa1675/de8b530b-9360-4d86-b7a0-66f37845ce3c/48"
+      }, 
+      "displayName": "Tim Theisen", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf98b31db05e2a66fa1675", 
+      "timeZone": "America/Chicago"
+    }, 
+    "attachment": [], 
+    "comment": {
+      "comments": [
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "The xrootd devs have already done this for the xrootd 3 libs when xrootd 4 came out; I let them know that this is a priority for OSG.", 
+          "created": "2020-08-05T10:17:38.613-0500", 
+          "id": "359300", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359300", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-05T10:17:38.613-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "Made new builds with version 5.0.1 from SOFTWARE-4212. I tested the EL7 version in a local VM by enabling upcoming-minefield but adding the line {{exclude=gfal2*}} to the repo definition. I was able to install gfal2-plugin-xrootd from epel alongside xrootd 5.\r\n\r\nI can't do an 'exclude' line in VMU tests so I will have to untag gfal2 from upcoming-development and upcoming-testing before I can run VMU tests against this.\r\n\r\n|| Build || Tag ||\r\n| [xrootd-5.0.1-1.1.osgup.el7|https://koji.chtc.wisc.edu/koji/buildinfo?buildID=13826] | osg-upcoming-el7-development |\r\n| [xrootd-5.0.1-1.1.osgup.el8|https://koji.chtc.wisc.edu/koji/buildinfo?buildID=13827] | osg-upcoming-el8-development |\r\n", 
+          "created": "2020-08-18T17:39:17.552-0500", 
+          "id": "359539", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359539", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-18T17:39:17.552-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "Go ahead and promote this to {{upcoming-testing}}, untag the {{gfal}} packages, and kick off the VMU tests.", 
+          "created": "2020-08-19T08:49:51.669-0500", 
+          "id": "359542", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359542", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-19T08:49:51.669-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "*Promotions*\r\nPromoted xrootd-5.0.1-1.1 to osg-upcoming-el*-testing\r\n|| Build || Tag ||\r\n| [xrootd-5.0.1-1.1.osgup.el7|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13826] | osg-upcoming-el7-testing |\r\n| [xrootd-5.0.1-1.1.osgup.el8|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13827] | osg-upcoming-el8-testing |\r\n", 
+          "created": "2020-08-19T10:22:18.617-0500", 
+          "id": "359545", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359545", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-19T10:22:18.617-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "VMU test runs are here; https://osg-sw-submit.chtc.wisc.edu/tests/20200819-1159/results.html\r\n\r\nFor some reason, the tests tried to pull in xrootd-scitokens from 3.5 instead of upcoming; I don't understand why.", 
+          "created": "2020-08-19T12:56:48.961-0500", 
+          "id": "359549", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359549", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-19T12:56:48.961-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "There appears to be a newer version of {{xrootd-scitokens}} in 3.5 vs upcoming (1.2.2 vs 1.2.1). I\u2019m surprised that Yum\u2019s not smarter about this, though.", 
+          "created": "2020-08-19T13:09:42.853-0500", 
+          "id": "359551", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359551", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-19T13:09:42.853-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "https://osg-sw-submit.chtc.wisc.edu/tests/20200820-1048/packages.html I think these are as good as I'm going to get.\r\nI would ask to promote but it's already in upcoming testing. Permission to mark this ticket RFT?", 
+          "created": "2020-08-20T11:29:23.192-0500", 
+          "id": "359567", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359567", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-20T11:29:23.192-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "The cleanup failures are a little concerning. Does {{yum uninstall}} really fail like that for the compat libs?", 
+          "created": "2020-08-20T11:55:18.144-0500", 
+          "id": "359568", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359568", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-20T11:55:18.144-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "Not necessarily related to the cleanup failure, but I just noticed that the client compat libs ended up in both the xrootd-client-libs package and the xrootd-client-compat package (oops). I should probably fix that, though depending on yum's intelligence, it may make 4->5 upgrades easier...", 
+          "created": "2020-08-20T14:31:25.844-0500", 
+          "id": "359575", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359575", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-20T14:31:25.844-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "I messed around with things in a VM and I'm fairly certain I'm fairly certain that the cleanup failures are caused by a bug in osg-test where it somehow skips a history event during cleanup -- for example, if the history events are 8, 9, 10, it skips doing {{yum history undo 10}} and just does {{yum history undo 9}}, which obviously fails.\r\n\r\nThe reason that _that_ happens is because I was a moron and forgot to convert to integers before sorting (so instead of {{\\[8, 9, 10]}}, we get {{\\[\"10\", \"8\", \"9\"]}}). I'm guessing that I do more yum installs when building the EL8 image than the EL7 image, so the history numbers are higher. (d'oh)", 
+          "created": "2020-08-27T14:43:59.629-0500", 
+          "id": "359690", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359690", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-27T14:43:59.629-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "https://osg-sw-submit.chtc.wisc.edu/tests/20200827-1503/packages.html <- awww yeah\r\n\r\nI'll make the promotion request in SOFTWARE-4212.", 
+          "created": "2020-08-27T16:45:18.677-0500", 
+          "id": "359711", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359711", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-27T16:45:18.677-0500"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "*Promotions*\r\nPromoted xrootd-5.0.1-1.3, xrootd-lcmaps-1.7.8-3 to osg-upcoming-el*-testing\r\n|| Build || Tag ||\r\n| [xrootd-5.0.1-1.3.osgup.el7|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13846] | osg-upcoming-el7-testing |\r\n| [xrootd-5.0.1-1.3.osgup.el8|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13847] | osg-upcoming-el8-testing |\r\n| [xrootd-lcmaps-1.7.8-3.osgup.el7|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13851] | osg-upcoming-el7-testing |\r\n| [xrootd-lcmaps-1.7.8-3.osgup.el8|https://koji.opensciencegrid.org/koji/buildinfo?buildID=13852] | osg-upcoming-el8-testing |\r\n", 
+          "created": "2020-08-27T17:03:17.602-0500", 
+          "id": "359718", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359718", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020-08-27T17:03:17.602-0500"
+        }
+      ], 
+      "maxResults": 12, 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment", 
+      "startAt": 0, 
+      "total": 12
+    }, 
+    "components": [
+      {
+        "description": "XRootD, related components, and SE metapackages for it.", 
+        "id": "10131", 
+        "name": "xrootd", 
+        "self": "https://opensciencegrid.atlassian.net/rest/api/2/component/10131"
+      }
+    ], 
+    "created": "2020-07-31T11:51:58.843-0500", 
+    "creator": {
+      "accountId": "5acbaaf5ba87e92b4b2134e8", 
+      "accountType": "atlassian", 
+      "active": true, 
+      "avatarUrls": {
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+      }, 
+      "displayName": "Brian Lin", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+      "timeZone": "America/Chicago"
+    }, 
+    "customfield_10000": null, 
+    "customfield_10001": null, 
+    "customfield_10030": null, 
+    "customfield_10031": null, 
+    "customfield_10032": null, 
+    "customfield_10530": null, 
+    "customfield_10630": null, 
+    "customfield_10730": null, 
+    "customfield_10731": null, 
+    "customfield_10831": null, 
+    "customfield_10832": null, 
+    "customfield_10930": null, 
+    "customfield_10931": null, 
+    "customfield_10932": null, 
+    "customfield_10933": null, 
+    "customfield_11130": "0|hzzzvi:l1wg43000fi", 
+    "customfield_11330": [], 
+    "customfield_11430": null, 
+    "customfield_11530": null, 
+    "customfield_11531": null, 
+    "customfield_11532": null, 
+    "customfield_11533": null, 
+    "customfield_11534": null, 
+    "customfield_11535": null, 
+    "customfield_11536": null, 
+    "customfield_11730": null, 
+    "customfield_11731": null, 
+    "customfield_11800": "{}", 
+    "customfield_11801": null, 
+    "customfield_11804": null, 
+    "customfield_11805": {
+      "hasEpicLinkFieldDependency": false, 
+      "nonEditableReason": {
+        "message": "The Parent Link is only available to Jira Premium users.", 
+        "reason": "PLUGIN_LICENSE_ERROR"
+      }, 
+      "showField": false
+    }, 
+    "customfield_11806": "2020-08-05T10:17:38.613-0500", 
+    "customfield_11807": "1_*:*_1_*:*_1129937130_*|*_10216_*:*_1_*:*_359549_*|*_3_*:*_1_*:*_445765256_*|*_6_*:*_1_*:*_0_*|*_10002_*:*_1_*:*_597215186_*|*_10001_*:*_1_*:*_7031837_*|*_10314_*:*_1_*:*_775422404", 
+    "customfield_11817": null, 
+    "customfield_11818": null, 
+    "customfield_11819": null, 
+    "customfield_11823": null, 
+    "customfield_11824": null, 
+    "customfield_11825": null, 
+    "customfield_11829": null, 
+    "description": "The current EPEL version of gfal2 doesn't support XRootD 5 and this causes our tests to fail, along with WN client installs. If Michal isn't back from vacation, let's put one together ourselves containing the libs from XRootD 4 that are no longer shipped with XRootD 5. If Michal is back, work with him on it.\r\n\r\nAfter promoting to testing, we should untag the gfal2 packages that we've built from upcoming-testing and upcoming-development.", 
+    "duedate": null, 
+    "fixVersions": [
+      {
+        "archived": false, 
+        "description": "xrootd-hdfs 2.1.8, osg-release 3.5-4; Upcoming: HTCondor 8.9.8, XRootD 5.0.1 and associated plugins", 
+        "id": "16392", 
+        "name": "3.5.23", 
+        "releaseDate": "2020-09-03", 
+        "released": true, 
+        "self": "https://opensciencegrid.atlassian.net/rest/api/2/version/16392"
+      }
+    ], 
+    "issuelinks": [
+      {
+        "id": "20768", 
+        "outwardIssue": {
+          "fields": {
+            "issuetype": {
+              "avatarId": 12370, 
+              "description": "Packaging work associated with the release of OSG Software (e.g., umbrella tickets)", 
+              "iconUrl": "https://opensciencegrid.atlassian.net/secure/viewavatar?size=medium&avatarId=12370&avatarType=issuetype", 
+              "id": "10000", 
+              "name": "Packaging", 
+              "self": "https://opensciencegrid.atlassian.net/rest/api/2/issuetype/10000", 
+              "subtask": false
+            }, 
+            "priority": {
+              "iconUrl": "https://opensciencegrid.atlassian.net/images/icons/priorities/major.svg", 
+              "id": "3", 
+              "name": "Major", 
+              "self": "https://opensciencegrid.atlassian.net/rest/api/2/priority/3"
+            }, 
+            "status": {
+              "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.", 
+              "iconUrl": "https://opensciencegrid.atlassian.net/images/icons/statuses/closed.png", 
+              "id": "6", 
+              "name": "Closed", 
+              "self": "https://opensciencegrid.atlassian.net/rest/api/2/status/6", 
+              "statusCategory": {
+                "colorName": "green", 
+                "id": 3, 
+                "key": "done", 
+                "name": "Done", 
+                "self": "https://opensciencegrid.atlassian.net/rest/api/2/statuscategory/3"
+              }
+            }, 
+            "summary": "Release XRootD 5.0.0+"
+          }, 
+          "id": "23314", 
+          "key": "SOFTWARE-3923", 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23314"
+        }, 
+        "self": "https://opensciencegrid.atlassian.net/rest/api/2/issueLink/20768", 
+        "type": {
+          "id": "10000", 
+          "inward": "is blocked by", 
+          "name": "Blocks", 
+          "outward": "blocks", 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issueLinkType/10000"
+        }
+      }
+    ], 
+    "issuerestriction": {
+      "issuerestrictions": {}, 
+      "shouldDisplay": false
+    }, 
+    "issuetype": {
+      "avatarId": 12370, 
+      "description": "Packaging work associated with the release of OSG Software (e.g., umbrella tickets)", 
+      "iconUrl": "https://opensciencegrid.atlassian.net/secure/viewavatar?size=medium&avatarId=12370&avatarType=issuetype", 
+      "id": "10000", 
+      "name": "Packaging", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/issuetype/10000", 
+      "subtask": false
+    }, 
+    "labels": [
+      "3.5.23-upcoming"
+    ], 
+    "lastViewed": null, 
+    "priority": {
+      "iconUrl": "https://opensciencegrid.atlassian.net/images/icons/priorities/blocker.svg", 
+      "id": "1", 
+      "name": "Blocker", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/priority/1"
+    }, 
+    "progress": {
+      "progress": 0, 
+      "total": 0
+    }, 
+    "project": {
+      "avatarUrls": {
+        "16x16": "https://opensciencegrid.atlassian.net/secure/projectavatar?size=xsmall&s=xsmall&pid=10060&avatarId=10008", 
+        "24x24": "https://opensciencegrid.atlassian.net/secure/projectavatar?size=small&s=small&pid=10060&avatarId=10008", 
+        "32x32": "https://opensciencegrid.atlassian.net/secure/projectavatar?size=medium&s=medium&pid=10060&avatarId=10008", 
+        "48x48": "https://opensciencegrid.atlassian.net/secure/projectavatar?pid=10060&avatarId=10008"
+      }, 
+      "id": "10060", 
+      "key": "SOFTWARE", 
+      "name": "OSG Software", 
+      "projectCategory": {
+        "description": "OSG Software Team", 
+        "id": "10020", 
+        "name": "Software", 
+        "self": "https://opensciencegrid.atlassian.net/rest/api/2/projectCategory/10020"
+      }, 
+      "projectTypeKey": "software", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/project/10060", 
+      "simplified": false
+    }, 
+    "reporter": {
+      "accountId": "5acbaaf5ba87e92b4b2134e8", 
+      "accountType": "atlassian", 
+      "active": true, 
+      "avatarUrls": {
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+      }, 
+      "displayName": "Brian Lin", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+      "timeZone": "America/Chicago"
+    }, 
+    "resolution": {
+      "description": "A fix for this issue is checked into the tree and tested.", 
+      "id": "1", 
+      "name": "Fixed", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/resolution/1"
+    }, 
+    "resolutiondate": "2020-09-03T16:54:10.109-0500", 
+    "security": null, 
+    "status": {
+      "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.", 
+      "iconUrl": "https://opensciencegrid.atlassian.net/images/icons/statuses/closed.png", 
+      "id": "6", 
+      "name": "Closed", 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/status/6", 
+      "statusCategory": {
+        "colorName": "green", 
+        "id": 3, 
+        "key": "done", 
+        "name": "Done", 
+        "self": "https://opensciencegrid.atlassian.net/rest/api/2/statuscategory/3"
+      }
+    }, 
+    "statuscategorychangedate": "2020-09-03T16:54:10.181-0500", 
+    "subtasks": [], 
+    "summary": "Release XRootD 4 compat libs", 
+    "timeestimate": null, 
+    "timeoriginalestimate": null, 
+    "timespent": null, 
+    "timetracking": {}, 
+    "updated": "2020-09-03T16:54:10.175-0500", 
+    "votes": {
+      "hasVoted": false, 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/SOFTWARE-4210/votes", 
+      "votes": 0
+    }, 
+    "watches": {
+      "isWatching": false, 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/SOFTWARE-4210/watchers", 
+      "watchCount": 3
+    }, 
+    "worklog": {
+      "maxResults": 20, 
+      "startAt": 0, 
+      "total": 0, 
+      "worklogs": []
+    }, 
+    "workratio": -1
+  }, 
+  "id": "23636", 
+  "key": "SOFTWARE-4210", 
+  "renderedFields": {
+    "aggregateprogress": null, 
+    "aggregatetimeestimate": null, 
+    "aggregatetimeoriginalestimate": null, 
+    "aggregatetimespent": null, 
+    "assignee": null, 
+    "attachment": [], 
+    "comment": {
+      "comments": [
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>The xrootd devs have already done this for the xrootd 3 libs when xrootd 4 came out; I let them know that this is a priority for OSG.</p>", 
+          "created": "2020/08/05 10:17 AM", 
+          "id": "359300", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359300", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/05 10:17 AM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>Made new builds with version 5.0.1 from \n    <span class=\"jira-issue-macro resolved\" data-jira-key=\"SOFTWARE-4212\" >\n                <a href=\"https://opensciencegrid.atlassian.net/browse/SOFTWARE-4212\" class=\"jira-issue-macro-key issue-link\"  title=\"Release XRootD 5.0.1+\" >\n            <img class=\"icon\" src=\"https://opensciencegrid.atlassian.net/secure/viewavatar?size=medium&avatarId=12370&avatarType=issuetype\" />\n            SOFTWARE-4212\n        </a>\n                                                    <span class=\"aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf\">Closed</span>\n            </span>\n. I tested the EL7 version in a local VM by enabling upcoming-minefield but adding the line <tt>exclude=gfal2*</tt> to the repo definition. I was able to install gfal2-plugin-xrootd from epel alongside xrootd 5.</p>\n\n<p>I can't do an 'exclude' line in VMU tests so I will have to untag gfal2 from upcoming-development and upcoming-testing before I can run VMU tests against this.</p>\n\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'> Build </th>\n<th class='confluenceTh'> Tag </th>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.chtc.wisc.edu/koji/buildinfo?buildID=13826\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.1.osgup.el7</a> </td>\n<td class='confluenceTd'> osg-upcoming-el7-development </td>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.chtc.wisc.edu/koji/buildinfo?buildID=13827\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.1.osgup.el8</a> </td>\n<td class='confluenceTd'> osg-upcoming-el8-development </td>\n</tr>\n</tbody></table>\n</div>\n", 
+          "created": "2020/08/18 5:39 PM", 
+          "id": "359539", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359539", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/18 5:39 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>Go ahead and promote this to <tt>upcoming-testing</tt>, untag the <tt>gfal</tt> packages, and kick off the VMU tests.</p>", 
+          "created": "2020/08/19 8:49 AM", 
+          "id": "359542", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359542", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/19 8:49 AM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p><b>Promotions</b><br/>\nPromoted xrootd-5.0.1-1.1 to osg-upcoming-el*-testing</p>\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'> Build </th>\n<th class='confluenceTh'> Tag </th>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13826\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.1.osgup.el7</a> </td>\n<td class='confluenceTd'> osg-upcoming-el7-testing </td>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13827\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.1.osgup.el8</a> </td>\n<td class='confluenceTd'> osg-upcoming-el8-testing </td>\n</tr>\n</tbody></table>\n</div>\n", 
+          "created": "2020/08/19 10:22 AM", 
+          "id": "359545", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359545", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/19 10:22 AM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>VMU test runs are here; <a href=\"https://osg-sw-submit.chtc.wisc.edu/tests/20200819-1159/results.html\" class=\"external-link\" rel=\"nofollow noreferrer\">https://osg-sw-submit.chtc.wisc.edu/tests/20200819-1159/results.html</a></p>\n\n<p>For some reason, the tests tried to pull in xrootd-scitokens from 3.5 instead of upcoming; I don't understand why.</p>", 
+          "created": "2020/08/19 12:56 PM", 
+          "id": "359549", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359549", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/19 12:56 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>There appears to be a newer version of <tt>xrootd-scitokens</tt> in 3.5 vs upcoming (1.2.2 vs 1.2.1). I\u2019m surprised that Yum\u2019s not smarter about this, though.</p>", 
+          "created": "2020/08/19 1:09 PM", 
+          "id": "359551", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359551", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/19 1:09 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p><a href=\"https://osg-sw-submit.chtc.wisc.edu/tests/20200820-1048/packages.html\" class=\"external-link\" rel=\"nofollow noreferrer\">https://osg-sw-submit.chtc.wisc.edu/tests/20200820-1048/packages.html</a> I think these are as good as I'm going to get.<br/>\nI would ask to promote but it's already in upcoming testing. Permission to mark this ticket RFT?</p>", 
+          "created": "2020/08/20 11:29 AM", 
+          "id": "359567", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359567", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/20 11:29 AM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>The cleanup failures are a little concerning. Does <tt>yum uninstall</tt> really fail like that for the compat libs?</p>", 
+          "created": "2020/08/20 11:55 AM", 
+          "id": "359568", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359568", 
+          "updateAuthor": {
+            "accountId": "5acbaaf5ba87e92b4b2134e8", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acbaaf5ba87e92b4b2134e8/173b3a71-7bee-4d88-8546-27b9fac4e4f9/48"
+            }, 
+            "displayName": "Brian Lin", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acbaaf5ba87e92b4b2134e8", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/20 11:55 AM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>Not necessarily related to the cleanup failure, but I just noticed that the client compat libs ended up in both the xrootd-client-libs package and the xrootd-client-compat package (oops). I should probably fix that, though depending on yum's intelligence, it may make 4-&gt;5 upgrades easier...</p>", 
+          "created": "2020/08/20 2:31 PM", 
+          "id": "359575", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359575", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/20 2:31 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p>I messed around with things in a VM and I'm fairly certain I'm fairly certain that the cleanup failures are caused by a bug in osg-test where it somehow skips a history event during cleanup &#8211; for example, if the history events are 8, 9, 10, it skips doing <tt>yum history undo 10</tt> and just does <tt>yum history undo 9</tt>, which obviously fails.</p>\n\n<p>The reason that <em>that</em> happens is because I was a moron and forgot to convert to integers before sorting (so instead of <tt>[8, 9, 10]</tt>, we get <tt>[\"10\", \"8\", \"9\"]</tt>). I'm guessing that I do more yum installs when building the EL8 image than the EL7 image, so the history numbers are higher. (d'oh)</p>", 
+          "created": "2020/08/27 2:43 PM", 
+          "id": "359690", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359690", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/27 2:43 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p><a href=\"https://osg-sw-submit.chtc.wisc.edu/tests/20200827-1503/packages.html\" class=\"external-link\" rel=\"nofollow noreferrer\">https://osg-sw-submit.chtc.wisc.edu/tests/20200827-1503/packages.html</a> &lt;- awww yeah</p>\n\n<p>I'll make the promotion request in \n    <span class=\"jira-issue-macro resolved\" data-jira-key=\"SOFTWARE-4212\" >\n                <a href=\"https://opensciencegrid.atlassian.net/browse/SOFTWARE-4212\" class=\"jira-issue-macro-key issue-link\"  title=\"Release XRootD 5.0.1+\" >\n            <img class=\"icon\" src=\"https://opensciencegrid.atlassian.net/secure/viewavatar?size=medium&avatarId=12370&avatarType=issuetype\" />\n            SOFTWARE-4212\n        </a>\n                                                    <span class=\"aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf\">Closed</span>\n            </span>\n.</p>", 
+          "created": "2020/08/27 4:45 PM", 
+          "id": "359711", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359711", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/27 4:45 PM"
+        }, 
+        {
+          "author": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "body": "<p><b>Promotions</b><br/>\nPromoted xrootd-5.0.1-1.3, xrootd-lcmaps-1.7.8-3 to osg-upcoming-el*-testing</p>\n<div class='table-wrap'>\n<table class='confluenceTable'><tbody>\n<tr>\n<th class='confluenceTh'> Build </th>\n<th class='confluenceTh'> Tag </th>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13846\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.3.osgup.el7</a> </td>\n<td class='confluenceTd'> osg-upcoming-el7-testing </td>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13847\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-5.0.1-1.3.osgup.el8</a> </td>\n<td class='confluenceTd'> osg-upcoming-el8-testing </td>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13851\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-lcmaps-1.7.8-3.osgup.el7</a> </td>\n<td class='confluenceTd'> osg-upcoming-el7-testing </td>\n</tr>\n<tr>\n<td class='confluenceTd'> <a href=\"https://koji.opensciencegrid.org/koji/buildinfo?buildID=13852\" class=\"external-link\" rel=\"nofollow noreferrer\">xrootd-lcmaps-1.7.8-3.osgup.el8</a> </td>\n<td class='confluenceTd'> osg-upcoming-el8-testing </td>\n</tr>\n</tbody></table>\n</div>\n", 
+          "created": "2020/08/27 5:03 PM", 
+          "id": "359718", 
+          "jsdPublic": true, 
+          "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment/359718", 
+          "updateAuthor": {
+            "accountId": "5acf97d4b783d22b5dae1804", 
+            "accountType": "atlassian", 
+            "active": true, 
+            "avatarUrls": {
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/16", 
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/24", 
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/32", 
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5acf97d4b783d22b5dae1804/f5e30154-1bfa-4be5-902d-f9975db55cd4/48"
+            }, 
+            "displayName": "Mat Selmeci", 
+            "self": "https://opensciencegrid.atlassian.net/rest/api/2/user?accountId=5acf97d4b783d22b5dae1804", 
+            "timeZone": "America/Chicago"
+          }, 
+          "updated": "2020/08/27 5:03 PM"
+        }
+      ], 
+      "maxResults": 12, 
+      "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636/comment", 
+      "startAt": 0, 
+      "total": 12
+    }, 
+    "components": null, 
+    "created": "2020/07/31 11:51 AM", 
+    "creator": null, 
+    "customfield_10000": null, 
+    "customfield_10001": null, 
+    "customfield_10030": null, 
+    "customfield_10031": null, 
+    "customfield_10032": null, 
+    "customfield_10530": null, 
+    "customfield_10630": null, 
+    "customfield_10730": null, 
+    "customfield_10731": null, 
+    "customfield_10831": null, 
+    "customfield_10832": null, 
+    "customfield_10930": null, 
+    "customfield_10931": null, 
+    "customfield_10932": null, 
+    "customfield_10933": null, 
+    "customfield_11130": null, 
+    "customfield_11330": null, 
+    "customfield_11430": "", 
+    "customfield_11530": null, 
+    "customfield_11531": null, 
+    "customfield_11532": null, 
+    "customfield_11533": null, 
+    "customfield_11534": null, 
+    "customfield_11535": null, 
+    "customfield_11536": null, 
+    "customfield_11730": null, 
+    "customfield_11731": null, 
+    "customfield_11800": null, 
+    "customfield_11801": null, 
+    "customfield_11804": null, 
+    "customfield_11805": null, 
+    "customfield_11806": "2020/08/05 10:17 AM", 
+    "customfield_11807": null, 
+    "customfield_11817": null, 
+    "customfield_11818": null, 
+    "customfield_11819": "", 
+    "customfield_11823": null, 
+    "customfield_11824": null, 
+    "customfield_11825": null, 
+    "customfield_11829": null, 
+    "description": "<p>The current EPEL version of gfal2 doesn't support XRootD 5 and this causes our tests to fail, along with WN client installs. If Michal isn't back from vacation, let's put one together ourselves containing the libs from XRootD 4 that are no longer shipped with XRootD 5. If Michal is back, work with him on it.</p>\n\n<p>After promoting to testing, we should untag the gfal2 packages that we've built from upcoming-testing and upcoming-development.</p>", 
+    "duedate": null, 
+    "fixVersions": null, 
+    "issuelinks": null, 
+    "issuerestriction": null, 
+    "issuetype": null, 
+    "labels": null, 
+    "lastViewed": null, 
+    "priority": null, 
+    "progress": null, 
+    "project": null, 
+    "reporter": null, 
+    "resolution": null, 
+    "resolutiondate": "2020/09/03 4:54 PM", 
+    "security": null, 
+    "status": null, 
+    "statuscategorychangedate": "2020/09/03 4:54 PM", 
+    "subtasks": null, 
+    "summary": null, 
+    "timeestimate": null, 
+    "timeoriginalestimate": null, 
+    "timespent": null, 
+    "timetracking": {}, 
+    "updated": "2020/09/03 4:54 PM", 
+    "votes": null, 
+    "watches": null, 
+    "worklog": {
+      "maxResults": 20, 
+      "startAt": 0, 
+      "total": 0, 
+      "worklogs": []
+    }, 
+    "workratio": null
+  }, 
+  "self": "https://opensciencegrid.atlassian.net/rest/api/2/issue/23636"
+}
