@@ -168,7 +168,7 @@ _issue_html_links2 = """\
 <td>
 
 <th>
-{key}
+<a href="?issue={key}">{key}</a>
 </th>
 
 <td>|<td>
