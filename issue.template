@@ -33,6 +33,29 @@
 
 <hr/>
 
+<h2>Issue Links</h2>
+
+<table>
+[[issuelinks.*][
+<tr>
+<th>
+{outwardIssue.key}
+</th>
+<td>
+{outwardIssue.fields.priority.name}
+<td>
+<td>
+{outwardIssue.fields.status.name}
+<td>
+<td>
+{outwardIssue.fields.summary}
+<td>
+</tr>
+]]
+</table>
+
+<hr/>
+
 <h2>Comments</h2>
 
 [[renderedFields.comment.comments.*][

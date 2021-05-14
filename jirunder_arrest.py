@@ -15,7 +15,7 @@ from easydict import easydict
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
 usage: {script} ISSUE
-   or: REQUEST_URL=...?issue=TICKET-NUM {script}  # CGI
+   or: REQUEST_URI=...?issue=TICKET-NUM {script}  # CGI
 """
 
 apiurl = 'https://opensciencegrid.atlassian.net/rest/api/2'
@@ -102,12 +102,12 @@ _issue_html1 = u"""\
 
 <tr>
 <th>priority</th>
-<td>(fields.priority.id}) {fields.priority.name}</td>
+<td>{fields.priority.name}</td>
 </tr>
 
 <tr>
 <th>status</th>
-<td>{fields.status.name} : {fields.status.statusCategory.name}</td>
+<td>{fields.status.name} / {fields.status.statusCategory.name}</td>
 </tr>
 
 <tr>
@@ -149,6 +149,50 @@ _issue_html1 = u"""\
 {renderedFields.description}
 </div>
 
+"""
+
+_issue_html_links1 = """\
+<hr/>
+
+<h2>Issue Links</h2>
+
+<table>
+"""
+
+_issue_html_links2 = """\
+<tr>
+<th>
+{outwardIssue.key}
+</th>
+
+<td>|</td>
+
+<td>
+{outwardIssue.fields.priority.name}
+<td>
+
+<td>|</td>
+
+<td>
+{outwardIssue.fields.status.name}
+<td>
+
+<td>|</td>
+
+<td>
+{outwardIssue.fields.summary}
+<td>
+</tr>
+"""
+
+_issue_html_links3 = """\
+</table>
+
+<br/>
+
+"""
+
+_issue_html_comments = """\
 <hr/>
 
 <h2>Comments</h2>
@@ -186,6 +230,13 @@ def issue_to_html(j):
     e._labels     = u', '.join(e.fields.labels)
     e._summary    = escape_html(e.fields.summary)
     html = _issue_html1.format(**e)
+    if 'issuelinks' in e.fields and e.fields.issuelinks:
+        html += _issue_html_links1
+        for il in e.fields.issuelinks:
+            html += _issue_html_links2.format(**il)
+        html += _issue_html_links3
+
+    html += _issue_html_comments
     for c in e.renderedFields.comment.comments:
         html += _issue_html2.format(**c)
     html += _issue_html3
