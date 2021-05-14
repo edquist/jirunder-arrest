@@ -15,6 +15,7 @@ from easydict import easydict
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
 usage: {script} ISSUE
+   or: REQUEST_URL=...?issue=TICKET-NUM {script}  # CGI
 """
 
 apiurl = 'https://opensciencegrid.atlassian.net/rest/api/2'
@@ -168,16 +169,45 @@ def issue_to_html(j):
     html += _issue_html3
     for pat in _ignorepats:
         html = re.sub(pat, u'', html)
-
     return html
 
 
+_landing_html = u"""\
+<!DOCTYPE html>
+<html>
+<body>
+Try sticking a "?issue=SOFTWARE-4000" after the URL.
+</body>
+</html>
+"""
+def landing_page():
+    return _landing_html
+
 def main(args):
-    if len(args) != 1:
+    if len(args) == 1:
+        issue, = args
+        if not re.match(r'^[A-Z]+-[0-9]+$', issue):
+            usage("Bad ISSUE")
+        dump_issue_json(issue)
+        return
+
+    if args:
+        usage("Extra arg")
+
+    uri, params = parse_request_uri()
+    if not uri:
         usage("Missing ISSUE")
 
-    issue, = args
+    if not params or 'issue' not in params:
+        print landing_page().encode("utf-8")
+        return
 
+    url,h,j = get_issue(params.issue, expand='renderedFields')
+    print issue_to_html(j)
+
+
+
+def dump_issue_json(issue):
     url,h,j = get_issue(issue, expand='renderedFields')
     pp = json.dumps(j, sort_keys=1, indent=2)
 #   print "Headers for <%s>" % url
@@ -201,7 +231,7 @@ def parse_uri(uri):
     if '?' in uri:
         path, qp = uri.split('?', 1)
         qpd = dict( map(unescape_uri, x.split('=', 1)) for x in qp.split('&') )
-        return path, qpd
+        return path, easydict(qpd)
     else:
         return uri, None
 
