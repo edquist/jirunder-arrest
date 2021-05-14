@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# import os
+import os
 import re
 import sys
 import json
@@ -171,6 +171,29 @@ def main(args):
 #   print "---"
     print
     print pp
+
+
+def m_hexchr(m):
+    return chr(int(m.group(1), 16))
+
+def unescape_uri(s):
+    return re.sub(ur'%([0-9a-f]{2})', m_hexchr, s) if '%' in s else s
+
+
+def parse_uri(uri):
+    if uri is None:
+        return None, None
+    if '?' in uri:
+        path, qp = uri.split('?', 1)
+        qpd = dict( map(unescape_uri, x.split('=', 1)) for x in qp.split('&') )
+        return path, qpd
+    else:
+        return uri, None
+
+
+def parse_request_uri():
+    uri = os.environ.get("REQUEST_URI")
+    return parse_uri(uri)
 
 
 def usage(msg=None):
