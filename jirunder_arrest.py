@@ -90,9 +90,9 @@ _issue_html1 = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<h1>
+<h2>
 {key} : {_summary}
-</h1>
+</h2>
 
 <div class='fr'>
 <table>
@@ -145,7 +145,7 @@ _issue_html1 = u"""\
 </table>
 </div>
 
-<h2>Description</h2>
+<h3>Description</h3>
 
 <div>
 {renderedFields.description}
@@ -156,7 +156,7 @@ _issue_html1 = u"""\
 _issue_html_links1 = """\
 <hr/>
 
-<h2>Issue Links</h2>
+<h3>Issue Links</h3>
 
 <table>
 """
@@ -202,16 +202,16 @@ _issue_html_links3 = """\
 _issue_html_comments = """\
 <hr/>
 
-<h2>Comments</h2>
+<h3>Comments</h3>
 
 <div>
 
 """
 
 _issue_html2 = u"""\
-<h3>
+<h4>
 {created} | {author.displayName}
-</h3>
+</h4>
 <div>
 {body}
 </div>
