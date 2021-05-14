@@ -84,6 +84,7 @@ _issue_html1 = u"""\
   table {{ text-align: left }}
   .fr   {{ float: right     }}
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <h1>
