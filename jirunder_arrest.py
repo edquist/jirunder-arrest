@@ -85,6 +85,7 @@ _issue_html1 = u"""\
   div   {{ max-width: 800px }}
   table {{ text-align: left }}
   .fr   {{ float: right     }}
+  .nw   {{ white-space: nowrap }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -108,7 +109,7 @@ _issue_html1 = u"""\
 
 <tr>
 <th>status</th>
-<td>{fields.status.name} / {fields.status.statusCategory.name}</td>
+<td>{fields.status.name}</td>
 </tr>
 
 <tr>
@@ -163,7 +164,7 @@ _issue_html_links1 = """\
 _issue_html_links2 = """\
 <tr>
 
-<td>
+<td class='nw'>
 {_type} :
 <td>
 
@@ -179,7 +180,7 @@ _issue_html_links2 = """\
 
 <td>|<td>
 
-<td>
+<td class='nw'>
 {fields.status.name}
 <td>
 
