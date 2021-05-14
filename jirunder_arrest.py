@@ -80,7 +80,7 @@ _issue_html1 = u"""\
 <html>
 <head>
 <style>
-  div {{ max-width: 800px }}
+  div   {{ max-width: 800px }}
   table {{ text-align: left }}
 </style>
 </head>
