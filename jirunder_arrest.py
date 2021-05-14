@@ -68,7 +68,7 @@ def get_issue(issue, **kw):
     return call_api(GET, "/issue/" + issue, kw)
 
 
-def escape(txt, quot=False):
+def escape_html(txt, quot=False):
     txt = txt.replace('&', '&amp;')
     txt = txt.replace('<', '&lt;')
     txt = txt.replace('>', '&gt;')
