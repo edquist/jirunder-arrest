@@ -86,7 +86,7 @@ _issue_html1 = u"""\
 </head>
 <body>
 <h1>
-{key} : {fields.summary}
+{key} : {_summary}
 </h1>
 
 <table>
@@ -147,6 +147,7 @@ def issue_to_html(j):
     e = easydict(j)
     e._components = u', '.join( c.name for c in e.fields.components )
     e._labels     = u', '.join(e.fields.labels)
+    e._summary    = escape_html(e.fields.summary)
     html = _issue_html1.format(**e)
     for c in e.renderedFields.comment.comments:
         html += _issue_html2.format(**c)
