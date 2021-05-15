@@ -104,10 +104,8 @@ _issue_html1 = u"""\
 </h2>
 
 <div>
-<table>
+<table style='margin-left: 2em'>
 <tr>
-
-<td width='10%'> </td>
 
 <td>
 <table class='coltab'>
