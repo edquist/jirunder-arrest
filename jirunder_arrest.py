@@ -93,6 +93,8 @@ _issue_html1 = u"""\
   .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
   a.user-hover {{ text-decoration: underline }}
+  table.coltab {{ font-family: monospace }}
+  table.coltab th {{ padding-right: 1em }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -108,7 +110,7 @@ _issue_html1 = u"""\
 <td width='10%'> </td>
 
 <td>
-<table>
+<table class='coltab'>
 
 <tr>
 <th>type</th>
@@ -136,7 +138,7 @@ _issue_html1 = u"""\
 
 <td>
 
-<table>
+<table class='coltab'>
 <tr>
 <th>status</th>
 <td>{fields.status.name}{_resolution}</td>
