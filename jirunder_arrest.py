@@ -94,7 +94,7 @@ _issue_html1 = u"""\
 {key} : {_summary}
 </h2>
 
-<div class='fr'>
+<div>
 <table>
 
 <tr>
@@ -222,8 +222,7 @@ _issue_html3 = u"""\
 </div>
 
 </body>
-</html>
-"""
+</html>"""
 
 _ignorepats = [
     ur' *<img .*?/>',
@@ -272,8 +271,7 @@ _landing_html = u"""\
 <body>
 Try sticking a <code>?issue=SOFTWARE-4000</code> after the URL.
 </body>
-</html>
-"""
+</html>"""
 def landing_page():
     return _landing_html
 
