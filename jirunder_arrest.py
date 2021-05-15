@@ -102,6 +102,12 @@ _issue_html1 = u"""\
 
 <div>
 <table>
+<tr>
+
+<td width='10%'> </td>
+
+<td>
+<table>
 
 <tr>
 <th>type</th>
@@ -118,6 +124,23 @@ _issue_html1 = u"""\
 <td>{fields.status.name}</td>
 </tr>
 
+<tr>
+<th>components</th>
+<td>{_components}</td>
+</tr>
+
+<tr>
+<th>labels</th>
+<td>{_labels}</td>
+</tr>
+</table>
+</td>
+
+<td width='5%'> </td>
+
+<td>
+
+<table>
 <tr>
 <th>assignee</th>
 <td>{fields.assignee.displayName}</td>
@@ -137,19 +160,15 @@ _issue_html1 = u"""\
 <th>updated</th>
 <td>{renderedFields.updated}</td>
 </tr>
-
-<tr>
-<th>components</th>
-<td>{_components}</td>
-</tr>
-
-<tr>
-<th>labels</th>
-<td>{_labels}</td>
-</tr>
-
 </table>
+
+</td>
+</tr>
+</table>
+
 </div>
+
+<hr/>
 
 <h3>Description</h3>
 
