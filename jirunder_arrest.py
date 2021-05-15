@@ -202,7 +202,7 @@ _issue_html_links3 = """\
 _issue_html_comments = """\
 <hr/>
 
-<h3>Comments</h3>
+<h3>Comments ({fields.comment.total})</h3>
 
 <div>
 
@@ -254,7 +254,8 @@ def issue_to_html(j):
                 html += _issue_html_links2.format(**il.inwardIssue)
         html += _issue_html_links3
 
-    html += _issue_html_comments
+    # if e.fields.comment.total != len(e.renderedFields.comment.comments): ...
+    html += _issue_html_comments.format(**e)
     for c in e.renderedFields.comment.comments:
         html += _issue_html_comment.format(**c)
     html += _issue_html3
@@ -312,7 +313,7 @@ def dump_issue_json(issue):
 #   print "---"
 #   print h
 #   print "---"
-    print
+#   print
     print pp
 
 
