@@ -194,32 +194,14 @@ _issue_html_links1 = """\
 
 _issue_html_links2 = """\
 <tr>
-
-<td class='nw'>
-{_type} :
-<td>
-
-<th>
-<a href="?issue={key}">{key}</a>
-</th>
-
+<td class='nw'>{_type}:<td>
+<th><a href="?issue={key}">{key}</a></th>
 <td>|<td>
-
-<td>
-{fields.priority.name}
-<td>
-
+<td>{fields.priority.name}<td>
 <td>|<td>
-
-<td class='nw'>
-{fields.status.name}
-<td>
-
+<td class='nw'>{fields.status.name}<td>
 <td>|<td>
-
-<td>
-{fields.summary}
-<td>
+<td>{fields.summary}<td>
 </tr>
 """
 
