@@ -144,7 +144,7 @@ _issue_html1 = u"""\
 
 <tr>
 <th>assignee</th>
-<td>{fields.assignee.displayName}</td>
+<td>{_assignee}</td>
 </tr>
 
 <tr>
@@ -268,8 +268,11 @@ def issue_to_html(j):
     e._components = u', '.join( c.name for c in e.fields.components )
     e._labels     = u', '.join(e.fields.labels)
     e._summary    = escape_html(e.fields.summary)
+    e._assignee   = e.fields.assignee.displayName if e.fields.assignee \
+                                                  else "Unassigned"
     e._resolution = ' / ' + e.fields.resolution.name if e.fields.resolution \
                                                      else ''
+
     html = _issue_html1.format(**e)
 
     if 'issuelinks' in e.fields and e.fields.issuelinks:
