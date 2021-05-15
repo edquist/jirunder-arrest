@@ -121,11 +121,6 @@ _issue_html1 = u"""\
 </tr>
 
 <tr>
-<th>status</th>
-<td>{fields.status.name}</td>
-</tr>
-
-<tr>
 <th>components</th>
 <td>{_components}</td>
 </tr>
@@ -142,6 +137,11 @@ _issue_html1 = u"""\
 <td>
 
 <table>
+<tr>
+<th>status</th>
+<td>{fields.status.name}{_resolution}</td>
+</tr>
+
 <tr>
 <th>assignee</th>
 <td>{fields.assignee.displayName}</td>
@@ -268,6 +268,8 @@ def issue_to_html(j):
     e._components = u', '.join( c.name for c in e.fields.components )
     e._labels     = u', '.join(e.fields.labels)
     e._summary    = escape_html(e.fields.summary)
+    e._resolution = ' / ' + e.fields.resolution.name if e.fields.resolution \
+                                                     else ''
     html = _issue_html1.format(**e)
 
     if 'issuelinks' in e.fields and e.fields.issuelinks:
