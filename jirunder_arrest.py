@@ -88,10 +88,11 @@ _issue_html1 = u"""\
 <html>
 <head>
 <style>
-  div   {{ max-width: 800px }}
-  table {{ text-align: left }}
-  .fr   {{ float: right     }}
+  div   {{ max-width: 800px    }}
+  table {{ text-align: left    }}
+  .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
+  a.user-hover {{ text-decoration: underline }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -257,7 +258,9 @@ _ignorepats = [
 _subs = [
     (ur'<span class="jira-issue-macro[^>]*>\s*'
      ur'<a href="' + jira_url + ur'/browse/([A-Z]+-[0-9]+)"([^>]*)>'
-     ur'\s*([^<]*)\s*</a>\s*</span>', ur'<a href="?issue=\1"\2>\3</a>')
+     ur'\s*([^<]*)\s*</a>\s*</span>', ur'<a href="?issue=\1"\2>\3</a>'),
+    (ur'<a href="[^"]*" class="user-hover" [^>]*>([^<]*)</a>',
+     ur'<a class="user-hover">\1</a>'),
 ]
 
 def issue_to_html(j):
