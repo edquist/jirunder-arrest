@@ -258,6 +258,7 @@ _issue_html3 = u"""\
 _ignorepats = [
     ur' *<img .*?/>',
     ur' *<span [^>]*jira-macro-single-issue-export-pdf[^>]*>[^<]*</span>',
+    ur'\s+(?=</a>)',
 ]
 
 _subs = [
