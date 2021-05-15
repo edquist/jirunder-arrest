@@ -66,6 +66,12 @@ def call_api(method, path, data):
     return url, headers, json.loads(resp.read())
 
 
+def load_cached_issue(issue):
+    fn = issue + ".json"
+    if os.path.exists(fn):
+        return json.load(open(fn))
+
+
 def get_issue(issue, **kw):
     return call_api(GET, "/issue/" + issue, kw)
 
@@ -298,7 +304,9 @@ def main(args):
         print landing_page().encode("utf-8")
         return
 
-    url,h,j = get_issue(params.issue, expand='renderedFields')
+    j = load_cached_issue(params.issue)
+    if not j:
+        url,h,j = get_issue(params.issue, expand='renderedFields')
     print html_header()
     print issue_to_html(j).encode("utf-8")
 
