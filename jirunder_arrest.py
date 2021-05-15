@@ -131,6 +131,11 @@ _issue_html1 = u"""\
 <th>labels</th>
 <td>{_labels}</td>
 </tr>
+
+<tr>
+<th>fix verions</th>
+<td>{_fixversions}</td>
+</tr>
 </table>
 </td>
 
@@ -267,6 +272,7 @@ _subs = [
 
 def issue_to_html(j):
     e = easydict(j)
+    e._fixversions = u', '.join( v.name for v in e.fields.fixVersions )
     e._components = u', '.join( c.name for c in e.fields.components )
     e._labels     = u', '.join(e.fields.labels)
     e._summary    = escape_html(e.fields.summary)
