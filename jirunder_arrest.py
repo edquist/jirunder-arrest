@@ -208,7 +208,7 @@ _issue_html_comments = """\
 
 """
 
-_issue_html2 = u"""\
+_issue_html_comment = u"""\
 <h4>
 {created} | {author.displayName}
 </h4>
@@ -256,7 +256,7 @@ def issue_to_html(j):
 
     html += _issue_html_comments
     for c in e.renderedFields.comment.comments:
-        html += _issue_html2.format(**c)
+        html += _issue_html_comment.format(**c)
     html += _issue_html3
     for pat in _ignorepats:
         html = re.sub(pat, u'', html)
