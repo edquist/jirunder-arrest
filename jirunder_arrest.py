@@ -131,8 +131,13 @@ _issue_html1 = u"""\
 </tr>
 
 <tr>
-<th>fix verions</th>
-<td>{_fixversions}</td>
+<th>epic link</th>
+<td>{_epic}</td>
+</tr>
+
+<tr>
+<th>sprint</th>
+<td>{_sprint}</td>
 </tr>
 </table>
 </td>
@@ -145,6 +150,11 @@ _issue_html1 = u"""\
 <tr>
 <th>status</th>
 <td>{fields.status.name}{_resolution}</td>
+</tr>
+
+<tr>
+<th>fix verions</th>
+<td>{_fixversions}</td>
 </tr>
 
 <tr>
@@ -251,16 +261,24 @@ _subs = [
      ur'<a class="user-hover">\1</a>'),
 ]
 
+def names(seq):
+    return ( x.name for x in seq )
+
+def cjoin(seq):
+    return u', '.join(seq)
+
 def issue_to_html(j):
     e = easydict(j)
-    e._fixversions = u', '.join( v.name for v in e.fields.fixVersions )
-    e._components = u', '.join( c.name for c in e.fields.components )
-    e._labels     = u', '.join(e.fields.labels)
-    e._summary    = escape_html(e.fields.summary)
-    e._assignee   = e.fields.assignee.displayName if e.fields.assignee \
-                                                  else "Unassigned"
-    e._resolution = ' / ' + e.fields.resolution.name if e.fields.resolution \
-                                                     else ''
+    e._fixversions = cjoin(names(e.fields.fixVersions))
+    e._components  = cjoin(names(e.fields.components))
+    e._labels      = cjoin(e.fields.labels)
+    e._summary     = escape_html(e.fields.summary)
+    e._assignee    = e.fields.assignee.displayName if e.fields.assignee \
+                                                   else "Unassigned"
+    e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
+                                                      else ''
+    e._epic        = e.fields.customfield_10630 or ''
+    e._sprint      = cjoin(names(e.fields.customfield_10530 or []))
 
     html = _issue_html1.format(**e)
 
