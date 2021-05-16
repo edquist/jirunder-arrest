@@ -267,18 +267,22 @@ def names(seq):
 def cjoin(seq):
     return u', '.join(seq)
 
+def issue_key_link(issue):
+    return '<a href="?issue={key}">{key}</a>'.format(key=issue)
+
 def issue_to_html(j):
     e = easydict(j)
-    e._fixversions = cjoin(names(e.fields.fixVersions))
-    e._components  = cjoin(names(e.fields.components))
-    e._labels      = cjoin(e.fields.labels)
+    e._fixversions = cjoin(names(e.fields.fixVersions)) or '-'
+    e._components  = cjoin(names(e.fields.components)) or '-'
+    e._labels      = cjoin(e.fields.labels) or '-'
     e._summary     = escape_html(e.fields.summary)
     e._assignee    = e.fields.assignee.displayName if e.fields.assignee \
                                                    else "Unassigned"
     e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
-                                                      else ''
-    e._epic        = e.fields.customfield_10630 or ''
-    e._sprint      = cjoin(names(e.fields.customfield_10530 or []))
+                                                      else '-'
+    e._epic        = issue_key_link(e.fields.customfield_10630) \
+                     if e.fields.customfield_10630 else '-'
+    e._sprint      = cjoin(names(e.fields.customfield_10530 or [])) or '-'
 
     html = _issue_html1.format(**e)
 
