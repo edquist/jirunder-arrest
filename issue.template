@@ -18,10 +18,13 @@
 <tr>
 <th>components</th>
 <td>{fields.components.*.name}</td>
+<td>[[fields.components]%[, ][{name}]]</td>
 </tr>
 <tr>
 <th>labels</th>
 <td>{fields.labels.*}</td>
+<td>[[fields.labels]%[, ][{}]]</td>
+<td>[[fields.labels]%[, ]]</td>
 </tr>
 </table>
 
