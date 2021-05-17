@@ -286,7 +286,7 @@ def issue_to_html(j):
 
     html = _issue_html1.format(**e)
 
-    if 'issuelinks' in e.fields and e.fields.issuelinks:
+    if e.fields.issuelinks:
         html += _issue_html_links1
         for il in e.fields.issuelinks:
             if 'outwardIssue' in il:
