@@ -279,7 +279,7 @@ def issue_to_html(j):
     e._assignee    = e.fields.assignee.displayName if e.fields.assignee \
                                                    else "Unassigned"
     e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
-                                                      else '-'
+                                                      else ''
     e._epic        = issue_key_link(e.fields.customfield_10630) \
                      if e.fields.customfield_10630 else '-'
     e._sprint      = cjoin(names(e.fields.customfield_10530 or [])) or '-'
