@@ -160,17 +160,19 @@ def get_epic_issues_html(issue):
         return ''
 
 
+def add_issuelink_fields(ili, _type):
+    ili._type = _type
+    ili._status = get_status_nick(ili.fields.status.name)
+    return _issue_html_links2.format(**ili)
+
+
 def get_issuelinks_html(e):
     html = _issue_html_links1
     for il in e.fields.issuelinks:
         if 'outwardIssue' in il:
-            il.outwardIssue._type = il.type.outward
-            il.outwardIssue._status = get_status_nick(il.outwardIssue.fields.status.name)
-            html += _issue_html_links2.format(**il.outwardIssue)
+            html += add_issuelink_fields(il.outwardIssue, il.type.outward)
         if 'inwardIssue' in il:
-            il.inwardIssue._type = il.type.inward
-            il.inwardIssue._status = get_status_nick(il.inwardIssue.fields.status.name)
-            html += _issue_html_links2.format(**il.inwardIssue)
+            html += add_issuelink_fields(il.inwardIssue, il.type.inward)
     html += _issue_html_links3
     return html
 
