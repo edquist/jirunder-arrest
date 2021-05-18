@@ -102,8 +102,30 @@ def get_epic(issue, **kw):
         return None, None, None
 
 
+def get_epic_issues(issue, **kw):
+    if options.cookies:
+        return try_call_api(GET, "/epic/%s/issue" % issue, kw, baseurl=agileurl)
+    else:
+        return None, None, None
+
+
 def get_assignee_name(assignee):
     return assignee.displayName if assignee else 'Unassigned'
+
+
+def get_epic_issues_html(issue):
+    url,h,j = get_epic_issues(issue, fields="summary,status,priority,assignee")
+                                            #,issuetype
+    if j:
+        e = easydict(j)
+        html = _issue_html_epic_links1
+        for el in e.issues:
+            el._assignee = get_assignee_name(el.fields.assignee)
+            html += _issue_html_epic_links2.format(**el)
+        html += _issue_html_epic_links3
+        return html
+    else:
+        return ''
 
 
 def get_issuelinks_html(e):
@@ -265,6 +287,35 @@ _issue_html_links3 = """\
 
 """
 
+_issue_html_epic_links1 = """\
+<hr/>
+
+<h3>Epic Links</h3>
+
+<table>
+"""
+
+_issue_html_epic_links2 = """\
+<tr>
+<th><a href="?issue={key}">{key}</a></th>
+<td>|<td>
+<td>{fields.priority.name}<td>
+<td>|<td>
+<td class='nw'>{fields.status.name}<td>
+<td>|<td>
+<td>{_assignee}<td>
+<td>|<td>
+<td>{fields.summary}<td>
+</tr>
+"""
+
+_issue_html_epic_links3 = """\
+</table>
+
+<br/>
+
+"""
+
 _issue_html_comments = """\
 <hr/>
 
@@ -339,6 +390,9 @@ def issue_to_html(j):
 
     if e.fields.issuelinks:
         html += get_issuelinks_html(e)
+
+    if e.fields.issuetype.name == 'Epic':
+        html += get_epic_issues_html(e.key)
 
     # if e.fields.comment.total != len(e.renderedFields.comment.comments): ...
     html += _issue_html_comments.format(**e)
