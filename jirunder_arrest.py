@@ -128,7 +128,8 @@ def get_epic_issues(issue, **kw):
 
 
 def get_assignee_name(assignee):
-    return assignee.displayName if assignee else 'Unassigned'
+    unassigned_html = "<span class='unas'>Unassigned</span>"
+    return assignee.displayName if assignee else unassigned_html
 
 
 def get_epic_issues_html(issue):
@@ -175,6 +176,7 @@ _issue_html1 = u"""\
   table {{ text-align: left    }}
   .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
+  .unas {{ opacity: 0.5; font-style: italic }}
   a.user-hover {{ text-decoration: underline }}
   table.coltab {{ font-family: monospace }}
   table.coltab th {{ padding-right: 1em }}
