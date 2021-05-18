@@ -11,6 +11,7 @@ import urllib2
 # import subprocess
 
 from easydict import easydict
+import cookies
 
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
@@ -30,6 +31,7 @@ DELETE = 'DELETE'
 class Options:
     authstr = None
     show_headers = False
+    cookies = None
 
 options = Options()
 
@@ -41,6 +43,14 @@ def add_json_header(req):
 def add_auth_header(req):
     if options.authstr:
         req.add_header("Authorization", "Basic %s" % options.authstr)
+
+
+def add_cookie_header(req):
+    url = req.get_full_url()
+    if options.cookies:
+        val = cookies.cookie_header_val(cookies, url)
+        if val:
+            req.add_header("Cookie", val)
 
 
 def uri_ify(data):
@@ -60,6 +70,8 @@ def call_api(method, path, data):
     req = urllib2.Request(url, data)
     add_auth_header(req)
     add_json_header(req)
+    add_cookie_header(req)
+
     req.get_method = lambda : method
     resp = urllib2.urlopen(req)
     headers = resp.headers
@@ -387,6 +399,7 @@ def main(args):
         return
 
     j = load_cached_issue(params.issue)
+    options.cookies = cookies.try_read_cookies('cookie.txt')
     if not j:
         url,h,j = get_issue(params.issue, expand='renderedFields')
     print html_header()
