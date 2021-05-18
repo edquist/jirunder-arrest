@@ -41,6 +41,10 @@ def add_json_header(req):
     req.add_header("Content-Type", "application/json")
 
 
+def add_gzip_header(req):
+    req.add_header("Accept-Encoding", "gzip")
+
+
 def add_auth_header(req):
     if options.authstr:
         req.add_header("Authorization", "Basic %s" % options.authstr)
@@ -58,6 +62,13 @@ def uri_ify(data):
     return '?' + '&'.join(map('='.join, sorted(data.items())))
 
 
+def gunzip(data):
+    from subprocess import Popen, PIPE
+    p = Popen('gunzip', stdin=PIPE, stdout=PIPE)
+    o,_ = p.communicate(input=data)
+    return o
+
+
 def call_api(method, path, data, baseurl=apiurl):
     if data:
         if method == GET:
@@ -71,12 +82,19 @@ def call_api(method, path, data, baseurl=apiurl):
     req = urllib2.Request(url, data)
     add_auth_header(req)
     add_json_header(req)
+    add_gzip_header(req)
     add_cookie_header(req)
 
     req.get_method = lambda : method
     resp = urllib2.urlopen(req)
     headers = resp.headers
-    return url, headers, json.loads(resp.read())
+
+    # in python 3.2:
+    #    import gzip
+    #    o = gzip.decompress(resp.read())
+
+    #return url, headers, json.loads(resp.read())
+    return url, headers, json.loads(gunzip(resp.read()))
 
 
 def try_call_api(*a, **kw):
