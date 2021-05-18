@@ -102,6 +102,10 @@ def get_epic(issue, **kw):
         return None, None, None
 
 
+def get_assignee_name(assignee):
+    return assignee.displayName if assignee else 'Unassigned'
+
+
 def get_issuelinks_html(e):
     html = _issue_html_links1
     for il in e.fields.issuelinks:
@@ -325,8 +329,7 @@ def issue_to_html(j):
     e._components  = cjoin(names(e.fields.components)) or '-'
     e._labels      = cjoin(e.fields.labels) or '-'
     e._summary     = escape_html(e.fields.summary)
-    e._assignee    = e.fields.assignee.displayName if e.fields.assignee \
-                                                   else "Unassigned"
+    e._assignee    = get_assignee_name(e.fields.assignee)
     e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
                                                       else ''
     e._epic        = get_epic_name(e.fields.customfield_10630)
