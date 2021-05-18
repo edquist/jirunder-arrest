@@ -48,7 +48,7 @@ def add_auth_header(req):
 def add_cookie_header(req):
     url = req.get_full_url()
     if options.cookies:
-        val = cookies.cookie_header_val(cookies, url)
+        val = cookies.cookie_header_val(options.cookies, url)
         if val:
             req.add_header("Cookie", val)
 

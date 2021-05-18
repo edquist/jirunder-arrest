@@ -37,7 +37,9 @@ def _read_cookies_gen(fn):
             line = line[len(_http_only_pfx):]
         if line.startswith('#'):
             continue
-        yield line2cookie(line)
+        line = line.rstrip('\n')
+        if line:
+            yield line2cookie(line)
 
 
 def try_read_cookies(fn):
@@ -48,11 +50,11 @@ def try_read_cookies(fn):
 
 
 def cookies_kv(cookies, url):
-    u = urlparse(u)
+    u = urlparse(url)
     return [ (c.name, c.value) for c in cookies if cookie_match(c, u) ]
 
 
 def cookie_header_val(cookies, url):
     kv = cookies_kv(cookies, url)
-    return '; '.join('='.join(kv))
+    return '; '.join(map('='.join,kv))
 
