@@ -222,6 +222,19 @@ _issue_html1 = u"""\
   .boxy {{ border-width:  1px  }}
   .boxy {{ border-radius: 3px  }}
   .boxy {{ padding:   1px 4px  }}
+
+  div.panelContent pre {{
+    overflow-x: scroll;
+    margin-left: 3em;
+    border: 1px dotted;
+    border-radius: 3px;
+  }}
+
+  .zzzzz {{
+    white-space: pre-wrap;
+    padding-left: 3em;
+    text-indent: -2em;
+  }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
