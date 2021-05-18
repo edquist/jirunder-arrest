@@ -79,6 +79,12 @@ def call_api(method, path, data, baseurl=apiurl):
     return url, headers, json.loads(resp.read())
 
 
+def try_call_api(*a, **kw):
+    try:
+        return call_api(*a, **kw)
+    except urllib2.HTTPError:
+        return None, None, None
+
 def load_cached_issue(issue):
     fn = issue + ".json"
     if os.path.exists(fn):
@@ -90,7 +96,10 @@ def get_issue(issue, **kw):
 
 
 def get_epic(issue, **kw):
-    return call_api(GET, "/epic/" + issue, kw, baseurl=agileurl)
+    if options.cookies:
+        return try_call_api(GET, "/epic/" + issue, kw, baseurl=agileurl)
+    else:
+        return None, None, None
 
 
 def escape_html(txt, quot=False):
