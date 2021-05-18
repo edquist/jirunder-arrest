@@ -102,6 +102,19 @@ def get_epic(issue, **kw):
         return None, None, None
 
 
+def get_issuelinks_html(e):
+    html = _issue_html_links1
+    for il in e.fields.issuelinks:
+        if 'outwardIssue' in il:
+            il.outwardIssue._type = il.type.outward
+            html += _issue_html_links2.format(**il.outwardIssue)
+        if 'inwardIssue' in il:
+            il.inwardIssue._type = il.type.inward
+            html += _issue_html_links2.format(**il.inwardIssue)
+    html += _issue_html_links3
+    return html
+
+
 def escape_html(txt, quot=False):
     txt = txt.replace('&', '&amp;')
     txt = txt.replace('<', '&lt;')
@@ -322,15 +335,7 @@ def issue_to_html(j):
     html = _issue_html1.format(**e)
 
     if e.fields.issuelinks:
-        html += _issue_html_links1
-        for il in e.fields.issuelinks:
-            if 'outwardIssue' in il:
-                il.outwardIssue._type = il.type.outward
-                html += _issue_html_links2.format(**il.outwardIssue)
-            if 'inwardIssue' in il:
-                il.inwardIssue._type = il.type.inward
-                html += _issue_html_links2.format(**il.inwardIssue)
-        html += _issue_html_links3
+        html += get_issuelinks_html(e)
 
     # if e.fields.comment.total != len(e.renderedFields.comment.comments): ...
     html += _issue_html_comments.format(**e)
