@@ -224,7 +224,9 @@ _issue_html1 = u"""\
   .boxy {{ padding:   1px 4px  }}
 
   div.panelContent pre {{
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
     margin-left: 3em;
     border: 1px dotted;
     border-radius: 3px;
