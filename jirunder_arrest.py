@@ -220,9 +220,8 @@ _issue_html1 = u"""\
 
   .boxy {{ border-style: solid }}
   .boxy {{ border-width:  1px  }}
-  .boxy {{ padding:       1px  }}
-  .boxy {{ padding-left:  4px  }}
-  .boxy {{ padding-right: 4px  }}
+  .boxy {{ border-radius: 3px  }}
+  .boxy {{ padding:   1px 4px  }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
