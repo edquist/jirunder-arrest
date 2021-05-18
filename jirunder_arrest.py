@@ -20,6 +20,7 @@ usage: {script} ISSUE
 """
 
 jira_url = 'https://opensciencegrid.atlassian.net'
+api1url  = jira_url + '/rest/api/1.0' # '/render'
 apiurl   = jira_url + '/rest/api/2'
 agileurl = jira_url + '/rest/agile/1.0'
 
@@ -75,7 +76,8 @@ def call_api(method, path, data, baseurl=apiurl):
             path = path + uri_ify(data)
             data = None
         else:
-            data = json.dumps(data)
+            if isinstance(data, dict):
+                data = json.dumps(data)
 
     url = baseurl + path
 
@@ -125,6 +127,15 @@ def get_epic_issues(issue, **kw):
         return try_call_api(GET, "/epic/%s/issue" % issue, kw, baseurl=agileurl)
     else:
         return None, None, None
+
+
+def render_jira_markup(issue, jml):
+    postdata = json.dumps(dict(
+        rendererType     = "atlassian-wiki-renderer",
+        unrenderedMarkup = jml,
+        issueKey         = issue
+    ))
+    return try_call_api(POST, "/render", postdata, baseurl=api1url)
 
 
 def get_assignee_name(assignee):
