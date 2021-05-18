@@ -21,6 +21,7 @@ usage: {script} ISSUE
 
 jira_url = 'https://opensciencegrid.atlassian.net'
 apiurl   = jira_url + '/rest/api/2'
+agileurl = jira_url + '/rest/agile/1.0'
 
 GET    = 'GET'
 PUT    = 'PUT'
@@ -57,7 +58,7 @@ def uri_ify(data):
     return '?' + '&'.join(map('='.join, sorted(data.items())))
 
 
-def call_api(method, path, data):
+def call_api(method, path, data, baseurl=apiurl):
     if data:
         if method == GET:
             path = path + uri_ify(data)
@@ -65,7 +66,7 @@ def call_api(method, path, data):
         else:
             data = json.dumps(data)
 
-    url = apiurl + path
+    url = baseurl + path
 
     req = urllib2.Request(url, data)
     add_auth_header(req)
