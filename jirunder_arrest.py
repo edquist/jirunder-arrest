@@ -89,6 +89,10 @@ def get_issue(issue, **kw):
     return call_api(GET, "/issue/" + issue, kw)
 
 
+def get_epic(issue, **kw):
+    return call_api(GET, "/epic/" + issue, kw, baseurl=agileurl)
+
+
 def escape_html(txt, quot=False):
     txt = txt.replace('&', '&amp;')
     txt = txt.replace('<', '&lt;')
@@ -280,8 +284,18 @@ def names(seq):
 def cjoin(seq):
     return u', '.join(seq)
 
-def issue_key_link(issue):
-    return '<a href="?issue={key}">{key}</a>'.format(key=issue)
+def issue_key_link(issue, title=None):
+    return '<a href="?issue={key}">{title}</a>'.format(key=issue, title=title)
+
+
+def get_epic_name(issue):
+    if issue:
+        url,h,j = get_epic(issue)
+        title = easydict(j).name if j else issue
+        return issue_key_link(issue, title)
+    else:
+        return '-'
+
 
 def issue_to_html(j):
     e = easydict(j)
@@ -293,8 +307,7 @@ def issue_to_html(j):
                                                    else "Unassigned"
     e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
                                                       else ''
-    e._epic        = issue_key_link(e.fields.customfield_10630) \
-                     if e.fields.customfield_10630 else '-'
+    e._epic        = get_epic_name(e.fields.customfield_10630)
     e._sprint      = cjoin(names(e.fields.customfield_10530 or [])) or '-'
 
     html = _issue_html1.format(**e)
