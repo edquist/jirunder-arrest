@@ -322,33 +322,6 @@ def landing_page():
 def html_header():
     return "Content-Type: text/html; charset=utf-8\r\n\r"
 
-def main(args):
-    if len(args) == 1:
-        issue, = args
-        if not re.match(r'^[A-Z]+-[0-9]+$', issue):
-            usage("Bad ISSUE")
-        dump_issue_json(issue)
-        return
-
-    if args:
-        usage("Extra arg")
-
-    uri, params = parse_request_uri()
-    if not uri:
-        usage("Missing ISSUE")
-
-    if not params or 'issue' not in params:
-        print html_header()
-        print landing_page().encode("utf-8")
-        return
-
-    j = load_cached_issue(params.issue)
-    if not j:
-        url,h,j = get_issue(params.issue, expand='renderedFields')
-    print html_header()
-    print issue_to_html(j).encode("utf-8")
-
-
 
 def dump_issue_json(issue):
     url,h,j = get_issue(issue, expand='renderedFields')
@@ -391,6 +364,33 @@ def usage(msg=None):
     s = os.path.basename(__file__)
     print _usage.format(script=s)
     sys.exit()
+
+
+def main(args):
+    if len(args) == 1:
+        issue, = args
+        if not re.match(r'^[A-Z]+-[0-9]+$', issue):
+            usage("Bad ISSUE")
+        dump_issue_json(issue)
+        return
+
+    if args:
+        usage("Extra arg")
+
+    uri, params = parse_request_uri()
+    if not uri:
+        usage("Missing ISSUE")
+
+    if not params or 'issue' not in params:
+        print html_header()
+        print landing_page().encode("utf-8")
+        return
+
+    j = load_cached_issue(params.issue)
+    if not j:
+        url,h,j = get_issue(params.issue, expand='renderedFields')
+    print html_header()
+    print issue_to_html(j).encode("utf-8")
 
 
 if __name__ == '__main__':
