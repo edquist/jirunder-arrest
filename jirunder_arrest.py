@@ -558,6 +558,13 @@ def main(args):
         dump_issue_json(issue)
         return
 
+    if len(args) == 2 and args[0] == '--render':
+        jml = args[1]
+        issue = 'SOFTWARE-1234'  # arbitrarily
+        url,h,html = render_jira_markup(issue, jml)
+        print html
+        return
+
     if args:
         usage("Extra arg")
 
