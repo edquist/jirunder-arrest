@@ -134,6 +134,7 @@ def get_assignee_name(assignee):
 
 _status_nicknames = {
   "Selected for Development" : "Slated",
+  "In Progress"              : "Active",
   "Development Complete"     : "Dev Complete",
   "Ready for Testing"        : "RFT",
   "Ready for Release"        : "RFR",
