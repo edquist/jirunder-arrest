@@ -93,7 +93,13 @@ def call_api(method, path, data):
     #    o = gzip.decompress(resp.read())
 
     #return url, headers, json.loads(resp.read())
-    return url, headers, json.loads(gunzip(resp.read()))
+    resp_data = resp.read()
+    if headers.get('Content-Encoding') == 'gzip':
+        resp_data = gunzip(resp_data)
+    if headers.gettype() == 'application/json':
+        resp_data = json.loads(resp_data)
+
+    return url, headers, resp_data
 
 
 def try_call_api(*a, **kw):
