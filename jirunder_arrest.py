@@ -20,9 +20,6 @@ usage: {script} ISSUE
 """
 
 jira_url = 'https://opensciencegrid.atlassian.net'
-api1url  = jira_url + '/rest/api/1.0' # '/render'
-apiurl   = jira_url + '/rest/api/2'
-agileurl = jira_url + '/rest/agile/1.0'
 
 GET    = 'GET'
 PUT    = 'PUT'
@@ -70,7 +67,7 @@ def gunzip(data):
     return o
 
 
-def call_api(method, path, data, baseurl=apiurl):
+def call_api(method, path, data):
     if data:
         if method == GET:
             path = path + uri_ify(data)
@@ -79,7 +76,7 @@ def call_api(method, path, data, baseurl=apiurl):
             if isinstance(data, dict):
                 data = json.dumps(data)
 
-    url = baseurl + path
+    url = jira_url + path
 
     req = urllib2.Request(url, data)
     add_auth_header(req)
@@ -112,19 +109,22 @@ def load_cached_issue(issue):
 
 
 def get_issue(issue, **kw):
-    return call_api(GET, "/issue/" + issue, kw)
+    path = "/rest/api/2/issue/" + issue
+    return call_api(GET, path, kw)
 
 
 def get_epic(issue, **kw):
+    path = "/rest/agile/1.0/epic/" + issue
     if options.cookies:
-        return try_call_api(GET, "/epic/" + issue, kw, baseurl=agileurl)
+        return try_call_api(GET, path, kw)
     else:
         return None, None, None
 
 
 def get_epic_issues(issue, **kw):
+    path = "/rest/agile/1.0/epic/%s/issue" % issue
     if options.cookies:
-        return try_call_api(GET, "/epic/%s/issue" % issue, kw, baseurl=agileurl)
+        return try_call_api(GET, path, kw)
     else:
         return None, None, None
 
@@ -135,7 +135,8 @@ def render_jira_markup(issue, jml):
         unrenderedMarkup = jml,
         issueKey         = issue
     ))
-    return try_call_api(POST, "/render", postdata, baseurl=api1url)
+    path = "/rest/api/1.0/render"
+    return try_call_api(POST, path, postdata)
 
 
 def get_assignee_name(assignee):
