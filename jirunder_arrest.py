@@ -132,6 +132,18 @@ def get_assignee_name(assignee):
     return assignee.displayName if assignee else unassigned_html
 
 
+_status_nicknames = {
+  "Selected for Development" : "Slated",
+  "Development Complete"     : "Dev Complete",
+  "Ready for Testing"        : "RFT",
+  "Ready for Release"        : "RFR",
+}
+
+
+def get_status_nick(name):
+    return _status_nicknames.get(name, name)
+
+
 def get_epic_issues_html(issue):
     url,h,j = get_epic_issues(issue, fields="summary,status,priority,assignee")
                                             #,issuetype
@@ -140,6 +152,7 @@ def get_epic_issues_html(issue):
         html = _issue_html_epic_links1
         for el in e.issues:
             el._assignee = get_assignee_name(el.fields.assignee)
+            el._status = get_status_nick(el.fields.status.name)
             html += _issue_html_epic_links2.format(**el)
         html += _issue_html_epic_links3
         return html
@@ -152,9 +165,11 @@ def get_issuelinks_html(e):
     for il in e.fields.issuelinks:
         if 'outwardIssue' in il:
             il.outwardIssue._type = il.type.outward
+            il.outwardIssue._status = get_status_nick(il.outwardIssue.fields.status.name)
             html += _issue_html_links2.format(**il.outwardIssue)
         if 'inwardIssue' in il:
             il.inwardIssue._type = il.type.inward
+            il.inwardIssue._status = get_status_nick(il.inwardIssue.fields.status.name)
             html += _issue_html_links2.format(**il.inwardIssue)
     html += _issue_html_links3
     return html
@@ -294,7 +309,7 @@ _issue_html_links2 = """\
 <td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
-<td class='nw'>{fields.status.name}<td>
+<td class='nw'>{_status}<td>
 <td>|<td>
 <td>{fields.summary}<td>
 </tr>
@@ -321,7 +336,7 @@ _issue_html_epic_links2 = """\
 <td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
-<td class='nw'>{fields.status.name}<td>
+<td class='nw'>{_status}<td>
 <td>|<td>
 <td>{_assignee}<td>
 <td>|<td>
