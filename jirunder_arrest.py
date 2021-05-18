@@ -198,6 +198,18 @@ _issue_html1 = u"""\
   a.user-hover {{ text-decoration: underline }}
   table.coltab {{ font-family: monospace }}
   table.coltab th {{ padding-right: 1em }}
+
+  a.nu         , a.nu2         {{ color: inherit             }}
+  a.nu:link    , a.nu2:link    {{ text-decoration: none      }}
+  a.nu:visited , a.nu2:visited {{ text-decoration: none      }}
+  a.nu:hover                   {{ text-decoration: underline }}
+  a.nu2:hover                  {{ text-decoration: none      }}
+
+  .boxy {{ border-style: solid }}
+  .boxy {{ border-width:  1px  }}
+  .boxy {{ padding:       1px  }}
+  .boxy {{ padding-left:  4px  }}
+  .boxy {{ padding-right: 4px  }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -335,13 +347,13 @@ _issue_html_epic_links1 = """\
 
 _issue_html_epic_links2 = """\
 <tr>
+<td>{_assignee}<td>
+<td>|<td>
 <th><a href="?issue={key}">{key}</a></th>
 <td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
 <td class='nw'>{_status}<td>
-<td>|<td>
-<td>{_assignee}<td>
 <td>|<td>
 <td>{fields.summary}<td>
 </tr>
@@ -399,15 +411,19 @@ def names(seq):
 def cjoin(seq):
     return u', '.join(seq)
 
-def issue_key_link(issue, title=None):
-    return '<a href="?issue={key}">{title}</a>'.format(key=issue, title=title)
+def issue_key_link(issue, title=None, classes=None):
+    attrs = ['href="?issue={issue}"']
+    if classes:
+        attrs += ['class="{classes}"']
+    fmt = '<a %s>{title}</a>' % ' '.join(attrs)
+    return fmt.format(issue=issue, title=title, classes=classes)
 
 
 def get_epic_name(issue):
     if issue:
         url,h,j = get_epic(issue)
         title = easydict(j).name if j else issue
-        return issue_key_link(issue, title)
+        return issue_key_link(issue, title, 'boxy nu2')
     else:
         return '-'
 
