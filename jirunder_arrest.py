@@ -61,10 +61,9 @@ def uri_ify(data):
 
 
 def gunzip(data):
-    from subprocess import Popen, PIPE
-    p = Popen('gunzip', stdin=PIPE, stdout=PIPE)
-    o,_ = p.communicate(input=data)
-    return o
+    import StringIO, gzip
+    sio = StringIO.StringIO(data)
+    return gzip.GzipFile(fileobj=sio).read()
 
 
 def call_api(method, path, data):
