@@ -201,6 +201,7 @@ _issue_html1 = u"""\
 <!DOCTYPE html>
 <html>
 <head>
+<title>{key} : {_summary}</title>
 <style>
   div   {{ max-width: 800px    }}
   table {{ text-align: left    }}
