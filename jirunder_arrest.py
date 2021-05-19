@@ -145,7 +145,7 @@ def post_comment(issue, body):
 
 def update_description(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
-    data = { "update": { "description": [ { "set": body } ], } }
+    data = {"update": {"description": [{"set": body}]}}
     if options.cookies:
         return try_call_api(PUT, path, data)
     else:
@@ -153,13 +153,11 @@ def update_description(issue, body):
 
 
 def render_jira_markup(issue, jml):
-    postdata = json.dumps(dict(
-        rendererType     = "atlassian-wiki-renderer",
-        unrenderedMarkup = jml,
-        issueKey         = issue
-    ))
     path = "/rest/api/1.0/render"
-    return try_call_api(POST, path, postdata)
+    data = {"rendererType"     : "atlassian-wiki-renderer",
+            "unrenderedMarkup" : jml,
+            "issueKey"         : issue}
+    return try_call_api(POST, path, data)
 
 
 def get_assignee_name(assignee):
