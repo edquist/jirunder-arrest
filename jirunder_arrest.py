@@ -233,6 +233,7 @@ _issue_html1 = u"""\
     overflow-y: auto;
     max-height: 400px;
     margin-left: 3em;
+    padding: 1em;
     border: 1px dotted;
     border-radius: 3px;
   }}
