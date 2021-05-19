@@ -107,6 +107,14 @@ def try_call_api(*a, **kw):
     except urllib2.HTTPError:
         return None, None, None
 
+
+def auth_try_call_api(*a, **kw):
+    if options.cookies:
+        return try_call_api(*a, **kw)
+    else:
+        return None, None, None
+
+
 def load_cached_issue(issue):
     fn = issue + ".json"
     if os.path.exists(fn):
@@ -120,36 +128,24 @@ def get_issue(issue, **kw):
 
 def get_epic(issue, **kw):
     path = "/rest/agile/1.0/epic/" + issue
-    if options.cookies:
-        return try_call_api(GET, path, kw)
-    else:
-        return None, None, None
+    return auth_try_call_api(GET, path, kw)
 
 
 def get_epic_issues(issue, **kw):
     path = "/rest/agile/1.0/epic/%s/issue" % issue
-    if options.cookies:
-        return try_call_api(GET, path, kw)
-    else:
-        return None, None, None
+    return auth_try_call_api(GET, path, kw)
 
 
 def post_comment(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
     data = {'body': body}
-    if options.cookies:
-        return try_call_api(POST, path, data)
-    else:
-        return None, None, None
+    return auth_try_call_api(POST, path, data)
 
 
 def update_description(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
     data = {"update": {"description": [{"set": body}]}}
-    if options.cookies:
-        return try_call_api(PUT, path, data)
-    else:
-        return None, None, None
+    return auth_try_call_api(PUT, path, data)
 
 
 def render_jira_markup(issue, jml):
