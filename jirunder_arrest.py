@@ -134,6 +134,24 @@ def get_epic_issues(issue, **kw):
         return None, None, None
 
 
+def post_comment(issue, body):
+    path = "/rest/api/2/issue/%s/comment" % issue
+    data = {'body': body}
+    if options.cookies:
+        return try_call_api(POST, path, data)
+    else:
+        return None, None, None
+
+
+def update_description(issue, body):
+    path = "/rest/api/2/issue/%s/comment" % issue
+    data = { "update": { "description": [ { "set": body } ], } }
+    if options.cookies:
+        return try_call_api(PUT, path, data)
+    else:
+        return None, None, None
+
+
 def render_jira_markup(issue, jml):
     postdata = json.dumps(dict(
         rendererType     = "atlassian-wiki-renderer",
