@@ -136,6 +136,12 @@ def get_epic_issues(issue, **kw):
     return auth_try_call_api(GET, path, kw)
 
 
+def get_username(**kw):
+    path = "/rest/auth/latest/session"
+    url,h,j = auth_try_call_api(GET, path, kw)
+    return j
+
+
 def post_comment(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
     data = {'body': body}
