@@ -540,7 +540,7 @@ def m_hexchr(m):
     return chr(int(m.group(1), 16))
 
 def unescape_uri(s):
-    return re.sub(ur'%([0-9a-f]{2})', m_hexchr, s) if '%' in s else s
+    return re.sub(ur'%([0-9a-fA-F]{2})', m_hexchr, s) if '%' in s else s
 
 
 def parse_uri(uri):
