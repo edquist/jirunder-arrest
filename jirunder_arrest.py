@@ -126,6 +126,14 @@ def get_issue(issue, **kw):
     return call_api(GET, path, kw)
 
 
+def get_user_issues(user, **kw):
+    e = easydict(kw)
+    path = '/rest/api/2/search'
+    e.jql = "assignee=%s+AND+status+!=+Closed" % user
+    e.maxResults = 100
+    return try_call_api(GET, path, e)
+
+
 def get_epic(issue, **kw):
     path = "/rest/agile/1.0/epic/" + issue
     return auth_try_call_api(GET, path, kw)
