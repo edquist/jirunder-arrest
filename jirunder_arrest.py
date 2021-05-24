@@ -200,7 +200,7 @@ def add_user_issue_fields(isu):
 
 
 def user_issue_sortkey(x):
-    return int(x.fields.priority.id), -int(x.fields.status.id), x.key
+    return -int(x.fields.priority.id), x.fields.status.id, x.key
 
 
 def get_user_issues_html(user):
@@ -211,7 +211,7 @@ def get_user_issues_html(user):
     e = easydict(j)
 
     html = _user_issue_html_links1.format(_user=user)
-    for isu in sorted(e.issues, key=user_issue_sortkey):
+    for isu in sorted(e.issues, reverse=True, key=user_issue_sortkey):
         html += add_user_issue_fields(isu)
     html += _user_issue_html_links3
 
