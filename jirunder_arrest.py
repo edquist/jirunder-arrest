@@ -552,6 +552,7 @@ def m_hexchr(m):
 def unescape_qp(s):
     if '+' in s: s = s.replace('+', ' ')
     if '%' in s: s = re.sub(ur'%([0-9a-fA-F]{2})', m_hexchr, s)
+    if '\r\n' in s: s = s.replace('\r\n', '\n')
     return s
 
 
