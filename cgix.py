@@ -7,7 +7,8 @@ import sys
 from easydict import easydict
 
 def mk_query_string(data):
-    return '?' + '&'.join(map('='.join, sorted(data.items())))
+    itemstrs = sorted( (k, str(v)) for k,v in data.items() )
+    return '?' + '&'.join(map('='.join, itemstrs))
 
 
 def escape_html(txt, quot=False):
