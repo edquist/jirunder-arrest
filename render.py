@@ -4,8 +4,9 @@ import sys
 
 import jirunder_arrest
 from jirunder_arrest import easydict, escape_html, html_header
-
 from jirunder_arrest import render_jira_markup, parse_request_uri
+from jirunder_arrest import get_postdata_params
+
 
 _render_test_html = u"""\
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ _render_test_html = u"""\
 </head>
 <body>
 
-<form action="">
+<form method="post" action="">
 <label for="jml_ta">JIRA Markup Text:</label>
 <br/>
 <textarea id="jml_ta" name="jml" rows="24" cols="80">{_jml}</textarea>
@@ -54,6 +55,8 @@ def get_render_page_html(jml):
 
 def main(args):
     uri, params = parse_request_uri()
+
+    params = params or get_postdata_params()
     jml = params and params.get('jml')
     print html_header()
     print get_render_page_html(params and params.get('jml'))
