@@ -10,9 +10,10 @@ import urllib2
 # import operator
 # import subprocess
 
-from easydict import easydict
-import cookies
 from cgix     import *
+from easydict import easydict
+from gzippy   import gunzip
+import cookies
 
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
@@ -27,6 +28,7 @@ PUT    = 'PUT'
 POST   = 'POST'
 PATCH  = 'PATCH'
 DELETE = 'DELETE'
+
 
 class Options:
     authstr = None
@@ -55,13 +57,6 @@ def add_cookie_header(req):
         val = cookies.cookie_header_val(options.cookies, url)
         if val:
             req.add_header("Cookie", val)
-
-
-def gunzip(data):
-    # python 3.2+:  return gzip.decompress(data)
-    import StringIO, gzip
-    sio = StringIO.StringIO(data)
-    return gzip.GzipFile(fileobj=sio).read()
 
 
 def call_api(method, path, data):
