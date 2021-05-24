@@ -194,6 +194,27 @@ def get_epic_issues_html(issue):
         return ''
 
 
+def add_user_issue_fields(isu):
+    isu._status = get_status_nick(isu.fields.status.name)
+    return _user_issue_html_links2.format(**isu)
+
+
+def get_user_issues_html(user):
+    url,h,j = get_user_issues(user)
+    #if not j:
+        #return ''
+
+    e = easydict(j)
+
+    html = _user_issue_html_links1.format(_user=user)
+    for isu in e.issues:
+        html += add_user_issue_fields(isu)
+    html += _user_issue_html_links3
+
+    return html
+
+
+
 def add_issuelink_fields(ili, _type):
     ili._type = _type
     ili._status = get_status_nick(ili.fields.status.name)
@@ -433,6 +454,51 @@ _issue_html3 = u"""\
 </body>
 </html>"""
 
+
+
+
+_user_issue_html_links1 = """\
+<!DOCTYPE html>
+<html>
+<head>
+<title>Issues for {_user}</title>
+<style>
+  table {{ text-align: left    }}
+  .nw   {{ white-space: nowrap }}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<h3>
+Issues for {_user}:
+</h3>
+
+<table>
+"""
+
+_user_issue_html_links2 = """\
+<tr>
+<th><a href="?issue={key}">{key}</a></th>
+<td>|<td>
+<td>{fields.priority.name}<td>
+<td>|<td>
+<td class='nw'>{_status}<td>
+<td>|<td>
+<td>{fields.summary}<td>
+</tr>
+"""
+
+_user_issue_html_links3 = """\
+</table>
+
+</body>
+</html>
+
+"""
+
+
+
+
 _ignorepats = [
     ur' *<img .*?/>',
     ur' *<span [^>]*jira-macro-single-issue-export-pdf[^>]*>[^<]*</span>',
@@ -553,6 +619,11 @@ def main(args):
     uri, params = parse_request_uri()
     if not uri:
         usage("Missing ISSUE")
+
+    if 'user' in params:
+        print html_header()
+        print get_user_issues_html(params['user']).encode("utf-8")
+        return
 
     if not params or 'issue' not in params:
         print html_header()
