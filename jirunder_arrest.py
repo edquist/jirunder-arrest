@@ -574,6 +574,17 @@ def parse_request_uri():
     return parse_uri(uri)
 
 
+def get_postdata():
+    clen = os.environ.get("CONTENT_LENGTH")
+    if clen is not None:
+        return sys.stdin.read(int(clen))
+
+
+def get_postdata_params():
+    pd = get_postdata()
+    return parse_qp(pd)
+
+
 def usage(msg=None):
     if msg:
         print >>sys.stderr, msg + "\n"
