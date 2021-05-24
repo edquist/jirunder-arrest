@@ -2,10 +2,9 @@
 
 import sys
 
-import jirunder_arrest
-from jirunder_arrest import easydict, escape_html, html_header
-from jirunder_arrest import render_jira_markup, parse_request_uri
-from jirunder_arrest import get_postdata_params
+from easydict        import easydict
+from cgix            import *
+from jirunder_arrest import render_jira_markup
 
 
 _render_test_html = u"""\
