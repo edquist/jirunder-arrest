@@ -20,8 +20,15 @@ def escape_html(txt, quot=False):
     return txt
 
 
-def html_header():
-    return "Content-Type: text/html; charset=utf-8\r\n\r"
+_html_header = "Content-Type: text/html; charset=utf-8"
+
+def send_data(data):
+    headers = [_html_header]
+    if not isinstance(data, bytes):
+        data = data.encode("utf-8")
+    headers += ['','']
+    headertxt = "\r\n".join(headers)
+    sys.stdout.write(headertxt + data)
 
 
 def m_hexchr(m):
@@ -119,11 +126,11 @@ __all__ = [
     "get_postdata",
     "get_postdata_params",
     "get_request_method",
-    "html_header",
     "mk_query_string",
     "parse_qp",
     "parse_request_uri",
     "parse_uri",
+    "send_data",
     "unescape_qp",
 ]
 

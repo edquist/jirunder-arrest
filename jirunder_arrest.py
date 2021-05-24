@@ -474,7 +474,8 @@ _issue_html3 = u"""\
 </div>
 
 </body>
-</html>"""
+</html>
+"""
 
 
 
@@ -623,7 +624,9 @@ _landing_html = u"""\
 </table>
 
 </body>
-</html>"""
+</html>
+"""
+
 def landing_page():
     return _landing_html
 
@@ -670,21 +673,18 @@ def main(args):
         usage("Missing ISSUE")
 
     if params and params.get('user', None):
-        print html_header()
-        print get_user_issues_html(params['user']).encode("utf-8")
+        send_data(get_user_issues_html(params['user']))
         return
 
     if not params or not params.get('issue', None):
-        print html_header()
-        print landing_page().encode("utf-8")
+        send_data(landing_page())
         return
 
     j = load_cached_issue(params.issue)
     options.cookies = cookies.try_read_cookies('cookie.txt')
     if not j:
         url,h,j = get_issue(params.issue, expand='renderedFields')
-    print html_header()
-    print issue_to_html(j).encode("utf-8")
+    send_data(issue_to_html(j))
 
 
 if __name__ == '__main__':

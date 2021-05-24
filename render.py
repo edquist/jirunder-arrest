@@ -36,7 +36,8 @@ _render_test_html = u"""\
 </div>
 
 </body>
-</html>"""
+</html>
+"""
 
 
 def get_render_page_html(jml):
@@ -57,8 +58,7 @@ def main(args):
 
     params = params or get_postdata_params()
     jml = params and params.get('jml')
-    print html_header()
-    print get_render_page_html(params and params.get('jml'))
+    send_data(get_render_page_html(params and params.get('jml')))
 
 if __name__ == '__main__':
     main(sys.argv[1:])
