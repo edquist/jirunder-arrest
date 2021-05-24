@@ -6,7 +6,7 @@ import sys
 
 from easydict import easydict
 
-def uri_ify(data):
+def mk_query_string(data):
     return '?' + '&'.join(map('='.join, sorted(data.items())))
 
 
@@ -76,10 +76,10 @@ __all__ = [
     "get_postdata_params",
     "get_request_method",
     "html_header",
+    "mk_query_string",
     "parse_qp",
     "parse_request_uri",
     "parse_uri",
     "unescape_qp",
-    "uri_ify",
 ]
 

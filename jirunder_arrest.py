@@ -66,7 +66,7 @@ def gunzip(data):
 def call_api(method, path, data):
     if data:
         if method == GET:
-            path = path + uri_ify(data)
+            path = path + mk_query_string(data)
             data = None
         else:
             if isinstance(data, dict):
