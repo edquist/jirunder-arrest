@@ -127,10 +127,12 @@ def get_issue(issue, **kw):
 
 
 def get_user_issues(user, **kw):
-    e = easydict(kw)
     path = '/rest/api/2/search'
-    e.jql = "assignee=%s+AND+status+!=+Closed" % user
-    e.maxResults = 100
+    e = easydict(dict(
+        jql        = "assignee=%s+AND+status+!=+Closed" % user,
+        maxResults = 100,
+        **kw
+    ))
     return try_call_api(GET, path, e)
 
 
