@@ -268,6 +268,11 @@ _issue_html1 = u"""\
   a.user-hover {{ text-decoration: underline }}
   table.coltab {{ font-family: monospace }}
   table.coltab th {{ padding-right: 1em }}
+  .confluenceTable, .confluenceTh, .confluenceTd {{
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 2px 4px;
+  }}
 
   a.nu         , a.nu2         {{ color: inherit             }}
   a.nu:link    , a.nu2:link    {{ text-decoration: none      }}
