@@ -617,7 +617,7 @@ _landing_html = u"""\
 <tr>
 <td><label for="issue_tb">Issue Key:</label></td>
 <td><input type="text" id="issue_tb" name="issue" /></td>
-<td><input type="submit" value="View Issue"></td>
+<td><input type="submit" value="View Issue" /></td>
 </tr>
 </form>
 <tr><td class="cen">or</td></tr>
@@ -625,7 +625,7 @@ _landing_html = u"""\
 <tr>
 <td><label for="user_tb">Username:</label></td>
 <td><input type="text" id="user_tb" name="user" /></td>
-<td><input type="submit" value="Get Issues"></td>
+<td><input type="submit" value="Get Issues" /></td>
 </tr>
 </form>
 </table>
