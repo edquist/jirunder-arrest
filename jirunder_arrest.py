@@ -695,22 +695,21 @@ _landing_html = u"""\
 
 <h2>jirunder-arrest !</h2>
 
+<form id="viewform" action=""></form>
+<form id="userform" action=""></form>
+
 <table>
-<form action="">
 <tr>
 <td><label for="issue_tb">Issue Key:</label></td>
-<td><input type="text" id="issue_tb" name="issue" /></td>
-<td><input type="submit" value="View Issue" /></td>
+<td><input form="viewform" type="text" id="issue_tb" name="issue" /></td>
+<td><input form="viewform" type="submit" value="View Issue" /></td>
 </tr>
-</form>
 <tr><td class="cen">or</td></tr>
-<form action="">
 <tr>
 <td><label for="user_tb">Username:</label></td>
-<td><input type="text" id="user_tb" name="user" /></td>
-<td><input type="submit" value="Get Issues" /></td>
+<td><input form="userform" type="text" id="user_tb" name="user" /></td>
+<td><input form="userform" type="submit" value="Get Issues" /></td>
 </tr>
-</form>
 </table>
 
 </body>
