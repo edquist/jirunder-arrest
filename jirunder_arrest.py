@@ -576,8 +576,34 @@ def issue_to_html(j):
 _landing_html = u"""\
 <!DOCTYPE html>
 <html>
+<head>
+<title>jirunder-arrest!</title>
+<style>
+ .cen { text-align: center }
+</style>
+</head>
 <body>
-Try sticking a <code>?issue=SOFTWARE-4000</code> after the URL.
+
+<h2>jirunder-arrest !</h2>
+
+<table>
+<form action="">
+<tr>
+<td><label for="issue_tb">Issue Key:</label></td>
+<td><input type="text" id="issue_tb" name="issue" /></td>
+<td><input type="submit" value="View Issue"></td>
+</tr>
+</form>
+<tr><td class="cen">or</td></tr>
+<form action="">
+<tr>
+<td><label for="user_tb">Username:</label></td>
+<td><input type="text" id="user_tb" name="user" /></td>
+<td><input type="submit" value="Get Issues"></td>
+</tr>
+</form>
+</table>
+
 </body>
 </html>"""
 def landing_page():
@@ -625,12 +651,12 @@ def main(args):
     if not uri:
         usage("Missing ISSUE")
 
-    if 'user' in params:
+    if params and params.get('user', None):
         print html_header()
         print get_user_issues_html(params['user']).encode("utf-8")
         return
 
-    if not params or 'issue' not in params:
+    if not params or not params.get('issue', None):
         print html_header()
         print landing_page().encode("utf-8")
         return
