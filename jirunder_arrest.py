@@ -260,7 +260,9 @@ _issue_html1 = u"""\
 <head>
 <title>{key} : {_summary}</title>
 <style>
-  div   {{ max-width: 800px    }}
+  body  {{ max-width: 800px    }}
+  body  {{ margin-left:   3em  }}
+  body  {{ margin-bottom: 3em  }}
   table {{ text-align: left    }}
   .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
