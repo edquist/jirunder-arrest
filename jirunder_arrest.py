@@ -58,6 +58,7 @@ def add_cookie_header(req):
 
 
 def gunzip(data):
+    # python 3.2+:  return gzip.decompress(data)
     import StringIO, gzip
     sio = StringIO.StringIO(data)
     return gzip.GzipFile(fileobj=sio).read()
@@ -84,11 +85,6 @@ def call_api(method, path, data):
     resp = urllib2.urlopen(req)
     headers = resp.headers
 
-    # in python 3.2:
-    #    import gzip
-    #    o = gzip.decompress(resp.read())
-
-    #return url, headers, json.loads(resp.read())
     resp_data = resp.read()
     if headers.get('Content-Encoding') == 'gzip':
         resp_data = gunzip(resp_data)
