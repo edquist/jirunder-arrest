@@ -18,7 +18,7 @@ import cookies
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
 usage: {script} ISSUE
-   or: REQUEST_URI=...?issue=TICKET-NUM {script}  # CGI
+   or: QUERY_STRING="issue=TICKET-NUM" {script}  # CGI
 """
 
 jira_url = 'https://opensciencegrid.atlassian.net'
@@ -477,6 +477,14 @@ _issue_html_comment = u"""\
 <hr/>
 """
 
+_issue_html_add_comment = u"""\
+<form action="">
+<input type="hidden" name="comment" value="{key}" />
+<input type="hidden" name="summary" value="{_summary}" />
+<input type="submit" value="Add Comment" />
+</form>
+"""
+
 _issue_html3 = u"""\
 </div>
 
@@ -591,6 +599,7 @@ def issue_to_html(j):
     html += _issue_html_comments.format(**e)
     for c in e.renderedFields.comment.comments:
         html += _issue_html_comment.format(**c)
+    html += _issue_html_add_comment.format(**e)
     html += _issue_html3
     for pat in _ignorepats:
         html = re.sub(pat, u'', html)
@@ -669,6 +678,9 @@ def get_cgi_html(params):
     if not params:
         return landing_page()
 
+    elif params.comment:
+        return get_add_comment_html(params.comment)
+
     elif params.user:
         return get_user_issues_html(params.user)
 
@@ -698,9 +710,10 @@ def main(args):
     if args:
         usage("Extra arg")
 
-    uri, params = parse_request_uri()
-    if not uri:
-        usage("Missing ISSUE")
+    if 'QUERY_STRING' not in os.environ:
+        usage("Missing QUERY_STRING")
+
+    params = get_params()
 
     send_data(get_cgi_html(params))
 

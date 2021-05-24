@@ -84,6 +84,17 @@ def get_postdata_params():
     return parse_qp(pd)
 
 
+def get_query_params():
+    qs = os.environ.get("QUERY_STRING")
+    return easydict(parse_qp(qs))
+
+
+def get_params():
+    qpd = get_query_params() or {}
+    pdp = get_postdata_params() or {}
+    return easydict(qpd, **pdp)
+
+
 def get_request_method():
     return os.environ.get("REQUEST_METHOD")
 
@@ -134,8 +145,10 @@ __all__ = [
     "Tag",
     "accepts_gzip",
     "escape_html",
+    "get_params",
     "get_postdata",
     "get_postdata_params",
+    "get_query_params",
     "get_request_method",
     "mk_query_string",
     "parse_qp",
