@@ -199,8 +199,12 @@ def add_user_issue_fields(isu):
     return _user_issue_html_links2.format(**isu)
 
 
+def issuekey(issue):
+    project, issuenum = issue.split('-')
+    return project, int(issuenum)
+
 def user_issue_sortkey(x):
-    return -int(x.fields.priority.id), x.fields.status.id, x.key
+    return -int(x.fields.priority.id), x.fields.status.id, issuekey(x.key)
 
 
 def get_user_issues_html(user):
