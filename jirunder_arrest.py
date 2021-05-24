@@ -585,6 +585,10 @@ def get_postdata_params():
     return parse_qp(pd)
 
 
+def get_request_method():
+    return os.environ.get("REQUEST_METHOD")
+
+
 def usage(msg=None):
     if msg:
         print >>sys.stderr, msg + "\n"
