@@ -168,7 +168,7 @@ def get_assignee_name(assignee):
 _status_nicknames = {
     "Selected for Development" : "Slated",
     "In Progress"              : "Active",
-    "Development Complete"     : "Dev Complete",
+    "Development Complete"     : "DevCmp",
     "Ready for Testing"        : "RFT",
     "Ready for Release"        : "RFR",
 }
@@ -467,8 +467,9 @@ _user_issue_html_links1 = """\
 <head>
 <title>Issues for {_user}</title>
 <style>
-  table {{ text-align: left    }}
-  .nw   {{ white-space: nowrap }}
+  table {{ text-align: left       }}
+  table {{ font-family: monospace }}
+  .nw   {{ white-space: nowrap    }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -482,12 +483,12 @@ Issues for {_user}:
 
 _user_issue_html_links2 = """\
 <tr>
-<th><a href="?issue={key}">{key}</a></th>
-<td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
 <td class='nw'>{_status}<td>
 <td>|<td>
+<th><a href="?issue={key}">{key}</a></th>
+<td>:<td>
 <td>{fields.summary}<td>
 </tr>
 """
