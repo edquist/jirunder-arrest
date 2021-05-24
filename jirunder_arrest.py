@@ -117,7 +117,7 @@ def get_issue(issue, **kw):
 def get_user_issues(user, **kw):
     path = '/rest/api/2/search'
     e = easydict(
-        jql        = "assignee=%s+AND+status+!=+Closed" % user,
+        jql = "assignee=%s+AND+status+!=+Closed+AND+status+!=Done" % user,
         maxResults = 100,
         **kw
     )
