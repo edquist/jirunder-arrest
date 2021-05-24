@@ -14,6 +14,8 @@ def escape_html(txt, quot=False):
     txt = txt.replace('&', '&amp;')
     txt = txt.replace('<', '&lt;')
     txt = txt.replace('>', '&gt;')
+    if quot:
+        txt = txt.replace('"', '&quot;')
     return txt
 
 
@@ -68,9 +70,50 @@ def get_request_method():
     return os.environ.get("REQUEST_METHOD")
 
 
+def quote_attr_val(val):
+    if isinstance(val, int):
+        return "%s" % val  # or: val = "%s" % val
+    if "'" in val:
+        return '"%s"' % escape_html(val, quot=True)
+    else:
+        return "'%s'" % escape_html(val)
+
+
+def escape_attr(kv):
+    key, val = kv
+    key = key.lower()  # Class -> "class"
+    return (key if val is None else
+           '{key}={val}'.format(key=key, val=quote_attr_val(val)))
+
+
+def mktag(_name, _body=None, _attrs=None, **_kw):
+    attrs = _attrs or []
+    attrs += sorted(_kw.items())
+    tagline = _name
+    if attrs:
+        attrtxt = '; '.join(map(escape_attr, attrs))
+        tagline += " " + attrtxt
+    if _body is None:
+        return "<%s />" % tagline
+    else:
+        return "<{tagline}>{_body}</{tagline}>".format(**locals())
+
+
+class Tag:
+    def __init__(self, tag):
+        self.tag = tag
+
+    def __call__(self, *_a_, **_kw_):
+        return mktag(self.tag, *_a_, **_kw_)
+
+    def __str__(self):
+        return self()
+
+
 # ... #
 
 __all__ = [
+    "Tag",
     "escape_html",
     "get_postdata",
     "get_postdata_params",
