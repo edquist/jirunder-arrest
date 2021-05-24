@@ -547,10 +547,15 @@ def dump_issue_json(issue):
 def m_hexchr(m):
     return chr(int(m.group(1), 16))
 
-def unescape_uri(s):
+def unescape_qp(s):
     if '+' in s: s = s.replace('+', ' ')
     if '%' in s: s = re.sub(ur'%([0-9a-fA-F]{2})', m_hexchr, s)
     return s
+
+
+def parse_qp(qp):
+    if qp:
+        return dict( map(unescape_qp, x.split('=', 1)) for x in qp.split('&') )
 
 
 def parse_uri(uri):
@@ -558,7 +563,7 @@ def parse_uri(uri):
         return None, None
     if '?' in uri:
         path, qp = uri.split('?', 1)
-        qpd = dict( map(unescape_uri, x.split('=', 1)) for x in qp.split('&') )
+        qpd = parse_qp(qp)
         return path, easydict(qpd)
     else:
         return uri, None
