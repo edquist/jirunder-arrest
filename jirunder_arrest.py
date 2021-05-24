@@ -181,6 +181,7 @@ _status_nicknames = {
     "Ready for Release"        : "RFR",
 }
 
+_backlog_statuses = ["Backlog", "Open", "To Do"]
 
 def get_status_nick(name):
     return _status_nicknames.get(name, name)
@@ -211,8 +212,13 @@ def issuekey(issue):
     project, issuenum = issue.split('-')
     return project, int(issuenum)
 
+
+def is_backlogged(x):
+    return x.fields.status.name in _backlog_statuses
+
 def user_issue_sortkey(x):
-    return -int(x.fields.priority.id), x.fields.status.id, issuekey(x.key)
+    return (-is_backlogged(x), -int(x.fields.priority.id), x.fields.status.id,
+            issuekey(x.key))
 
 
 def get_user_issues_html(user):
