@@ -494,7 +494,7 @@ _issue_html_comment = u"""\
 """
 
 _issue_html_add_comment = u"""\
-<form method="post" action="">
+<form method="post" action="" target="_blank">
 <input type="hidden" name="comment" value="{key}" />
 <input type="hidden" name="summary" value="{_summary}" />
 <input type="submit" value="Add Comment" />
