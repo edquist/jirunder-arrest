@@ -599,6 +599,14 @@ def issue_to_html(j):
     return html
 
 
+def get_issue_html(issue):
+    j = load_cached_issue(issue)
+    options.cookies = cookies.try_read_cookies('cookie.txt')
+    if not j:
+        url,h,j = get_issue(issue, expand='renderedFields')
+    return issue_to_html(j)
+
+
 _landing_html = u"""\
 <!DOCTYPE html>
 <html>
@@ -657,6 +665,21 @@ def usage(msg=None):
     sys.exit()
 
 
+def get_cgi_html(params):
+    if not params:
+        return landing_page()
+
+    elif params.user:
+        return get_user_issues_html(params.user)
+
+    elif params.issue:
+        return get_issue_html(params.issue)
+
+    else:
+        # nothing interesting was requested
+        return landing_page()
+
+
 def main(args):
     if len(args) == 1:
         issue, = args
@@ -679,19 +702,7 @@ def main(args):
     if not uri:
         usage("Missing ISSUE")
 
-    if params and params.get('user', None):
-        send_data(get_user_issues_html(params['user']))
-        return
-
-    if not params or not params.get('issue', None):
-        send_data(landing_page())
-        return
-
-    j = load_cached_issue(params.issue)
-    options.cookies = cookies.try_read_cookies('cookie.txt')
-    if not j:
-        url,h,j = get_issue(params.issue, expand='renderedFields')
-    send_data(issue_to_html(j))
+    send_data(get_cgi_html(params))
 
 
 if __name__ == '__main__':
