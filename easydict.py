@@ -31,6 +31,7 @@ def dconvert(dtype, d):
     return d
 
 
-def easydict(d):
+def easydict(_d=None, **_kw):
+    d = _kw if _d is None else dict(_d, **_kw) if _kw else _d
     return dconvert(_easydict, d)
 

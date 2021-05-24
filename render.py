@@ -40,7 +40,7 @@ _render_test_html = u"""\
 
 
 def get_render_page_html(jml):
-    e = easydict({})
+    e = easydict()
     if jml:
         issue = 'SOFTWARE-1234'  # arbitrarily
         url,h,e._rendered = render_jira_markup(issue, jml)
