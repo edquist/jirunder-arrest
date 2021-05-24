@@ -237,6 +237,22 @@ def get_user_issues_html(user):
 
 
 
+def get_add_comment_html(params):
+    e = easydict()
+    e.key = params.comment
+    e._summary = params.summary
+
+    if params.jml:
+        url,h,e._rendered = render_jira_markup(e.key, params.jml)
+        e._jml = escape_html(params.jml)
+    else:
+        e._rendered = ''
+        e._jml = ''
+
+    return _add_comment_html.format(**e)
+
+
+
 def add_issuelink_fields(ili, _type):
     ili._type = _type
     ili._status = get_status_nick(ili.fields.status.name)
@@ -260,7 +276,7 @@ _issue_html1 = u"""\
 <head>
 <title>{key} : {_summary}</title>
 <style>
-  body  {{ max-width: 800px    }}
+  body  {{ max-width:   800px  }}
   body  {{ margin-left:   3em  }}
   body  {{ margin-bottom: 3em  }}
   table {{ text-align: left    }}
@@ -478,7 +494,7 @@ _issue_html_comment = u"""\
 """
 
 _issue_html_add_comment = u"""\
-<form action="">
+<form method="post" action="">
 <input type="hidden" name="comment" value="{key}" />
 <input type="hidden" name="summary" value="{_summary}" />
 <input type="submit" value="Add Comment" />
@@ -535,6 +551,56 @@ _user_issue_html_links3 = """\
 
 """
 
+
+_add_comment_html = u"""\
+<!DOCTYPE html>
+<html>
+<head>
+<title>{key} :: Add Comment</title>
+<style>
+  body  {{ max-width:   800px  }}
+  body  {{ margin-left:   3em  }}
+  body  {{ margin-bottom: 3em  }}
+
+  .rbox {{ max-width: 600px  }}
+  .rbox {{ border: solid 1px }}
+  .rbox {{ padding: .5em 1em }}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h2>
+{key} : {_summary}
+</h2>
+
+<hr/>
+
+<h3>Add Comment</h3>
+<form method="post" action="">
+<input type="hidden" name="comment" value="{key}" />
+<input type="hidden" name="summary" value="{_summary}" />
+<textarea id="jml_ta" name="jml" rows="20" cols="80">{_jml}</textarea>
+<br/>
+<input type="submit" value="Preview">
+<input type="submit" value="Add">
+</form>
+<form action="">
+<input type="hidden" name="issue" value="{key}" />
+<input type="submit" value="Cancel">
+</form>
+
+<hr/>
+
+<h3>Preview</h3>
+
+<div class='rbox'>
+{_rendered}
+</div>
+
+</body>
+</html>
+"""
 
 
 
@@ -679,7 +745,7 @@ def get_cgi_html(params):
         return landing_page()
 
     elif params.comment:
-        return get_add_comment_html(params.comment)
+        return get_add_comment_html(params)
 
     elif params.user:
         return get_user_issues_html(params.user)
