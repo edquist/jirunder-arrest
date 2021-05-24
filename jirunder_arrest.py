@@ -577,17 +577,19 @@ _add_comment_html = u"""\
 <hr/>
 
 <h3>Add Comment</h3>
+
+<form id="cancelform" action="">
+<input type="hidden" name="issue" value="{key}" />
+</form>
+
 <form method="post" action="">
 <input type="hidden" name="comment" value="{key}" />
 <input type="hidden" name="summary" value="{_summary}" />
 <textarea id="jml_ta" name="jml" rows="20" cols="80">{_jml}</textarea>
 <br/>
-<input type="submit" value="Preview">
-<input type="submit" value="Add">
-</form>
-<form action="">
-<input type="hidden" name="issue" value="{key}" />
-<input type="submit" value="Cancel">
+<input type="submit" name="action" value="Preview">
+<input type="submit" name="action" value="Add">
+<input type="submit" form="cancelform" value="Cancel" />
 </form>
 
 <hr/>
