@@ -5,6 +5,7 @@ import re
 import sys
 
 from easydict import easydict
+import gzippy
 
 def mk_query_string(data):
     itemstrs = sorted( (k, str(v)) for k,v in data.items() )
@@ -21,11 +22,15 @@ def escape_html(txt, quot=False):
 
 
 _html_header = "Content-Type: text/html; charset=utf-8"
+_gzip_header = "Content-Encoding: gzip"
 
 def send_data(data):
     headers = [_html_header]
     if not isinstance(data, bytes):
         data = data.encode("utf-8")
+    if accepts_gzip():
+        headers += [_gzip_header]
+        data = gzippy.compress(data)
     headers += ['','']
     headertxt = "\r\n".join(headers)
     sys.stdout.write(headertxt + data)
@@ -67,6 +72,11 @@ def get_postdata():
     clen = os.environ.get("CONTENT_LENGTH")
     if clen is not None:
         return sys.stdin.read(int(clen))
+
+
+def accepts_gzip():
+    enc = os.environ.get("HTTP_ACCEPT_ENCODING")
+    return enc and "gzip" in enc.split(", ")
 
 
 def get_postdata_params():
@@ -122,6 +132,7 @@ class Tag:
 
 __all__ = [
     "Tag",
+    "accepts_gzip",
     "escape_html",
     "get_postdata",
     "get_postdata_params",
