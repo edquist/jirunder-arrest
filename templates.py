@@ -374,6 +374,10 @@ error_page_html = u"""\
 
 <h2 class="ms">Error: {_code} {_msg}</h2>
 
+<pre>
+{_emsgs}
+</pre>
+
 <h4>API URL</h4>
 <pre>
 {_url}

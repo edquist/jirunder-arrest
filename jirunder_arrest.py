@@ -386,6 +386,7 @@ def get_error_page_html(resp):
     e._body    = json.dumps(body, sort_keys=1, indent=2)
     e._code    = resp.getcode()
     e._msg     = resp.msg
+    e._emsgs   = "\n".join(body.errorMessages or [])
 
     return templates.error_page_html.format(**e)
 
