@@ -60,7 +60,7 @@ def add_cookie_header(req):
             req.add_header("Cookie", val)
 
 
-def call_api(method, path, data):
+def package_request_data(method, path, data):
     if data:
         if method == GET:
             path = path + mk_query_string(data)
@@ -68,6 +68,11 @@ def call_api(method, path, data):
         else:
             if isinstance(data, dict):
                 data = json.dumps(data)
+    return path, data
+
+
+def call_api(method, path, data):
+    path, data = package_request_data(method, path, data)
 
     url = jira_url + path
 
