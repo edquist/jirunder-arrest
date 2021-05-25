@@ -263,7 +263,7 @@ def get_add_comment_response_html(issue, body):
         e.key = issue
         return templates.post_response_html.format(**e)
     else:
-        return "<html><body>Fail: no cookies</body></html>"
+        return templates.cookies_required_html
 
 
 def get_add_comment_html(params):

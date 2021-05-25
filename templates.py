@@ -396,3 +396,12 @@ landing_html = u"""\
 </html>
 """
 
+cookies_required_html = u"""\
+<html>
+<body>
+Fail: cookies required
+</body>
+</html>
+"""
+
+
