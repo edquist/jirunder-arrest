@@ -92,16 +92,9 @@ def call_api(method, path, data):
     return resp, resp_data
 
 
-def try_call_api(*a, **kw):
-    try:
-        return call_api(*a, **kw)
-    except urllib2.HTTPError:
-        return None, None
-
-
-def auth_try_call_api(*a, **kw):
+def auth_call_api(*a, **kw):
     if options.cookies:
-        return try_call_api(*a, **kw)
+        return call_api(*a, **kw)
     else:
         return None, None
 
@@ -125,42 +118,42 @@ def get_user_issues(user, **kw):
         maxResults = 100,
         **kw
     )
-    return try_call_api(GET, path, e)
+    return call_api(GET, path, e)
 
 
 def get_epic(issue, **kw):
     path = "/rest/agile/1.0/epic/" + issue
-    return auth_try_call_api(GET, path, kw)
+    return auth_call_api(GET, path, kw)
 
 
 def get_epic_issues(issue, **kw):
     path = "/rest/agile/1.0/epic/%s/issue" % issue
-    return auth_try_call_api(GET, path, kw)
+    return auth_call_api(GET, path, kw)
 
 
 def get_username(**kw):
     path = "/rest/auth/latest/session"
-    resp, j = auth_try_call_api(GET, path, kw)
+    resp, j = auth_call_api(GET, path, kw)
     return j
 
 
 def get_users(query="", **kw):
     path = "https://opensciencegrid.atlassian.net/rest/api/3/user/search"
     kw = dict(query=query, **kw)
-    resp, j = auth_try_call_api(GET, path, kw)
+    resp, j = auth_call_api(GET, path, kw)
     return j
 
 
 def post_comment(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
     data = {'body': body}
-    return auth_try_call_api(POST, path, data)
+    return auth_call_api(POST, path, data)
 
 
 def update_description(issue, body):
     path = "/rest/api/2/issue/%s/comment" % issue
     data = {"update": {"description": [{"set": body}]}}
-    return auth_try_call_api(PUT, path, data)
+    return auth_call_api(PUT, path, data)
 
 
 def render_jira_markup(issue, jml):
@@ -168,7 +161,7 @@ def render_jira_markup(issue, jml):
     data = {"rendererType"     : "atlassian-wiki-renderer",
             "unrenderedMarkup" : jml,
             "issueKey"         : issue}
-    return try_call_api(POST, path, data)
+    return call_api(POST, path, data)
 
 
 def get_assignee_name(assignee):
