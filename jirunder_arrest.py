@@ -14,6 +14,7 @@ from cgix     import *
 from easydict import easydict
 from gzippy   import gunzip
 import cookies
+import templates
 
 _usage = """\
 # xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
@@ -195,12 +196,12 @@ def get_epic_issues_html(issue):
                                             #,issuetype
     if resp_ok(resp):
         e = get_resp_data(resp)
-        html = _issue_html_epic_links1
+        html = templates.issue_html_epic_links1
         for el in e.issues:
             el._assignee = get_assignee_name(el.fields.assignee)
             el._status = get_status_nick(el.fields.status.name)
-            html += _issue_html_epic_links2.format(**el)
-        html += _issue_html_epic_links3
+            html += templates.issue_html_epic_links2.format(**el)
+        html += templates.issue_html_epic_links3
         return html
     else:
         return ''
@@ -208,7 +209,7 @@ def get_epic_issues_html(issue):
 
 def add_user_issue_fields(isu):
     isu._status = get_status_nick(isu.fields.status.name)
-    return _user_issue_html_links2.format(**isu)
+    return templates.user_issue_html_links2.format(**isu)
 
 
 def issuekey(issue):
@@ -228,10 +229,10 @@ def get_user_issues_html(user):
     resp = get_user_issues(user)
     e = get_resp_data(resp)
 
-    html = _user_issue_html_links1.format(_user=user)
+    html = templates.user_issue_html_links1.format(_user=user)
     for isu in sorted(e.issues, reverse=True, key=user_issue_sortkey):
         html += add_user_issue_fields(isu)
-    html += _user_issue_html_links3
+    html += templates.user_issue_html_links3
 
     return html
 
@@ -248,7 +249,7 @@ def get_add_comment_response_html(issue, body):
     e._code = resp.getcode()
     e._msg = resp.msg
     e.key = issue
-    return _post_response_html.format(**e)
+    return templates.post_response_html.format(**e)
 
 
 def get_add_comment_html(params):
@@ -267,421 +268,26 @@ def get_add_comment_html(params):
         e._rendered = ''
         e._jml = ''
 
-    return _add_comment_html.format(**e)
+    return templates.add_comment_html.format(**e)
 
 
 
 def add_issuelink_fields(ili, _type):
     ili._type = _type
     ili._status = get_status_nick(ili.fields.status.name)
-    return _issue_html_links2.format(**ili)
+    return templates.issue_html_links2.format(**ili)
 
 
 def get_issuelinks_html(e):
-    html = _issue_html_links1
+    html = templates.issue_html_links1
     for il in e.fields.issuelinks:
         if 'outwardIssue' in il:
             html += add_issuelink_fields(il.outwardIssue, il.type.outward)
         if 'inwardIssue' in il:
             html += add_issuelink_fields(il.inwardIssue, il.type.inward)
-    html += _issue_html_links3
+    html += templates.issue_html_links3
     return html
 
-
-_issue_html1 = u"""\
-<!DOCTYPE html>
-<html>
-<head>
-<title>{key} : {_summary}</title>
-<style>
-  body  {{ max-width:   800px  }}
-  body  {{ margin-left:   3em  }}
-  body  {{ margin-bottom: 3em  }}
-  table {{ text-align: left    }}
-  .fr   {{ float: right        }}
-  .nw   {{ white-space: nowrap }}
-  .unas {{ opacity: 0.5; font-style: italic }}
-  a.user-hover {{ text-decoration: underline }}
-  table.coltab {{ font-family: monospace }}
-  table.coltab th {{ padding-right: 1em }}
-  .confluenceTable, .confluenceTh, .confluenceTd {{
-      border: 1px solid grey;
-      border-collapse: collapse;
-      padding: 2px 4px;
-  }}
-
-  a.nu         , a.nu2         {{ color: inherit             }}
-  a.nu:link    , a.nu2:link    {{ text-decoration: none      }}
-  a.nu:visited , a.nu2:visited {{ text-decoration: none      }}
-  a.nu:hover                   {{ text-decoration: underline }}
-  a.nu2:hover                  {{ text-decoration: none      }}
-
-  .boxy {{ border-style: solid }}
-  .boxy {{ border-width:  1px  }}
-  .boxy {{ border-radius: 3px  }}
-  .boxy {{ padding:   1px 4px  }}
-
-  div.panelContent pre {{
-    overflow-x: auto;
-    overflow-y: auto;
-    max-height: 400px;
-    margin-left: 3em;
-    padding: 1em;
-    border: 1px dotted;
-    border-radius: 3px;
-  }}
-
-  .zzzzz {{
-    white-space: pre-wrap;
-    padding-left: 3em;
-    text-indent: -2em;
-  }}
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-<h2>
-{key} : {_summary}
-</h2>
-
-<div>
-<table style='margin-left: 2em'>
-<tr>
-
-<td>
-<table class='coltab'>
-
-<tr>
-<th>type</th>
-<td>{fields.issuetype.name}</td>
-</tr>
-
-<tr>
-<th>priority</th>
-<td>{fields.priority.name}</td>
-</tr>
-
-<tr>
-<th>components</th>
-<td>{_components}</td>
-</tr>
-
-<tr>
-<th>labels</th>
-<td>{_labels}</td>
-</tr>
-
-<tr>
-<th>epic link</th>
-<td>{_epic}</td>
-</tr>
-
-<tr>
-<th>sprint</th>
-<td>{_sprint}</td>
-</tr>
-</table>
-</td>
-
-<td width='5%'> </td>
-
-<td>
-
-<table class='coltab'>
-<tr>
-<th>status</th>
-<td>{fields.status.name}{_resolution}</td>
-</tr>
-
-<tr>
-<th>fix verions</th>
-<td>{_fixversions}</td>
-</tr>
-
-<tr>
-<th>assignee</th>
-<td>{_assignee}</td>
-</tr>
-
-<tr>
-<th>reporter</th>
-<td>{fields.reporter.displayName}</td>
-</tr>
-
-<tr>
-<th>created</th>
-<td>{renderedFields.created}</td>
-</tr>
-
-<tr>
-<th>updated</th>
-<td>{renderedFields.updated}</td>
-</tr>
-</table>
-
-</td>
-</tr>
-</table>
-
-</div>
-
-<hr/>
-
-<h3>Description</h3>
-
-<div>
-{renderedFields.description}
-</div>
-
-"""
-
-_issue_html_links1 = """\
-<hr/>
-
-<h3>Issue Links</h3>
-
-<table>
-"""
-
-_issue_html_links2 = """\
-<tr>
-<td class='nw'>{_type}:<td>
-<th><a href="?issue={key}">{key}</a></th>
-<td>|<td>
-<td>{fields.priority.name}<td>
-<td>|<td>
-<td class='nw'>{_status}<td>
-<td>|<td>
-<td>{fields.summary}<td>
-</tr>
-"""
-
-_issue_html_links3 = """\
-</table>
-
-<br/>
-
-"""
-
-_issue_html_epic_links1 = """\
-<hr/>
-
-<h3>Epic Links</h3>
-
-<table>
-"""
-
-_issue_html_epic_links2 = """\
-<tr>
-<td>{_assignee}<td>
-<td>|<td>
-<th><a href="?issue={key}">{key}</a></th>
-<td>|<td>
-<td>{fields.priority.name}<td>
-<td>|<td>
-<td class='nw'>{_status}<td>
-<td>|<td>
-<td>{fields.summary}<td>
-</tr>
-"""
-
-_issue_html_epic_links3 = """\
-</table>
-
-<br/>
-
-"""
-
-_issue_html_comments = """\
-<hr/>
-
-<h3>Comments ({fields.comment.total})</h3>
-
-<div>
-
-"""
-
-_issue_html_comment = u"""\
-<h4>
-{created} | {author.displayName}
-</h4>
-<div>
-{body}
-</div>
-<hr/>
-"""
-
-_issue_html_add_comment = u"""\
-<form method="post" action="" target="_blank">
-<input type="hidden" name="comment" value="{key}" />
-<input type="hidden" name="summary" value="{_summary}" />
-<input type="submit" value="Add Comment" />
-</form>
-"""
-
-_issue_html3 = u"""\
-</div>
-
-</body>
-</html>
-"""
-
-
-
-
-_user_issue_html_links1 = """\
-<!DOCTYPE html>
-<html>
-<head>
-<title>Issues for {_user}</title>
-<style>
-  table {{ text-align: left       }}
-  table {{ font-family: monospace }}
-  .nw   {{ white-space: nowrap    }}
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-<h3>
-Issues for {_user}:
-</h3>
-
-<table>
-"""
-
-_user_issue_html_links2 = """\
-<tr>
-<td>{fields.priority.name}<td>
-<td>|<td>
-<td class='nw'>{_status}<td>
-<td>|<td>
-<th><a href="?issue={key}">{key}</a></th>
-<td>:<td>
-<td>{fields.summary}<td>
-</tr>
-"""
-
-_user_issue_html_links3 = """\
-</table>
-
-</body>
-</html>
-
-"""
-
-
-_add_comment_html = u"""\
-<!DOCTYPE html>
-<html>
-<head>
-<title>{key} :: Add Comment</title>
-<style>
-  body  {{ max-width:   800px  }}
-  body  {{ margin-left:   3em  }}
-  body  {{ margin-bottom: 3em  }}
-
-  .rbox {{ max-width: 600px  }}
-  .rbox {{ border: solid 1px }}
-  .rbox {{ padding: .5em 1em }}
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-
-<h2>
-{key} : {_summary}
-</h2>
-
-<hr/>
-
-<h3>Add Comment</h3>
-
-<form id="cancelform" action="">
-<input type="hidden" name="issue" value="{key}" />
-</form>
-
-<form method="post" action="">
-<input type="hidden" name="comment" value="{key}" />
-<input type="hidden" name="summary" value="{_summary}" />
-<textarea id="jml_ta" name="jml" rows="20" cols="80">{_jml}</textarea>
-<br/>
-<input type="submit" name="action" value="Preview">
-<input type="submit" name="action" value="Add">
-<input type="submit" form="cancelform" value="Cancel" />
-</form>
-
-<hr/>
-
-<h3>Preview</h3>
-
-<div class='rbox'>
-{_rendered}
-</div>
-
-</body>
-</html>
-"""
-
-
-_post_response_html = u"""\
-<html>
-<head>
-<title>POST response</title>
-<style>
-  .ms   {{ font-family: monospace }}
-</style>
-</head>
-<body>
-<h2 class="ms">{_code} {_msg}</h2>
-<h3>POST response</h3>
-<a href="{_url}">{_url}</a>
-<br/>
-<h4>Headers</h4>
-<pre>{_headers}</pre>
-<h4>Body</h4>
-<pre>{_body}</pre>
-
-<p>
-Back to <a href="?issue={key}">{key}</a>
-</p>
-</body>
-</html>
-"""
-
-
-_landing_html = u"""\
-<!DOCTYPE html>
-<html>
-<head>
-<title>jirunder-arrest!</title>
-<style>
- .cen { text-align: center }
-</style>
-</head>
-<body>
-
-<h2>jirunder-arrest !</h2>
-
-<form id="viewform" action=""></form>
-<form id="userform" action=""></form>
-
-<table>
-<tr>
-<td><label for="issue_tb">Issue Key:</label></td>
-<td><input form="viewform" type="text" id="issue_tb" name="issue" /></td>
-<td><input form="viewform" type="submit" value="View Issue" /></td>
-</tr>
-<tr><td class="cen">or</td></tr>
-<tr>
-<td><label for="user_tb">Username:</label></td>
-<td><input form="userform" type="text" id="user_tb" name="user" /></td>
-<td><input form="userform" type="submit" value="Get Issues" /></td>
-</tr>
-</table>
-
-</body>
-</html>
-"""
 
 
 
@@ -733,7 +339,7 @@ def issue_to_html(e):
     e._epic        = get_epic_name(e.fields.customfield_10630)
     e._sprint      = cjoin(names(e.fields.customfield_10530 or [])) or '-'
 
-    html = _issue_html1.format(**e)
+    html = templates.issue_html1.format(**e)
 
     if e.fields.issuelinks:
         html += get_issuelinks_html(e)
@@ -742,11 +348,11 @@ def issue_to_html(e):
         html += get_epic_issues_html(e.key)
 
     # if e.fields.comment.total != len(e.renderedFields.comment.comments): ...
-    html += _issue_html_comments.format(**e)
+    html += templates.issue_html_comments.format(**e)
     for c in e.renderedFields.comment.comments:
-        html += _issue_html_comment.format(**c)
-    html += _issue_html_add_comment.format(**e)
-    html += _issue_html3
+        html += templates.issue_html_comment.format(**c)
+    html += templates.issue_html_add_comment.format(**e)
+    html += templates.issue_html3
     for pat in _ignorepats:
         html = re.sub(pat, u'', html)
     for pat, repl in _subs:
@@ -763,7 +369,7 @@ def get_issue_html(issue):
 
 
 def landing_page():
-    return _landing_html
+    return templates.landing_html
 
 def dump_issue_json(issue):
     resp = get_issue(issue, expand='renderedFields')
