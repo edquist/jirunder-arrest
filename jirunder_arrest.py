@@ -431,6 +431,10 @@ def get_cgi_html(params):
     else                : return landing_page()
 
 
+def load_cookies():
+    options.cookies = cookies.try_read_cookies('cookie.txt')
+
+
 def main(args):
     if len(args) == 1:
         issue, = args
@@ -455,7 +459,7 @@ def main(args):
 
     params = get_params()
 
-    options.cookies = cookies.try_read_cookies('cookie.txt')
+    load_cookies()
     send_data(get_cgi_html(params))
 
 
