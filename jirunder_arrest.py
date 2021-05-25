@@ -649,6 +649,41 @@ Back to <a href="?issue={key}">{key}</a>
 """
 
 
+_landing_html = u"""\
+<!DOCTYPE html>
+<html>
+<head>
+<title>jirunder-arrest!</title>
+<style>
+ .cen { text-align: center }
+</style>
+</head>
+<body>
+
+<h2>jirunder-arrest !</h2>
+
+<form id="viewform" action=""></form>
+<form id="userform" action=""></form>
+
+<table>
+<tr>
+<td><label for="issue_tb">Issue Key:</label></td>
+<td><input form="viewform" type="text" id="issue_tb" name="issue" /></td>
+<td><input form="viewform" type="submit" value="View Issue" /></td>
+</tr>
+<tr><td class="cen">or</td></tr>
+<tr>
+<td><label for="user_tb">Username:</label></td>
+<td><input form="userform" type="text" id="user_tb" name="user" /></td>
+<td><input form="userform" type="submit" value="Get Issues" /></td>
+</tr>
+</table>
+
+</body>
+</html>
+"""
+
+
 
 _ignorepats = [
     ur' *<img .*?/>',
@@ -726,40 +761,6 @@ def get_issue_html(issue):
         e = get_resp_data(resp)
     return issue_to_html(e)
 
-
-_landing_html = u"""\
-<!DOCTYPE html>
-<html>
-<head>
-<title>jirunder-arrest!</title>
-<style>
- .cen { text-align: center }
-</style>
-</head>
-<body>
-
-<h2>jirunder-arrest !</h2>
-
-<form id="viewform" action=""></form>
-<form id="userform" action=""></form>
-
-<table>
-<tr>
-<td><label for="issue_tb">Issue Key:</label></td>
-<td><input form="viewform" type="text" id="issue_tb" name="issue" /></td>
-<td><input form="viewform" type="submit" value="View Issue" /></td>
-</tr>
-<tr><td class="cen">or</td></tr>
-<tr>
-<td><label for="user_tb">Username:</label></td>
-<td><input form="userform" type="text" id="user_tb" name="user" /></td>
-<td><input form="userform" type="submit" value="Get Issues" /></td>
-</tr>
-</table>
-
-</body>
-</html>
-"""
 
 def landing_page():
     return _landing_html
