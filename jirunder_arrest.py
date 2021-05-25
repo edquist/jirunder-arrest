@@ -237,10 +237,26 @@ def get_user_issues_html(user):
 
 
 
+def get_add_comment_response_html(issue, body):
+    resp, j = post_comment(issue, body)
+    url = resp.geturl()
+    e = easydict()
+    e._url = escape_html(url, quot=True)
+    e._headers = escape_html(str(resp.headers))
+    e._body = json.dumps(j, sort_keys=1, indent=2)
+    e._code = resp.getcode()
+    e._msg = resp.msg
+    e.key = issue
+    return _post_response_html.format(**e)
+
+
 def get_add_comment_html(params):
     e = easydict()
     e.key = params.comment
     e._summary = params.summary
+
+    if params.jml and params.action == 'Add':
+        return get_add_comment_response_html(e.key, params.jml)
 
     if params.jml:
         resp, e._rendered = render_jira_markup(e.key, params.jml)
@@ -600,6 +616,32 @@ _add_comment_html = u"""\
 {_rendered}
 </div>
 
+</body>
+</html>
+"""
+
+
+_post_response_html = u"""\
+<html>
+<head>
+<title>POST response</title>
+<style>
+  .ms   {{ font-family: monospace }}
+</style>
+</head>
+<body>
+<h2 class="ms">{_code} {_msg}</h2>
+<h3>POST response</h3>
+<a href="{_url}">{_url}</a>
+<br/>
+<h4>Headers</h4>
+<pre>{_headers}</pre>
+<h4>Body</h4>
+<pre>{_body}</pre>
+
+<p>
+Back to <a href="?issue={key}">{key}</a>
+</p>
 </body>
 </html>
 """
