@@ -77,7 +77,10 @@ def call_api(method, path, data):
     add_cookie_header(req)
 
     req.get_method = lambda : method
-    resp = urllib2.urlopen(req)
+    try:
+        resp = urllib2.urlopen(req)
+    except urllib2.HTTPError as err:
+        resp = err
     headers = resp.headers
 
     resp_data = resp.read()
