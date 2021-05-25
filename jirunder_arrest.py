@@ -678,7 +678,6 @@ def issue_to_html(j):
 
 def get_issue_html(issue):
     j = load_cached_issue(issue)
-    options.cookies = cookies.try_read_cookies('cookie.txt')
     if not j:
         resp, j = get_issue(issue, expand='renderedFields')
     return issue_to_html(j)
@@ -782,6 +781,7 @@ def main(args):
 
     params = get_params()
 
+    options.cookies = cookies.try_read_cookies('cookie.txt')
     send_data(get_cgi_html(params))
 
 
