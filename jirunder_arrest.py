@@ -102,7 +102,7 @@ def get_resp_data(resp):
     if resp.headers.get('Content-Encoding') == 'gzip':
         data = gunzip(data)
     if resp.headers.gettype() == 'application/json':
-        data = easydict(json.loads(data))
+        data = easydict(json.loads(data)) if data else None
 
     return data
 
