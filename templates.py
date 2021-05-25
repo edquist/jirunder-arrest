@@ -365,7 +365,7 @@ Back to <a href="?issue={key}">{key}</a>
 error_page_html = u"""\
 <html>
 <head>
-<title>ERROR</title>
+<title>Error: {_code} {_msg}</title>
 <style>
   .ms   {{ font-family: monospace }}
 </style>
@@ -374,15 +374,16 @@ error_page_html = u"""\
 
 <h2 class="ms">{_code} {_msg}</h2>
 
-<p>
-API URL: {_url}
-</p>
-
-<h4>Headers</h4>
-<pre>{_headers}</pre>
+<h4>API URL</h4>
+<pre>
+{_url}
+</pre>
 
 <h4>Response</h4>
 <pre>{_body}</pre>
+
+<h4>Headers</h4>
+<pre>{_headers}</pre>
 
 </body>
 </html>
