@@ -44,7 +44,7 @@ def get_render_page_html(jml):
     e = easydict()
     if jml:
         issue = 'SOFTWARE-1234'  # arbitrarily
-        url,h,e._rendered = render_jira_markup(issue, jml)
+        resp, e._rendered = render_jira_markup(issue, jml)
         e._jml = escape_html(jml)
     else:
         e._rendered = ''

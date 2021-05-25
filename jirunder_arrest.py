@@ -84,23 +84,23 @@ def call_api(method, path, data):
     if headers.get('Content-Encoding') == 'gzip':
         resp_data = gunzip(resp_data)
     if headers.gettype() == 'application/json':
-        resp_data = json.loads(resp_data)
+        resp_data = easydict(json.loads(resp_data))
 
-    return url, headers, resp_data
+    return resp, resp_data
 
 
 def try_call_api(*a, **kw):
     try:
         return call_api(*a, **kw)
     except urllib2.HTTPError:
-        return None, None, None
+        return None, None
 
 
 def auth_try_call_api(*a, **kw):
     if options.cookies:
         return try_call_api(*a, **kw)
     else:
-        return None, None, None
+        return None, None
 
 
 def load_cached_issue(issue):
@@ -137,14 +137,14 @@ def get_epic_issues(issue, **kw):
 
 def get_username(**kw):
     path = "/rest/auth/latest/session"
-    url,h,j = auth_try_call_api(GET, path, kw)
+    resp, j = auth_try_call_api(GET, path, kw)
     return j
 
 
 def get_users(query="", **kw):
     path = "https://opensciencegrid.atlassian.net/rest/api/3/user/search"
     kw = dict(query=query, **kw)
-    url,h,j = auth_try_call_api(GET, path, kw)
+    resp, j = auth_try_call_api(GET, path, kw)
     return j
 
 
@@ -188,7 +188,7 @@ def get_status_nick(name):
 
 
 def get_epic_issues_html(issue):
-    url,h,j = get_epic_issues(issue, fields="summary,status,priority,assignee")
+    resp, j = get_epic_issues(issue, fields="summary,status,priority,assignee")
                                             #,issuetype
     if j:
         e = easydict(j)
@@ -222,7 +222,7 @@ def user_issue_sortkey(x):
 
 
 def get_user_issues_html(user):
-    url,h,j = get_user_issues(user)
+    resp, j = get_user_issues(user)
     #if not j:
         #return ''
 
@@ -243,7 +243,7 @@ def get_add_comment_html(params):
     e._summary = params.summary
 
     if params.jml:
-        url,h,e._rendered = render_jira_markup(e.key, params.jml)
+        resp, e._rendered = render_jira_markup(e.key, params.jml)
         e._jml = escape_html(params.jml)
     else:
         e._rendered = ''
@@ -636,7 +636,7 @@ def issue_key_link(issue, title=None, classes=None):
 
 def get_epic_name(issue):
     if issue:
-        url,h,j = get_epic(issue)
+        resp, j = get_epic(issue)
         title = easydict(j).name if j else issue
         return issue_key_link(issue, title, 'boxy nu2')
     else:
@@ -680,7 +680,7 @@ def get_issue_html(issue):
     j = load_cached_issue(issue)
     options.cookies = cookies.try_read_cookies('cookie.txt')
     if not j:
-        url,h,j = get_issue(issue, expand='renderedFields')
+        resp, j = get_issue(issue, expand='renderedFields')
     return issue_to_html(j)
 
 
@@ -722,11 +722,11 @@ def landing_page():
     return _landing_html
 
 def dump_issue_json(issue):
-    url,h,j = get_issue(issue, expand='renderedFields')
+    resp, j = get_issue(issue, expand='renderedFields')
     pp = json.dumps(j, sort_keys=1, indent=2)
-#   print "Headers for <%s>" % url
+#   print "Headers for <%s>" % resp.geturl()
 #   print "---"
-#   print h
+#   print resp.headers
 #   print "---"
 #   print
     print pp
@@ -770,7 +770,7 @@ def main(args):
     if len(args) == 2 and args[0] == '--render':
         jml = args[1]
         issue = 'SOFTWARE-1234'  # arbitrarily
-        url,h,html = render_jira_markup(issue, jml)
+        resp, html = render_jira_markup(issue, jml)
         print html
         return
 
