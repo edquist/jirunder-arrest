@@ -133,7 +133,7 @@ def get_issue(issue, **kw):
 def get_user_issues(user, **kw):
     path = '/rest/api/2/search'
     e = easydict(
-        jql = "assignee=%s+AND+status+not+in+(Closed,+Done,+Abandoned)" % user,
+        jql = "assignee=%s+AND+statusCategory+!=+Done" % user,
         maxResults = 100,
         **kw
     )
@@ -196,7 +196,6 @@ _status_nicknames = {
     "Ready for Release"        : "RFR",
 }
 
-_backlog_statuses = ["Backlog", "Open", "To Do"]
 
 def get_status_nick(name):
     return _status_nicknames.get(name, name)
@@ -228,12 +227,9 @@ def issuekey(issue):
     return project, int(issuenum)
 
 
-def is_backlogged(x):
-    return x.fields.status.name in _backlog_statuses
-
 def user_issue_sortkey(x):
-    return (-is_backlogged(x), -int(x.fields.priority.id), x.fields.status.id,
-            issuekey(x.key))
+    return (int(x.fields.status.statusCategory.id), -int(x.fields.priority.id),
+            x.fields.status.id, issuekey(x.key))
 
 
 def get_user_issues_html(user):
