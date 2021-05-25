@@ -183,6 +183,20 @@ def render_jira_markup(issue, jml):
     return call_api(POST, path, data)
 
 
+def get_transitions(issue, **kw):
+    path = "/rest/api/2/issue/%s/transitions" % issue
+    # can: expand=transitions.fields for field transitions
+    return call_api(GET, path, kw)
+
+
+def post_transition(issue, transition_id, **kw):
+    path = "/rest/api/2/issue/%s/transitions" % issue
+    e = easydict()
+    e.transition.id = str(transition_id)
+    e.update(kw)
+    return call_api(POST, path, e)
+
+
 def get_assignee_name(assignee):
     unassigned_html = "<span class='unas'>Unassigned</span>"
     return assignee.displayName if assignee else unassigned_html
