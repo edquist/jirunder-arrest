@@ -407,21 +407,11 @@ def usage(msg=None):
 
 
 def get_cgi_html(params):
-    if not params:
-        return landing_page()
-
-    elif params.comment:
-        return get_add_comment_html(params)
-
-    elif params.user:
-        return get_user_issues_html(params.user)
-
-    elif params.issue:
-        return get_issue_html(params.issue)
-
-    else:
-        # nothing interesting was requested
-        return landing_page()
+    if   not params     : return landing_page() 
+    elif params.comment : return get_add_comment_html(params) 
+    elif params.user    : return get_user_issues_html(params.user) 
+    elif params.issue   : return get_issue_html(params.issue) 
+    else                : return landing_page()
 
 
 def main(args):
