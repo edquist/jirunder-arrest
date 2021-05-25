@@ -372,7 +372,7 @@ error_page_html = u"""\
 </head>
 <body>
 
-<h2 class="ms">{_code} {_msg}</h2>
+<h2 class="ms">Error: {_code} {_msg}</h2>
 
 <h4>API URL</h4>
 <pre>
