@@ -71,9 +71,7 @@ def package_request_data(method, path, data):
     return path, data
 
 
-def call_api(method, path, data):
-    path, data = package_request_data(method, path, data)
-
+def mk_request(method, path, data):
     url = jira_url + path
 
     req = urllib2.Request(url, data)
@@ -83,6 +81,15 @@ def call_api(method, path, data):
     add_cookie_header(req)
 
     req.get_method = lambda : method
+
+    return req
+
+
+def call_api(method, path, data):
+    path, data = package_request_data(method, path, data)
+
+    req = mk_request(method, path, data)
+
     try:
         resp = urllib2.urlopen(req)
     except urllib2.HTTPError as err:
