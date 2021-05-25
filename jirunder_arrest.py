@@ -374,10 +374,28 @@ def issue_to_html(e):
     return html
 
 
+def get_error_page_html(resp):
+    if not resp:
+        return templates.cookies_required_html
+
+    url = resp.geturl()
+    body = get_resp_data(resp)
+    e = easydict()
+    e._url     = escape_html(url, quot=True)
+    e._headers = escape_html(str(resp.headers))
+    e._body    = json.dumps(body, sort_keys=1, indent=2)
+    e._code    = resp.getcode()
+    e._msg     = resp.msg
+
+    return templates.error_page_html.format(**e)
+
+
 def get_issue_html(issue):
     e = load_cached_issue(issue)
     if not e:
         resp = get_issue(issue, expand='renderedFields')
+        if not resp_ok(resp):
+            return get_error_page_html(resp)
         e = get_resp_data(resp)
     return issue_to_html(e)
 

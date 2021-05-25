@@ -362,6 +362,33 @@ Back to <a href="?issue={key}">{key}</a>
 """
 
 
+error_page_html = u"""\
+<html>
+<head>
+<title>ERROR</title>
+<style>
+  .ms   {{ font-family: monospace }}
+</style>
+</head>
+<body>
+
+<h2 class="ms">{_code} {_msg}</h2>
+
+<p>
+API URL: {_url}
+</p>
+
+<h4>Headers</h4>
+<pre>{_headers}</pre>
+
+<h4>Response</h4>
+<pre>{_body}</pre>
+
+</body>
+</html>
+"""
+
+
 landing_html = u"""\
 <!DOCTYPE html>
 <html>
