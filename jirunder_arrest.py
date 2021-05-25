@@ -247,7 +247,7 @@ def get_user_issues_html(user):
 
 def get_add_comment_response_html(issue, body):
     resp = post_comment(issue, body)
-    if resp:
+    if resp_ok(resp):
         url = resp.geturl()
         resp_data = get_resp_data(resp)
         e = easydict()
@@ -258,6 +258,8 @@ def get_add_comment_response_html(issue, body):
         e._msg = resp.msg
         e.key = issue
         return templates.post_response_html.format(**e)
+    elif resp:
+        return get_error_page_html(resp)
     else:
         return templates.cookies_required_html
 
