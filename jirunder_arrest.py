@@ -251,16 +251,19 @@ def get_user_issues_html(user):
 
 def get_add_comment_response_html(issue, body):
     resp = post_comment(issue, body)
-    url = resp.geturl()
-    resp_data = get_resp_data(resp)
-    e = easydict()
-    e._url = escape_html(url, quot=True)
-    e._headers = escape_html(str(resp.headers))
-    e._body = json.dumps(resp_data, sort_keys=1, indent=2)
-    e._code = resp.getcode()
-    e._msg = resp.msg
-    e.key = issue
-    return templates.post_response_html.format(**e)
+    if resp:
+        url = resp.geturl()
+        resp_data = get_resp_data(resp)
+        e = easydict()
+        e._url = escape_html(url, quot=True)
+        e._headers = escape_html(str(resp.headers))
+        e._body = json.dumps(resp_data, sort_keys=1, indent=2)
+        e._code = resp.getcode()
+        e._msg = resp.msg
+        e.key = issue
+        return templates.post_response_html.format(**e)
+    else:
+        return "<html><body>Fail: no cookies</body></html>"
 
 
 def get_add_comment_html(params):
