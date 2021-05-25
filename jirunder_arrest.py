@@ -228,7 +228,7 @@ def issuekey(issue):
 
 
 def user_issue_sortkey(x):
-    return (int(x.fields.status.statusCategory.id), -int(x.fields.priority.id),
+    return (x.fields.status.statusCategory.id, -int(x.fields.priority.id),
             x.fields.status.id, issuekey(x.key))
 
 
