@@ -4,7 +4,7 @@ import sys
 
 from easydict        import easydict
 from cgix            import *
-from jirunder_arrest import render_jira_markup
+from jirunder_arrest import render_jira_markup, get_resp_data
 
 
 _render_test_html = u"""\
@@ -44,7 +44,8 @@ def get_render_page_html(jml):
     e = easydict()
     if jml:
         issue = 'SOFTWARE-1234'  # arbitrarily
-        resp, e._rendered = render_jira_markup(issue, jml)
+        resp = render_jira_markup(issue, jml)
+        e._rendered = get_resp_data(resp)
         e._jml = escape_html(jml)
     else:
         e._rendered = ''
