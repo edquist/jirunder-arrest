@@ -120,7 +120,7 @@ def mktag(_name, _body=None, _attrs=None, **_kw):
     attrs += sorted(_kw.items())
     tagline = _name
     if attrs:
-        attrtxt = '; '.join(map(escape_attr, attrs))
+        attrtxt = ' '.join(map(escape_attr, attrs))
         tagline += " " + attrtxt
     if _body is None:
         return "<%s />" % tagline
