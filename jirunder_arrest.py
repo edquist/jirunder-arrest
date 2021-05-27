@@ -476,12 +476,12 @@ def usage(msg=None):
 
 
 def get_cgi_html(params):
-    if   not params     : return landing_page()
-    elif params.comment : return get_add_comment_html(params)
+    if   not params        : return landing_page()
+    elif params.comment    : return get_add_comment_html(params)
     elif params.transition : return get_transition_issue_html__params(params)
-    elif params.user    : return get_user_issues_html(params.user)
-    elif params.issue   : return get_issue_html(params.issue)
-    else                : return landing_page()
+    elif params.user       : return get_user_issues_html(params.user)
+    elif params.issue      : return get_issue_html(params.issue)
+    else                   : return landing_page()
 
 
 def load_cookies():
