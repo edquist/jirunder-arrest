@@ -358,6 +358,11 @@ post_response_html = u"""\
 </head>
 <body>
 <h2 class="ms">{_code} {_msg}</h2>
+
+<p>
+Back to <a href="?issue={key}">{key}</a>
+</p>
+
 <h3>POST response</h3>
 <a href="{_url}">{_url}</a>
 <br/>
@@ -365,10 +370,6 @@ post_response_html = u"""\
 <pre>{_headers}</pre>
 <h4>Body</h4>
 <pre>{_body}</pre>
-
-<p>
-Back to <a href="?issue={key}">{key}</a>
-</p>
 </body>
 </html>
 """
