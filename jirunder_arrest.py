@@ -354,16 +354,24 @@ def get_epic_name(issue):
         return '-'
 
 
+def set_fancy_issue_status(e):
+    res = e.fields.resolution
+    e._resolution  = ' / ' + res.name if res else ''
+    e._status = "{fields.status.name}{_resolution}".format(**e)
+    if options.cookies:
+        e._status = templates.issue_status_button.format(**e)
+
+
 def issue_to_html(e):
     e._fixversions = cjoin(names(e.fields.fixVersions)) or '-'
     e._components  = cjoin(names(e.fields.components)) or '-'
     e._labels      = cjoin(e.fields.labels) or '-'
     e._summary     = escape_html(e.fields.summary)
     e._assignee    = get_assignee_name(e.fields.assignee)
-    e._resolution  = ' / ' + e.fields.resolution.name if e.fields.resolution \
-                                                      else ''
     e._epic        = get_epic_name(e.fields.customfield_10630)
     e._sprint      = cjoin(names(e.fields.customfield_10530 or [])) or '-'
+
+    set_fancy_issue_status(e)
 
     html = templates.issue_html1.format(**e)
 

@@ -29,10 +29,15 @@ issue_html1 = u"""\
   a.nu:hover                   {{ text-decoration: underline }}
   a.nu2:hover                  {{ text-decoration: none      }}
 
-  .boxy {{ border-style: solid }}
-  .boxy {{ border-width:  1px  }}
-  .boxy {{ border-radius: 3px  }}
-  .boxy {{ padding:   1px 4px  }}
+  .hbb, .boxy {{ border-style: solid }}
+  .hbb, .boxy {{ border-width:  1px  }}
+  .hbb, .boxy {{ border-radius: 3px  }}
+  .hbb, .boxy {{ padding:   1px 4px  }}
+
+  .hbb       {{ border-color: transparent  }}
+  .hbb:hover {{ border-color: currentcolor }}
+  .hbb       {{ font-family: monospace }}
+  .hbb       {{ margin-left: -5px      }}
 
   div.panelContent pre {{
     overflow-x: auto;
@@ -103,7 +108,7 @@ issue_html1 = u"""\
 <table class='coltab'>
 <tr>
 <th>status</th>
-<td>{fields.status.name}{_resolution}</td>
+<td>{_status}</td>
 </tr>
 
 <tr>
@@ -239,6 +244,13 @@ issue_html3 = u"""\
 </html>
 """
 
+issue_status_button = u"""\
+<form method="post" action="">\
+<input type="hidden" name="transition" value="{key}" />\
+<input type="hidden" name="summary" value="{_summary}" />\
+<input type="submit" value="{_status}" class="hbb" />\
+</form>
+"""
 
 
 
