@@ -245,10 +245,11 @@ issue_html3 = u"""\
 """
 
 issue_status_button = u"""\
-<form method="post" action="">\
-<input type="hidden" name="transition" value="{key}" />\
-<input type="hidden" name="summary" value="{_summary}" />\
-<input type="submit" value="{_status}" class="hbb" />\
+<form method="post" action="">
+<input type="hidden" name="transition" value="{key}" />
+<input type="hidden" name="status" value="{_status}" />
+<input type="hidden" name="summary" value="{_summary}" />
+<input type="submit" value="{_status}" class="hbb" />
 </form>
 """
 
