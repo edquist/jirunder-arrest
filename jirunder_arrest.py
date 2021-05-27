@@ -215,6 +215,32 @@ def get_status_nick(name):
     return _status_nicknames.get(name, name)
 
 
+def get_transition_issue_html(issue, status, summary):
+    resp = get_transitions(issue)
+    if not resp_ok(resp):
+        return templates.cookies_required_html  # well, maybe other errors
+    e = get_resp_data(resp)
+    e.key = issue
+    e._summary = summary
+    e._status = status
+    e._transition_radios = "".join(
+        templates.issue_transition_radio.format(**t) for t in e.transitions )
+    return templates.issue_transition.format(**e)
+
+
+def get_transition_issue_html__params(p):
+    issue = p.transition
+    if p.id:
+        return get_transition_issue_response_html(issue, p.id)
+    else:
+        return get_transition_issue_html(issue, p.status, p.summary)
+
+
+def get_transition_issue_response_html(issue, transition_id):
+    resp = post_transition(issue, transition_id)
+    return get_post_response_html(resp)
+
+
 def get_epic_issues_html(issue):
     resp = get_epic_issues(issue, fields="summary,status,priority,assignee")
                                             #,issuetype
@@ -452,6 +478,7 @@ def usage(msg=None):
 def get_cgi_html(params):
     if   not params     : return landing_page()
     elif params.comment : return get_add_comment_html(params)
+    elif params.transition : return get_transition_issue_html__params(params)
     elif params.user    : return get_user_issues_html(params.user)
     elif params.issue   : return get_issue_html(params.issue)
     else                : return landing_page()

@@ -348,6 +348,47 @@ add_comment_html = u"""\
 </html>
 """
 
+issue_transition = u"""\
+<!DOCTYPE html>
+<html>
+<head>
+<title>{key} :: Workflow Transition</title>
+<style>
+  body  {{ max-width:   800px  }}
+  body  {{ margin-left:   3em  }}
+  body  {{ margin-bottom: 3em  }}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h2>
+{key} : {_summary}
+</h2>
+
+<h3>[ {_status} ]</h3>
+
+<p>Transition:</p>
+
+<form method="post" action="">
+<input type="hidden" name="transition" value="{key}" />
+<p>
+{_transition_radios}
+</p>
+<p>
+<input type="submit" value="Go!" />
+</p>
+</form>
+
+</body>
+</html>
+"""
+
+issue_transition_radio = u"""\
+<input type="radio" id="{id}" name="{name}" value="{id}">
+<label for="{id}">{name}</label><br>
+"""
+
 
 post_response_html = u"""\
 <html>
