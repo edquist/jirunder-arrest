@@ -261,6 +261,10 @@ def get_user_issues_html(user):
 
 def get_add_comment_response_html(issue, body):
     resp = post_comment(issue, body)
+    return get_post_response_html(resp)
+
+
+def get_post_response_html(resp):
     if resp_ok(resp):
         url = resp.geturl()
         resp_data = get_resp_data(resp)
