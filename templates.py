@@ -385,7 +385,7 @@ issue_transition = u"""\
 """
 
 issue_transition_radio = u"""\
-<input type="radio" id="{id}" name="{name}" value="{id}">
+<input type="radio" id="{id}" name="transition_id" value="{id}">
 <label for="{id}">{name}</label><br>
 """
 

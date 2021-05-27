@@ -230,8 +230,8 @@ def get_transition_issue_html(issue, status, summary):
 
 def get_transition_issue_html__params(p):
     issue = p.transition
-    if p.id:
-        return get_transition_issue_response_html(issue, p.id)
+    if p.transition_id:
+        return get_transition_issue_response_html(issue, p.transition_id)
     else:
         return get_transition_issue_html(issue, p.status, p.summary)
 
