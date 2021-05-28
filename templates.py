@@ -38,6 +38,8 @@ issue_html1 = u"""\
   .hbb:hover {{ border-color: currentcolor }}
   .hbb       {{ font-family: monospace }}
   .hbb       {{ margin-left: -5px      }}
+  .hbb       {{ background-color: inherit }}
+  .hbb       {{ color: inherit }}
 
   div.panelContent pre {{
     overflow-x: auto;

@@ -379,7 +379,7 @@ def get_epic_name(issue):
     if issue:
         resp = get_epic(issue)
         title = get_resp_data(resp).name if resp_ok(resp) else issue
-        return issue_key_link(issue, title, 'boxy nu2')
+        return issue_key_link(issue, title, 'boxy nu2 nw')
     else:
         return '-'
 
