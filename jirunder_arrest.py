@@ -454,6 +454,13 @@ def get_issue_html(issue):
 def landing_page():
     return templates.landing_html
 
+
+def login_page(params):
+    e = easydict()
+    e._token = escape_html(params.token) if params.token else ''
+    return templates.login_page.format(**e)
+
+
 def dump_issue_json(issue):
     resp = get_issue(issue, expand='renderedFields')
     e = get_resp_data(resp)
@@ -477,6 +484,7 @@ def usage(msg=None):
 
 def get_cgi_html(params):
     if   not params        : return landing_page()
+    elif params.login      : return login_page(params)
     elif params.comment    : return get_add_comment_html(params)
     elif params.transition : return get_transition_issue_html__params(params)
     elif params.user       : return get_user_issues_html(params.user)

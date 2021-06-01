@@ -496,4 +496,41 @@ Fail: cookies required
 </html>
 """
 
+login_page = u"""\
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cookie Mon Star :: Login</title>
+<style>
+  body  {{ max-width:   800px  }}
+  body  {{ margin-left:   3em  }}
+  body  {{ margin-bottom: 3em  }}
+
+  .btt  {{ font-family: monospace }}
+  .btt  {{ font-weight: bold      }}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h2>C is for Cookie</h2>
+
+<h3>That's good enough for me.</h3>
+
+<hr/>
+
+<p class="btt">cloud.session.token:</p>
+
+<form method="post" action="">
+<p>
+<textarea id="token_ta" name="token" rows="15" cols="80">{_token}</textarea>
+</p>
+<p>
+<input type="submit" value="Set Cookie" />
+</p>
+</form>
+
+</body>
+</html>
+"""
 
