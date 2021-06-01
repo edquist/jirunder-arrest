@@ -393,6 +393,7 @@ issue_transition_radio = u"""\
 
 
 post_response_html = u"""\
+<!DOCTYPE html>
 <html>
 <head>
 <title>POST response</title>
@@ -420,6 +421,7 @@ Back to <a href="?issue={key}">{key}</a>
 
 
 error_page_html = u"""\
+<!DOCTYPE html>
 <html>
 <head>
 <title>Error: {_code} {_msg}</title>
@@ -486,6 +488,7 @@ landing_html = u"""\
 """
 
 cookies_required_html = u"""\
+<!DOCTYPE html>
 <html>
 <body>
 Fail: cookies required
