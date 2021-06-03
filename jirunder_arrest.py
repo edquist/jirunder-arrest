@@ -208,6 +208,7 @@ _status_nicknames = {
     "Development Complete"     : "DevCmp",
     "Ready for Testing"        : "RFT",
     "Ready for Release"        : "RFR",
+    "Review Code"              : "Review",
 }
 
 
