@@ -238,7 +238,7 @@ def get_transition_issue_html__params(p):
 
 def get_transition_issue_response_html(issue, transition_id):
     resp = post_transition(issue, transition_id)
-    return get_post_response_html(resp)
+    return get_post_response_html(issue, resp)
 
 
 def get_epic_issues_html(issue):
@@ -287,10 +287,10 @@ def get_user_issues_html(user):
 
 def get_add_comment_response_html(issue, body):
     resp = post_comment(issue, body)
-    return get_post_response_html(resp)
+    return get_post_response_html(issue, resp)
 
 
-def get_post_response_html(resp):
+def get_post_response_html(issue, resp):
     if resp_ok(resp):
         url = resp.geturl()
         resp_data = get_resp_data(resp)
