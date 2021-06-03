@@ -14,6 +14,9 @@ issue_html1 = u"""\
   .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
   .unas {{ opacity: 0.5; font-style: italic }}
+
+  div.comm, div.desc {{ margin-left: 1em }}
+
   a.user-hover {{ text-decoration: underline }}
   table.coltab {{ font-family: monospace }}
   table.coltab th {{ padding-right: 1em }}
@@ -149,7 +152,7 @@ issue_html1 = u"""\
 
 <h3>Description</h3>
 
-<div>
+<div class="desc">
 {renderedFields.description}
 </div>
 
@@ -225,7 +228,7 @@ issue_html_comment = u"""\
 <h4>
 {created} | {author.displayName}
 </h4>
-<div>
+<div class="comm">
 {body}
 </div>
 <hr/>
