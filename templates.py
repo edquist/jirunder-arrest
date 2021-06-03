@@ -13,9 +13,10 @@ issue_html1 = u"""\
   table {{ text-align: left    }}
   .fr   {{ float: right        }}
   .nw   {{ white-space: nowrap }}
+  .sml  {{ font-size: small    }}
   .unas {{ opacity: 0.5; font-style: italic }}
 
-  div.comm, div.desc {{ margin-left: 1em }}
+  div.comm, div.desc, .ilt {{ margin-left: 1em }}
 
   a.user-hover {{ text-decoration: underline }}
   table.coltab {{ font-family: monospace }}
@@ -163,12 +164,12 @@ issue_html_links1 = """\
 
 <h3>Issue Links</h3>
 
-<table>
+<table class="ilt">
 """
 
 issue_html_links2 = """\
 <tr>
-<td class='nw'>{_type}:<td>
+<td class='nw sml'>{_type}:<td>
 <th><a href="?issue={key}">{key}</a></th>
 <td>|<td>
 <td>{fields.priority.name}<td>
