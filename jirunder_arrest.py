@@ -344,6 +344,11 @@ def update_user_lookup():
         pass
 
 
+def get_user_lookup_options_html():
+    uu = get_user_lookup()
+    return ''.join( templates.user_lookup_option.format(**u) for u in uu )
+
+
 def get_add_comment_html(params):
     e = easydict()
     e.key = params.comment
@@ -351,6 +356,8 @@ def get_add_comment_html(params):
 
     if params.jml and params.action == 'Add':
         return get_add_comment_response_html(e.key, params.jml)
+
+    e._user_lookup = get_user_lookup_options_html()
 
     if params.jml:
         resp = render_jira_markup(e.key, params.jml)

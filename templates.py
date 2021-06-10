@@ -346,7 +346,17 @@ add_comment_html = u"""\
 <input type="submit" name="action" value="Preview" />
 <input type="submit" name="action" value="Add" />
 <input type="submit" form="cancelform" value="Cancel" />
+
 </form>
+
+<p>
+<label for="users_i">@ user:</label>
+<input list="users_dl" id="users_i" />
+<datalist id="users_dl">
+{_user_lookup}
+</datalist>
+</p>
+
 
 <hr/>
 
@@ -359,6 +369,12 @@ add_comment_html = u"""\
 </body>
 </html>
 """
+
+
+user_lookup_option = u"""\
+<option>[{name}|~accountid:{id}]</option>
+"""
+
 
 issue_transition = u"""\
 <!DOCTYPE html>
