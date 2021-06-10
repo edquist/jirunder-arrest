@@ -158,7 +158,8 @@ def get_username(**kw):
 
 def get_users(query="", **kw):
     path = "/rest/api/3/user/search"
-    kw = dict(query=query, **kw)
+    maxResults=200
+    kw = dict(query=query, maxResults=maxResults, **kw)
     resp = auth_call_api(GET, path, kw)
     return resp_data_if_ok(resp)
 
