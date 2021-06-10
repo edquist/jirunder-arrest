@@ -343,8 +343,8 @@ add_comment_html = u"""\
 <input type="hidden" name="summary" value="{_summary}" />
 <textarea id="jml_ta" name="jml" rows="20" cols="80">{_jml}</textarea>
 <br/>
-<input type="submit" name="action" value="Preview">
-<input type="submit" name="action" value="Add">
+<input type="submit" name="action" value="Preview" />
+<input type="submit" name="action" value="Add" />
 <input type="submit" form="cancelform" value="Cancel" />
 </form>
 
@@ -397,7 +397,7 @@ issue_transition = u"""\
 """
 
 issue_transition_radio = u"""\
-<input type="radio" id="{id}" name="transition_id" value="{id}">
+<input type="radio" id="{id}" name="transition_id" value="{id}" />
 <label for="{id}">{name}</label><br>
 """
 
