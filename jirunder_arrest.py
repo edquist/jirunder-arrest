@@ -7,7 +7,7 @@ import json
 # import getopt
 # import getpass
 import urllib2
-# import operator
+import operator
 # import subprocess
 
 from cgix     import *
@@ -308,6 +308,40 @@ def get_post_response_html(issue, resp):
         return get_error_page_html(resp)
     else:
         return templates.cookies_required_html
+
+
+_non_user_ids = set([
+    "557058:0867a421-a9ee-4659-801a-bc0ee4a4487e",
+    "557058:214cdd6a-ff93-4d8b-838b-62dfcf1a2a71",
+    "557058:8d5dc844-3ffe-4723-a067-1f5d8c6470e6",
+    "557058:950f9f5b-3d6d-4e1d-954a-21367ae9ac75",
+    "557058:e66733f5-626e-4c74-b103-976e1eeb3abb",
+    "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077",
+    "5ac5326a95d30150501e5ff4",
+    "5af49e46b96308110ef21ee2",
+    "5af4a0938a1abd1427952ea3",
+    "5b69ff2b85ee4d3d958602b0",
+    "5b6c7b3afbc68529c6c47967",
+    "5cf112d31552030f1e3a5905",
+    "5d53f3cbc6b9320d9ea5bdc2",
+    "5dd64082af96bc0efbe55103",
+])
+
+_user_lookup_json = "user-lookup.json"
+def get_user_lookup():
+    lookup = json.load(open(_user_lookup_json))
+    items = sorted(lookup.items(), key=operator.itemgetter(1))
+    return [ {'id': k, 'name': v} for k,v in items ]
+
+
+def update_user_lookup():
+    try:
+        w = open(_user_lookup_json, "w")
+        d = { u.accountId: u.displayName for u in get_users()
+              if u.accountId not in _non_user_ids }
+        print >>w, json.dumps(d, sort_keys=True, indent=2)
+    except IOError:
+        pass
 
 
 def get_add_comment_html(params):
