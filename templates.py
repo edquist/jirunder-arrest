@@ -60,6 +60,12 @@ issue_html1 = u"""\
     padding-left: 3em;
     text-indent: -2em;
   }}
+
+  blockquote {{
+    margin-left: 0;
+    border-left: 4px groove;
+    padding-left: 2em;
+  }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
