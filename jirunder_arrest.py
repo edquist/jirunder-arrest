@@ -157,7 +157,7 @@ def get_username(**kw):
 
 
 def get_users(query="", **kw):
-    path = "https://opensciencegrid.atlassian.net/rest/api/3/user/search"
+    path = "/rest/api/3/user/search"
     kw = dict(query=query, **kw)
     resp = auth_call_api(GET, path, kw)
     return resp_data_if_ok(resp)
