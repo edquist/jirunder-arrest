@@ -32,9 +32,19 @@ def dconverter__init(dtype):
 
 # read-write attribute access to dict keys, with auto-vivification
 @dconverter__init
-class easydict(autodict):
+class easydict_av(autodict):
     def __getattr__(self, name):
         return self[name]
+
+    def __setattr__(self, name, val):
+        self[name] = val
+
+
+# read-write attribute access to dict keys, no auto-vivification
+@dconverter__init
+class easydict(dict):
+    def __getattr__(self, name):
+        return self.get(name)
 
     def __setattr__(self, name, val):
         self[name] = val
