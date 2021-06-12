@@ -17,7 +17,6 @@ import cookies
 import templates
 
 _usage = """\
-# xxx: [PASS=...] {script} [-u USER[:PASS]] [-d passfd] [-H] COMMAND [args...]
 usage: {script} ISSUE
    or: QUERY_STRING="issue=TICKET-NUM" {script}  # CGI
 """
