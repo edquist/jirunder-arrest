@@ -521,32 +521,41 @@ def load_cookies():
     options.cookies = cookies.try_read_cookies('cookie.txt')
 
 
-def main(args):
-    if len(args) == 1:
-        issue, = args
-        if not re.match(r'^[A-Z]+-[0-9]+$', issue):
-            usage("Bad ISSUE")
-        dump_issue_json(issue)
-        return
 
-    if len(args) == 2 and args[0] == '--render':
-        jml = args[1]
-        issue = 'SOFTWARE-1234'  # arbitrarily
-        resp = render_jira_markup(issue, jml)
-        html = get_resp_data(resp)
-        print html
-        return
-
-    if args:
-        usage("Extra arg")
-
-    if 'QUERY_STRING' not in os.environ:
-        usage("Missing QUERY_STRING")
-
+def go_CGI():
     params = get_params()
 
     load_cookies()
     send_data(get_cgi_html(params))
+
+
+def go_ISSUE(issue):
+    if not re.match(r'^[A-Z]+-[0-9]+$', issue):
+        usage("Bad ISSUE: '%s'" % issue)
+    dump_issue_json(issue)
+
+def go_RENDER(jml):
+    issue = 'SOFTWARE-1234'  # arbitrarily
+    resp = render_jira_markup(issue, jml)
+    html = get_resp_data(resp)
+    print html
+
+
+def main(args):
+    if 'QUERY_STRING' in os.environ:
+        go_CGI()
+
+    elif len(args) == 1:
+        go_ISSUE(args[0])
+
+    elif len(args) == 2 and args[0] == '--render':
+        go_RENDER(args[1])
+
+    elif args:
+        usage("Extra arg")
+
+    else:
+        usage("Missing QUERY_STRING")
 
 
 if __name__ == '__main__':
