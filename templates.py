@@ -485,7 +485,7 @@ landing_html = u"""\
 <head>
 <title>jirunder-arrest!</title>
 <style>
- .cen { text-align: center }
+ .cen {{ text-align: center }}
 </style>
 </head>
 <body>

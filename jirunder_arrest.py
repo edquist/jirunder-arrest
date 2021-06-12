@@ -477,7 +477,7 @@ def get_issue_html(issue):
 
 
 def landing_page():
-    return templates.landing_html
+    return templates.landing_html.format()
 
 
 def login_page(params):
