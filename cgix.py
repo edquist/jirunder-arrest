@@ -41,23 +41,28 @@ def m_hexchr(m):
 
 
 def unescape_qp(s):
-    if '+' in s: s = s.replace('+', ' ')
-    if '%' in s: s = re.sub(ur'%([0-9a-fA-F]{2})', m_hexchr, s)
-    if '\r\n' in s: s = s.replace('\r\n', '\n')
+    if s:
+        if '+' in s: s = s.replace('+', ' ')
+        if '%' in s: s = re.sub(ur'%([0-9a-fA-F]{2})', m_hexchr, s)
+        if '\r\n' in s: s = s.replace('\r\n', '\n')
     return s
 
 
-def parse_qp(qp):
-    if qp:
-        return dict( map(unescape_qp, x.split('=', 1)) for x in qp.split('&') )
+def qp_split(qp):
+    return qp.split('=', 1) if '=' in qp else (qp, None)
+
+
+def parse_qs(qs):
+    if qs:
+        return dict( map(unescape_qp, qp_split(qp)) for qp in qs.split('&') )
 
 
 def parse_uri(uri):
     if uri is None:
         return None, None
     if '?' in uri:
-        path, qp = uri.split('?', 1)
-        qpd = parse_qp(qp)
+        path, qs = uri.split('?', 1)
+        qpd = parse_qs(qs)
         return path, easydict(qpd)
     else:
         return uri, None
@@ -81,12 +86,12 @@ def accepts_gzip():
 
 def get_postdata_params():
     pd = get_postdata()
-    return parse_qp(pd)
+    return parse_qs(pd)
 
 
 def get_query_params():
     qs = os.environ.get("QUERY_STRING")
-    return easydict(parse_qp(qs))
+    return easydict(parse_qs(qs))
 
 
 def get_params():
@@ -153,7 +158,7 @@ __all__ = [
     "get_query_params",
     "get_request_method",
     "mk_query_string",
-    "parse_qp",
+    "parse_qs",
     "parse_request_uri",
     "parse_uri",
     "send_data",
