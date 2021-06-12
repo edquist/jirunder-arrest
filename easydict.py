@@ -13,15 +13,6 @@ class autodict(collections.defaultdict):
     __repr__ = dict.__repr__
 
 
-# read-write attribute access to dict keys
-class _easydict(autodict):
-    def __getattr__(self, name):
-        return self[name]
-
-    def __setattr__(self, name, val):
-        self[name] = val
-
-
 # recursively convert/upgrade a dict to some kind of fancy dict
 def dconvert(dtype, d):
     if isinstance(d, dict):
@@ -31,8 +22,21 @@ def dconvert(dtype, d):
     return d
 
 
-# wrapper to convert objects as necessary recursively to easydict
-def easydict(_d=None, **_kw):
-    d = _kw if _d is None else dict(_d, **_kw) if _kw else _d
-    return dconvert(_easydict, d)
+# wrap a class with dconvert, and allow dict-like init with kwargs
+def dconverter__init(dtype):
+    def converter(_d=None, **_kw):
+        d = _kw if _d is None else dict(_d, **_kw) if _kw else _d
+        return dconvert(dtype, d)
+    return converter
+
+
+# read-write attribute access to dict keys, with auto-vivification
+@dconverter__init
+class easydict(autodict):
+    def __getattr__(self, name):
+        return self[name]
+
+    def __setattr__(self, name, val):
+        self[name] = val
+
 
