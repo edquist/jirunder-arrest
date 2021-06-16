@@ -136,6 +136,7 @@ def escape_attr(kv):
            '{key}={val}'.format(key=key, val=quote_attr_val(val)))
 
 
+_unicode = type(u'')
 def mktag(_name, _body=None, _attrs=None, **_kw):
     attrs = _attrs or []
     attrs += sorted(_kw.items())
@@ -146,7 +147,8 @@ def mktag(_name, _body=None, _attrs=None, **_kw):
     if _body is None:
         return "<%s />" % tagline
     else:
-        if isinstance(_body, (list, tuple)):
+        if not isinstance(_body, (bytes, _unicode)):
+        #if isinstance(_body, (list, tuple)):
             _body = "\n" + "\n".join(_body) + "\n"
         return "<{tagline}>{_body}</{tagline}>".format(**locals())
 
