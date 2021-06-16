@@ -155,6 +155,11 @@ def served_over_localhost():
     return os.environ.get("HTTP_HOST") == "localhost"
 
 
+def get_script_path():
+    sn = os.environ.get("SCRIPT_NAME") or "/"
+    return re.sub(r'/[^/]*$', '', sn)
+
+
 def quote_attr_val(val):
     if isinstance(val, int):
         return "%s" % val  # or: val = "%s" % val
@@ -212,6 +217,7 @@ __all__ = [
     "get_postdata_params",
     "get_query_params",
     "get_request_method",
+    "get_script_path",
     "mk_query_string",
     "mkhdr",
     "parse_qs",

@@ -490,8 +490,9 @@ def login_page(params):
     secure = not served_over_localhost()
 
     if params.token:
-        hdr = cookies.set_cookie_header(cook_key, params.token, secure=secure)
-        # XXX: path=...
+        path = get_script_path()
+        hdr = cookies.set_cookie_header(cook_key, params.token,
+                                        path=path, secure=secure)
         return hdr, html
     else:
         return html
