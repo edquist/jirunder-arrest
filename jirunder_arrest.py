@@ -23,6 +23,8 @@ usage: {script} ISSUE
 
 jira_url = 'https://opensciencegrid.atlassian.net'
 
+cook_key = "cloud.session.token"
+
 GET    = 'GET'
 PUT    = 'PUT'
 POST   = 'POST'
@@ -517,9 +519,24 @@ def get_cgi_html(params):
     else                   : return landing_page()
 
 
+def mk_jira_cookie(name, value):
+    return cookies.Cookie(
+        domain     = cookies.urlparse(jira_url).domain
+      , subdomains = False
+      , path       = '/'
+      , https_only = True
+      , expires    = 0
+      , name       = name
+      , value      = value
+    )
+
+
 def load_cookies():
     options.cookies = cookies.try_read_cookies('cookie.txt')
 
+    c = get_cgi_cookies()
+    if cook_key in c:
+        options.cookies = [mk_jira_cookie(cook_key, c[cook_key])]
 
 
 def go_CGI():
