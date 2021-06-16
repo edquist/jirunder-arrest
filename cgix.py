@@ -52,6 +52,18 @@ def send_data(data):
     sys.stdout.write(headertxt + data)
 
 
+def mkhdr_attr(attr):
+    if isinstance(attr, tuple):
+        return attr[0] if attr[1] is None else "%s=%s" % attr
+    else:
+        return attr
+
+
+def mkhdr(name, *attrs):
+    val = "; ".join(map(mkhdr_attr, attrs))
+    return "{name}: {val}".format(**locals())
+
+
 def m_hexchr(m):
     return chr(int(m.group(1), 16))
 
@@ -176,6 +188,7 @@ __all__ = [
     "get_query_params",
     "get_request_method",
     "mk_query_string",
+    "mkhdr",
     "parse_qs",
     "parse_request_uri",
     "parse_uri",
