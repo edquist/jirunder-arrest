@@ -128,6 +128,18 @@ def get_params():
     return easydict(qpd, **pdp)
 
 
+def get_cgi_cookie_string():
+    return os.environ.get("HTTP_COOKIE")
+
+
+def get_cgi_cookies():
+    c = get_cgi_cookie_string()
+    if c:
+        return dict( kv.split("=", 1) for kv in c.split("; ") )
+    else:
+        return {}
+
+
 def get_request_method():
     return os.environ.get("REQUEST_METHOD")
 
@@ -182,6 +194,8 @@ __all__ = [
     "Tag",
     "accepts_gzip",
     "escape_html",
+    "get_cgi_cookie_string",
+    "get_cgi_cookies",
     "get_params",
     "get_postdata",
     "get_postdata_params",
