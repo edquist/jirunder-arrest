@@ -321,7 +321,7 @@ def get_user_lookup():
 def update_user_lookup():
     try:
         w = open(_user_lookup_json, "w")
-        d = dict( (u.accountId: u.displayName) for u in get_users()
+        d = dict( (u.accountId, u.displayName) for u in get_users()
                   if u.accountType == 'atlassian' )
         print >>w, json.dumps(d, sort_keys=True, indent=2)
     except IOError:
