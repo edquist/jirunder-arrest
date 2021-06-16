@@ -485,7 +485,16 @@ def landing_page():
 def login_page(params):
     e = easydict()
     e._token = escape_html(params.token) if params.token else ''
-    return templates.login_page.format(**e)
+    html = templates.login_page.format(**e)
+
+    secure = not served_over_localhost()
+
+    if params.token:
+        hdr = cookies.set_cookie_header(cook_key, params.token, secure=secure)
+        # XXX: path=...
+        return hdr, html
+    else:
+        return html
 
 
 def dump_issue_json(issue):

@@ -151,6 +151,10 @@ def get_request_method():
     return os.environ.get("REQUEST_METHOD")
 
 
+def served_over_localhost():
+    return os.environ.get("HTTP_HOST") == "localhost"
+
+
 def quote_attr_val(val):
     if isinstance(val, int):
         return "%s" % val  # or: val = "%s" % val
@@ -214,6 +218,7 @@ __all__ = [
     "parse_request_uri",
     "parse_uri",
     "send_data",
+    "served_over_localhost",
     "unescape_qp",
 ]
 
