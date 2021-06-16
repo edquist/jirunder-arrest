@@ -64,6 +64,13 @@ def mkhdr(name, *attrs):
     return "{name}: {val}".format(**locals())
 
 
+def set_cookie_header(name, value, path="/", secure=True):
+    attrs = [(name, value), ("path", path)]
+    if secure:
+        attrs.append(("secure", None))
+    return mkhdr("Set-Cookie", *attrs)
+
+
 def m_hexchr(m):
     return chr(int(m.group(1), 16))
 
