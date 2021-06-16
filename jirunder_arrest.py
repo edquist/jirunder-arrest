@@ -491,8 +491,8 @@ def login_page(params):
 
     if params.token:
         path = get_script_path()
-        hdr = cgix.set_cookie_header(cook_key, params.token,
-                                        path=path, secure=secure)
+        hdr = set_cookie_header(cook_key, params.token,
+                                path=path, secure=secure)
         return hdr, html
     else:
         return html

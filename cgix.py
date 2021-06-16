@@ -225,6 +225,7 @@ __all__ = [
     "parse_uri",
     "send_data",
     "served_over_localhost",
+    "set_cookie_header",
     "unescape_qp",
 ]
 
