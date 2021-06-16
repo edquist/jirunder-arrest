@@ -24,16 +24,51 @@ def escape_html(txt, quot=False):
 _html_header = "Content-Type: text/html; charset=utf-8"
 _gzip_header = "Content-Encoding: gzip"
 
+
+# XXX: for now, each header line is just a string
+def _get_data_headers(data):
+    if isinstance(data, tuple):
+        headers, data = data
+        if isinstance(headers, (tuple, list)):
+            headers = list(headers)
+        else:
+            headers = [headers]
+    else:
+        headers = []
+    return headers, data
+
+
 def send_data(data):
+    extra_headers, data = _get_data_headers(data)
     headers = [_html_header]
     if not isinstance(data, bytes):
         data = data.encode("utf-8")
     if accepts_gzip():
         headers += [_gzip_header]
         data = gzippy.compress(data)
+    headers += extra_headers
     headers += ['','']
     headertxt = "\r\n".join(headers)
     sys.stdout.write(headertxt + data)
+
+
+def mkhdr_attr(attr):
+    if isinstance(attr, tuple):
+        return attr[0] if attr[1] is None else "%s=%s" % attr
+    else:
+        return attr
+
+
+def mkhdr(name, *attrs):
+    val = "; ".join(map(mkhdr_attr, attrs))
+    return "{name}: {val}".format(**locals())
+
+
+def set_cookie_header(name, value, path="/", secure=True):
+    attrs = [(name, value), ("path", path)]
+    if secure:
+        attrs.append(("secure", None))
+    return mkhdr("Set-Cookie", *attrs)
 
 
 def m_hexchr(m):
@@ -100,8 +135,24 @@ def get_params():
     return easydict(qpd, **pdp)
 
 
+def get_cgi_cookie_string():
+    return os.environ.get("HTTP_COOKIE")
+
+
+def get_cgi_cookies():
+    c = get_cgi_cookie_string()
+    if c:
+        return dict( kv.split("=", 1) for kv in c.split("; ") )
+    else:
+        return {}
+
+
 def get_request_method():
     return os.environ.get("REQUEST_METHOD")
+
+
+def served_over_localhost():
+    return os.environ.get("HTTP_HOST") == "localhost"
 
 
 def quote_attr_val(val):
@@ -120,6 +171,7 @@ def escape_attr(kv):
            '{key}={val}'.format(key=key, val=quote_attr_val(val)))
 
 
+_unicode = type(u'')
 def mktag(_name, _body=None, _attrs=None, **_kw):
     attrs = _attrs or []
     attrs += sorted(_kw.items())
@@ -130,7 +182,8 @@ def mktag(_name, _body=None, _attrs=None, **_kw):
     if _body is None:
         return "<%s />" % tagline
     else:
-        if isinstance(_body, (list, tuple)):
+        if not isinstance(_body, (bytes, _unicode)):
+        #if isinstance(_body, (list, tuple)):
             _body = "\n" + "\n".join(_body) + "\n"
         return "<{tagline}>{_body}</{tagline}>".format(**locals())
 
@@ -152,16 +205,20 @@ __all__ = [
     "Tag",
     "accepts_gzip",
     "escape_html",
+    "get_cgi_cookie_string",
+    "get_cgi_cookies",
     "get_params",
     "get_postdata",
     "get_postdata_params",
     "get_query_params",
     "get_request_method",
     "mk_query_string",
+    "mkhdr",
     "parse_qs",
     "parse_request_uri",
     "parse_uri",
     "send_data",
+    "served_over_localhost",
     "unescape_qp",
 ]
 
