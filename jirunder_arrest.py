@@ -11,7 +11,7 @@ import operator
 # import subprocess
 
 from cgix     import *
-from easydict import easydict
+from easydict import easydict, easydict_av
 from gzippy   import gunzip
 import cookies
 import templates
@@ -191,7 +191,7 @@ def get_transitions(issue, **kw):
 
 def post_transition(issue, transition_id, **kw):
     path = "/rest/api/2/issue/%s/transitions" % issue
-    e = easydict()
+    e = easydict_av()
     e.transition.id = str(transition_id)
     e.update(kw)
     return call_api(POST, path, e)
