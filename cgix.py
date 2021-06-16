@@ -24,13 +24,29 @@ def escape_html(txt, quot=False):
 _html_header = "Content-Type: text/html; charset=utf-8"
 _gzip_header = "Content-Encoding: gzip"
 
+
+# XXX: for now, each header line is just a string
+def _get_data_headers(data):
+    if isinstance(data, tuple):
+        headers, data = data
+        if isinstance(headers, (tuple, list)):
+            headers = list(headers)
+        else:
+            headers = [headers]
+    else:
+        headers = []
+    return headers, data
+
+
 def send_data(data):
+    extra_headers, data = _get_data_headers(data)
     headers = [_html_header]
     if not isinstance(data, bytes):
         data = data.encode("utf-8")
     if accepts_gzip():
         headers += [_gzip_header]
         data = gzippy.compress(data)
+    headers += extra_headers
     headers += ['','']
     headertxt = "\r\n".join(headers)
     sys.stdout.write(headertxt + data)
