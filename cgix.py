@@ -3,6 +3,7 @@
 import os
 import re
 import sys
+import time
 
 from easydict import easydict
 import gzippy
@@ -64,10 +65,16 @@ def mkhdr(name, *attrs):
     return "{name}: {val}".format(**locals())
 
 
-def set_cookie_header(name, value, path="/", secure=True):
+def format_date(ts):
+    return time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(ts))
+
+
+def set_cookie_header(name, value, path="/", secure=True, expires=None):
     attrs = [(name, value), ("path", path)]
     if secure:
-        attrs.append(("secure", None))
+        attrs.append("secure")
+    if expires:
+        attrs.append(("expires", format_date(expires)))
     return mkhdr("Set-Cookie", *attrs)
 
 
