@@ -225,6 +225,7 @@ __all__ = [
     "Tag",
     "accepts_gzip",
     "escape_html",
+    "format_date",
     "get_cgi_cookie_string",
     "get_cgi_cookies",
     "get_params",

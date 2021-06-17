@@ -520,27 +520,40 @@ def get_cloud_token_exp(token):
     return info and info.exp
 
 
+def login_page_redir(params):
+    path = get_script_path()
+    secure = not served_over_localhost()
+    if params.expiry == "persist":
+        exp = get_cloud_token_exp(params.token)
+    else:
+        exp = None
+    s_header = status_header(302, "Found")
+    r_header = redirect_header('.')
+    c_header = set_cookie_header(cook_key, params.token, path=path,
+                                 secure=secure, expires=exp)
+
+    return [s_header, r_header, c_header], "."
+
+
 def login_page(params):
+    if params.token:
+        return login_page_redir(params)
+
     e = easydict()
-    e._token = escape_html(params.token) if params.token else ''
+    token = ''
+    expiry_date = ''
+    if options.cookies:
+        url = jira_url + "/"
+        c = cookies.get_cookie(options.cookies, url, cook_key)
+        if c:
+            token = c.value
+            if c.expires:
+                expiry_date = "(%s)" % format_date(c.expires)
+    e._token = escape_html(token) if token else ''
+    e._expiry_date = expiry_date
     html = templates.login_page.format(**e)
 
-    secure = not served_over_localhost()
-
-    if params.token:
-        path = get_script_path()
-        if params.expiry == "persist":
-            exp = get_cloud_token_exp(params.token)
-        else:
-            exp = None
-        s_header = status_header(302, "Found")
-        r_header = redirect_header('.')
-        c_header = set_cookie_header(cook_key, params.token, path=path,
-                                     secure=secure, expires=exp)
-
-        return [s_header, r_header, c_header], "."
-    else:
-        return html
+    return html
 
 
 def dump_issue_json(issue):
@@ -580,7 +593,7 @@ def mk_jira_cookie(name, value):
       , subdomains = False
       , path       = '/'
       , https_only = True
-      , expires    = 0
+      , expires    = get_cloud_token_exp(value) or 0
       , name       = name
       , value      = value
     )
