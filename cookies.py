@@ -54,6 +54,15 @@ def cookies_kv(cookies, url):
     return [ (c.name, c.value) for c in cookies if cookie_match(c, u) ]
 
 
+def cookies_kc(cookies, url):
+    u = urlparse(url)
+    return [ (c.name, c) for c in cookies if cookie_match(c, u) ]
+
+
+def get_cookie(cookies, url, name):
+    return dict(cookies_kc(cookies, url)).get(name)
+
+
 def cookie_header_val(cookies, url):
     kv = cookies_kv(cookies, url)
     return '; '.join(map('='.join,kv))
