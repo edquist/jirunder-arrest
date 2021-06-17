@@ -533,9 +533,12 @@ def login_page(params):
             exp = get_cloud_token_exp(params.token)
         else:
             exp = None
-        hdr = set_cookie_header(cook_key, params.token,
-                                path=path, secure=secure, expires=exp)
-        return hdr, html
+        s_header = status_header(302, "Found")
+        r_header = redirect_header('.')
+        c_header = set_cookie_header(cook_key, params.token, path=path,
+                                     secure=secure, expires=exp)
+
+        return [s_header, r_header, c_header], "."
     else:
         return html
 
