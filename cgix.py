@@ -65,6 +65,14 @@ def mkhdr(name, *attrs):
     return "{name}: {val}".format(**locals())
 
 
+def status_header(code, name):
+    return "Status: %s %s" % (code, name)
+
+
+def redirect_header(location):
+    return "Location: %s" % location
+
+
 def format_date(ts):
     return time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(ts))
 
@@ -230,9 +238,11 @@ __all__ = [
     "parse_qs",
     "parse_request_uri",
     "parse_uri",
+    "redirect_header",
     "send_data",
     "served_over_localhost",
     "set_cookie_header",
+    "status_header",
     "unescape_qp",
 ]
 
