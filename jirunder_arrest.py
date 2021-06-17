@@ -4,6 +4,7 @@ import os
 import re
 import sys
 import json
+import base64
 # import getopt
 # import getpass
 import urllib2
@@ -480,6 +481,43 @@ def get_issue_html(issue):
 
 def landing_page():
     return templates.landing_html.format()
+
+
+# if you split a cloud.session.token on '.', the second item b64 decodes
+# to a json dict like the following.  I am not sure anything is interesting
+# besides "exp" and possibly "sessionId"
+
+"""
+{
+  "associations": [],
+  "aud": "atlassian",
+  "created": 1623956960,
+  "email": "account@cs.wisc.edu",
+  "emailDomain": "cs.wisc.edu",
+  "exp": 1626548960,
+  "iat": 1623956960,
+  "impersonation": [],
+  "iss": "session-service",
+  "jti": "40baa8aa-092d-4c01-8054-5fe05d903ef5",
+  "nbf": 1623956960,
+  "refreshTimeout": 1623957560,
+  "sessionId": "40baa8aa-092d-4c01-8054-5fe05d903ef5",
+  "sub": "5acf96bd4553632a7698146c",
+  "verified": true
+}
+"""
+
+def get_cloud_token_info(token):
+    try:
+        info_b64 = token.split(".")[1] + "="
+        return easydict(json.loads(base64.urlsafe_b64decode(info_b64)))
+    except:
+        pass
+
+
+def get_cloud_token_exp(token):
+    info = get_cloud_token_info(token)
+    return info and info.exp
 
 
 def login_page(params):
