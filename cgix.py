@@ -157,7 +157,7 @@ def served_over_localhost():
 
 def get_script_path():
     sn = os.environ.get("SCRIPT_NAME") or "/"
-    return re.sub(r'/[^/]*$', '', sn)
+    return re.sub(r'/[^/]*$', '/', sn)
 
 
 def quote_attr_val(val):
