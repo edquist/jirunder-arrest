@@ -559,6 +559,14 @@ login_page = u"""\
 <textarea id="token_ta" name="token" rows="15" cols="80">{_token}</textarea>
 </p>
 <p>
+
+<input type="radio" id="session_radio" name="expiry" value="session" checked />
+<label for="session_radio">Session-only</label><br>
+<input type="radio" id="persist_radio" name="expiry" value="persist" />
+<label for="persist_radio">Persist until expiry</label><br>
+
+</p>
+<p>
 <input type="submit" value="Set Cookie" />
 </p>
 </form>

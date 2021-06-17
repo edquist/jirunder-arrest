@@ -529,8 +529,12 @@ def login_page(params):
 
     if params.token:
         path = get_script_path()
+        if params.expiry == "persist":
+            exp = get_cloud_token_exp(params.token)
+        else:
+            exp = None
         hdr = set_cookie_header(cook_key, params.token,
-                                path=path, secure=secure)
+                                path=path, secure=secure, expires=exp)
         return hdr, html
     else:
         return html
