@@ -27,6 +27,13 @@ issue_html1 = u"""\
       padding: 2px 4px;
   }}
 
+  .acb {{
+    border-color: inherit;
+    background-color: inherit;
+    color: inherit;
+    padding: .5em 1em
+  }}
+
   a.nu         , a.nu2         {{ color: inherit             }}
   a.nu:link    , a.nu2:link    {{ text-decoration: none      }}
   a.nu:visited , a.nu2:visited {{ text-decoration: none      }}
@@ -245,7 +252,7 @@ issue_html_add_comment = u"""\
 <form method="post" action="" target="_blank">
 <input type="hidden" name="comment" value="{key}" />
 <input type="hidden" name="summary" value="{_summary}" />
-<input type="submit" value="Add Comment" />
+<input type="submit" value="Add Comment" class="acb" />
 </form>
 """
 
