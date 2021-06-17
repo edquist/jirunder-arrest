@@ -560,12 +560,13 @@ login_page = u"""\
 </p>
 <p>
 
-<input type="radio" id="session_radio" name="expiry" value="session" checked />
+<input type="radio" id="session_radio" name="expiry" value="session" />
 <label for="session_radio">Session-only</label><br>
-<input type="radio" id="persist_radio" name="expiry" value="persist" />
-<label for="persist_radio">Persist until expiry</label><br>
+<input type="radio" id="persist_radio" name="expiry" value="persist" checked />
+<label for="persist_radio">Persist until expiry {_expiry_date}</label><br>
 
 </p>
+
 <p>
 <input type="submit" value="Set Cookie" />
 </p>
