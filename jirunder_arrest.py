@@ -347,9 +347,11 @@ def get_add_comment_html(params):
     if params.jml:
         resp = render_jira_markup(e.key, params.jml)
         e._rendered = get_resp_data(resp)
+        e._rbox = 'rbox'
         e._jml = escape_html(params.jml)
     else:
         e._rendered = ''
+        e._rbox = ''
         e._jml = ''
 
     return templates.add_comment_html.format(**e)

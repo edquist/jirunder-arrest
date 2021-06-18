@@ -382,7 +382,7 @@ add_comment_html = u"""\
 
 <h3>Preview</h3>
 
-<div class='rbox'>
+<div class='{_rbox}'>
 {_rendered}
 </div>
 
