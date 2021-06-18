@@ -328,6 +328,15 @@ add_comment_html = u"""\
   .rbox {{ max-width: 600px  }}
   .rbox {{ border: solid 1px }}
   .rbox {{ padding: .5em 1em }}
+
+  .inh {{
+    border-color: inherit;
+    background-color: inherit;
+    color: inherit;
+  }}
+  .btn {{
+    padding: .5em 1em;
+  }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -348,17 +357,21 @@ add_comment_html = u"""\
 <form method="post" action="">
 <input type="hidden" name="comment" value="{key}" />
 <input type="hidden" name="summary" value="{_summary}" />
-<textarea id="jml_ta" name="jml" rows="20" cols="80">{_jml}</textarea>
-<br/>
-<input type="submit" name="action" value="Preview" />
-<input type="submit" name="action" value="Add" />
-<input type="submit" form="cancelform" value="Cancel" />
+<textarea id="jml_ta" name="jml" rows="20" cols="80" class="inh">\
+{_jml}\
+</textarea>
+
+<p>
+<input type="submit" class="inh btn" name="action" value="Preview" />
+<input type="submit" class="inh btn" name="action" value="Add" />
+<input type="submit" class="inh btn" form="cancelform" value="Cancel" />
+</p>
 
 </form>
 
 <p>
 <label for="users_i">@ user:</label>
-<input list="users_dl" id="users_i" />
+<input list="users_dl" id="users_i" class="inh" />
 <datalist id="users_dl">
 {_user_lookup}
 </datalist>
