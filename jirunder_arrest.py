@@ -522,6 +522,11 @@ def get_cloud_token_exp(token):
     return info and info.exp
 
 
+def get_cloud_token_user_id(token):
+    info = get_cloud_token_info(token)
+    return info and info.sub
+
+
 def login_page_redir(params):
     path = get_script_path()
     secure = not served_over_localhost()
