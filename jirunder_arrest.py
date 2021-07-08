@@ -332,7 +332,7 @@ def update_user_lookup():
         d = dict( (u.accountId, u.displayName) for u in get_users()
                   if  u.accountType == 'atlassian'
                   and u.displayName not in _ignoreusers)
-        print >>w, json.dumps(d, sort_keys=True, indent=2)
+        print >>w, json.dumps(d, sort_keys=True, indent=2).replace(" \n", "\n")
     except IOError:
         pass
 
