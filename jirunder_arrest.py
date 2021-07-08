@@ -313,8 +313,12 @@ def get_post_response_html(issue, resp):
 
 
 _user_lookup_json = "user-lookup.json"
+def get_user_lookup_d():
+    return json.load(open(_user_lookup_json))
+
+
 def get_user_lookup():
-    lookup = json.load(open(_user_lookup_json))
+    lookup = get_user_lookup_d()
     items = sorted(lookup.items(), key=operator.itemgetter(1))
     return easydict([ {'id': k, 'name': v} for k,v in items ])
 
