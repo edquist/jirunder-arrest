@@ -535,7 +535,7 @@ landing_html = u"""\
 </tr>
 <tr><td class="cen">or</td></tr>
 <tr>
-<td><label for="user_tb">User:</label></td>
+<td class="cen"><label for="user_tb">User:</label></td>
 <td>
 {_user_select}
 </td>
