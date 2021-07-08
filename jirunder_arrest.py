@@ -280,7 +280,9 @@ def get_user_issues_html(user):
     resp = get_user_issues(user)
     e = get_resp_data(resp)
 
-    html = templates.user_issue_html_links1.format(_user=user)
+    users = get_user_lookup_d()
+
+    html = templates.user_issue_html_links1.format(_user=users.get(user, user))
     for isu in sorted(e.issues, reverse=True, key=user_issue_sortkey):
         html += add_user_issue_fields(isu)
     html += templates.user_issue_html_links3
