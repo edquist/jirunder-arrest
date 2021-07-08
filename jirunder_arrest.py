@@ -340,6 +340,16 @@ def get_user_lookup_options_html():
     return ''.join( templates.user_lookup_option.format(**u) for u in uu )
 
 
+def get_user_select_options_html(token):
+    uu = get_user_lookup()
+    uid = get_cloud_token_user_id(token) if token else None
+
+    for u in uu:
+        u._selected = "selected" if u.id == uid else ""
+
+    return ''.join( templates.user_select_option.format(**u) for u in uu )
+
+
 def get_add_comment_html(params):
     e = easydict()
     e.key = params.comment
@@ -488,7 +498,13 @@ def get_issue_html(issue):
 
 
 def landing_page():
-    return templates.landing_html.format()
+    token = get_jira_token()
+    e = easydict()
+    e._user_select_options = get_user_select_options_html(token)
+    e._none_selected = "selected" if not token else ""
+    s = easydict()
+    s._user_select = templates.user_select.format(**e)
+    return templates.landing_html.format(**s)
 
 
 # if you split a cloud.session.token on '.', the second item b64 decodes

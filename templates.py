@@ -396,6 +396,18 @@ user_lookup_option = u"""\
 """
 
 
+user_select_option = u"""\
+<option value="{id}" {_selected}>{name}</option>
+"""
+
+user_select = u"""\
+<select form="userform" id="user_tb" name="user" >
+<option value="" disabled {_none_selected}>Select User</option>
+{_user_select_options}
+</select>
+"""
+
+
 issue_transition = u"""\
 <!DOCTYPE html>
 <html>
@@ -523,8 +535,10 @@ landing_html = u"""\
 </tr>
 <tr><td class="cen">or</td></tr>
 <tr>
-<td><label for="user_tb">Username:</label></td>
-<td><input form="userform" type="text" id="user_tb" name="user" /></td>
+<td><label for="user_tb">User:</label></td>
+<td>
+{_user_select}
+</td>
 <td><input form="userform" type="submit" value="Get Issues" /></td>
 </tr>
 </table>
