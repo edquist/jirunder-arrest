@@ -548,6 +548,17 @@ def login_page_redir(params):
     return [s_header, r_header, c_header], "."
 
 
+def get_token_cookie():
+    if options.cookies:
+        url = jira_url + "/"
+        return cookies.get_cookie(options.cookies, url, cook_key)
+
+
+def get_jira_token():
+    c = get_token_cookie()
+    return c and c.value
+
+
 def login_page(params):
     if params.token:
         return login_page_redir(params)
@@ -555,13 +566,11 @@ def login_page(params):
     e = easydict()
     token = ''
     expiry_date = ''
-    if options.cookies:
-        url = jira_url + "/"
-        c = cookies.get_cookie(options.cookies, url, cook_key)
-        if c:
-            token = c.value
-            if c.expires:
-                expiry_date = "(%s)" % format_date(c.expires)
+    c = get_token_cookie()
+    if c:
+        token = c.value
+        if c.expires:
+            expiry_date = "(%s)" % format_date(c.expires)
     e._token = escape_html(token) if token else ''
     e._expiry_date = expiry_date
     html = templates.login_page.format(**e)
