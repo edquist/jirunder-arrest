@@ -316,7 +316,7 @@ _user_lookup_json = "user-lookup.json"
 def get_user_lookup():
     lookup = json.load(open(_user_lookup_json))
     items = sorted(lookup.items(), key=operator.itemgetter(1))
-    return [ {'id': k, 'name': v} for k,v in items ]
+    return easydict([ {'id': k, 'name': v} for k,v in items ])
 
 
 def update_user_lookup():
