@@ -325,11 +325,13 @@ def get_user_lookup():
     return easydict([ {'id': k, 'name': v} for k,v in items ])
 
 
+_ignoreusers = ["CSL purchasing", "Computer Systems Lab"]
 def update_user_lookup():
     try:
         w = open(_user_lookup_json, "w")
         d = dict( (u.accountId, u.displayName) for u in get_users()
-                  if u.accountType == 'atlassian' )
+                  if  u.accountType == 'atlassian'
+                  and u.displayName not in _ignoreusers)
         print >>w, json.dumps(d, sort_keys=True, indent=2)
     except IOError:
         pass
