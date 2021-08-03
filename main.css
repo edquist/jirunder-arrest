@@ -1,0 +1,68 @@
+body  { max-width:   800px  }
+body  { margin-left:   3em  }
+body  { margin-bottom: 3em  }
+table { text-align: left    }
+.fr   { float: right        }
+.nw   { white-space: nowrap }
+.sml  { font-size: small    }
+.unas { opacity: 0.5; font-style: italic }
+
+div.comm, div.desc, .ilt { margin-left: 1em }
+
+a.user-hover { text-decoration: underline }
+table.coltab { font-family: monospace }
+table.coltab th { padding-right: 1em }
+.confluenceTable, .confluenceTh, .confluenceTd {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 2px 4px;
+}
+
+.acb {
+  border-color: inherit;
+  background-color: inherit;
+  color: inherit;
+  padding: .5em 1em
+}
+
+a.nu         , a.nu2         { color: inherit             }
+a.nu:link    , a.nu2:link    { text-decoration: none      }
+a.nu:visited , a.nu2:visited { text-decoration: none      }
+a.nu:hover                   { text-decoration: underline }
+a.nu2:hover                  { text-decoration: none      }
+
+.hbb, .boxy { border-style: solid }
+.hbb, .boxy { border-width:  1px  }
+.hbb, .boxy { border-radius: 3px  }
+.hbb, .boxy { padding:   1px 4px  }
+
+.hbb       { border-color: transparent  }
+.hbb:hover { border-color: currentcolor }
+.hbb       { font-family: monospace }
+.hbb       { margin-left: -5px      }
+.hbb       { background-color: inherit }
+.hbb       { color: inherit }
+
+div.panelContent pre {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  margin-left: 3em;
+  padding: 1em;
+  border: 1px dotted;
+  border-radius: 3px;
+}
+
+.zzzzz {
+  white-space: pre-wrap;
+  padding-left: 3em;
+  text-indent: -2em;
+}
+
+blockquote {
+  margin-left: 0;
+  border-left: 4px groove;
+  padding-left: 2em;
+}
+
+.homerow { text-align: right }
