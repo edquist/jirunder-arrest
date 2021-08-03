@@ -245,7 +245,7 @@ user_issue_html_links2 = """\
 <td>|<td>
 <td class='nw'>{_status}<td>
 <td>|<td>
-<th><a href="?issue={key}">{key}</a></th>
+<th class='nw'><a href="?issue={key}">{key}</a></th>
 <td>:<td>
 <td>{fields.summary}<td>
 </tr>
