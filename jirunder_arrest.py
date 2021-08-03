@@ -132,14 +132,16 @@ def get_issue(issue, **kw):
     return call_api(GET, path, kw)
 
 
-def get_user_issues(user, **kw):
+def search_issues(jql, **kw):
     path = '/rest/api/2/search'
-    e = easydict(
-        jql = "assignee=%s+AND+statusCategory+!=+Done" % user,
-        maxResults = 100,
-        **kw
-    )
+    jql = jql.replace(" ", "+")
+    e = easydict(jql=jql, maxResults=100, **kw)
     return call_api(GET, path, e)
+
+
+def get_user_issues(user, **kw):
+    jql = "assignee=%s AND statusCategory != Done" % user
+    return search_issues(jql, **kw)
 
 
 def get_epic(issue, **kw):
