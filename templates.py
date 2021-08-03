@@ -217,6 +217,7 @@ user_issue_html_links1 = """\
 <html>
 <head>
 <title>Issues for {_user}</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <style>
   table {{ text-align: left       }}
   table {{ font-family: monospace }}
@@ -225,6 +226,12 @@ user_issue_html_links1 = """\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
+
 <h3>
 Issues for {_user}:
 </h3>
@@ -258,11 +265,8 @@ add_comment_html = u"""\
 <html>
 <head>
 <title>{key} :: Add Comment</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <style>
-  body  {{ max-width:   800px  }}
-  body  {{ margin-left:   3em  }}
-  body  {{ margin-bottom: 3em  }}
-
   .rbox {{ max-width: 600px  }}
   .rbox {{ border: solid 1px }}
   .rbox {{ padding: .5em 1em }}
@@ -279,6 +283,12 @@ add_comment_html = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
 
 <h2>
 {key} : {_summary}
@@ -351,14 +361,16 @@ issue_transition = u"""\
 <html>
 <head>
 <title>{key} :: Workflow Transition</title>
-<style>
-  body  {{ max-width:   800px  }}
-  body  {{ margin-left:   3em  }}
-  body  {{ margin-bottom: 3em  }}
-</style>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
 
 <h2>
 {key} : {_summary}
@@ -454,11 +466,18 @@ landing_html = u"""\
 <html>
 <head>
 <title>jirunder-arrest!</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <style>
  .cen {{ text-align: center }}
 </style>
 </head>
 <body>
+
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
 
 <h2>jirunder-arrest !</h2>
 
@@ -506,17 +525,19 @@ login_page = u"""\
 <html>
 <head>
 <title>Cookie Mon Star :: Login</title>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <style>
-  body  {{ max-width:   800px  }}
-  body  {{ margin-left:   3em  }}
-  body  {{ margin-bottom: 3em  }}
-
   .btt  {{ font-family: monospace }}
   .btt  {{ font-weight: bold      }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
 
 <h2>C is for Cookie</h2>
 
