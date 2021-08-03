@@ -121,7 +121,7 @@ issue_html_links1 = """\
 issue_html_links2 = """\
 <tr>
 <td class='nw sml'>{_type}:<td>
-<th><a href="?issue={key}">{key}</a></th>
+<th class='nw'><a href="?issue={key}">{key}</a></th>
 <td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
@@ -150,7 +150,7 @@ issue_html_epic_links2 = """\
 <tr>
 <td>{_assignee}<td>
 <td>|<td>
-<th><a href="?issue={key}">{key}</a></th>
+<th class='nw'><a href="?issue={key}">{key}</a></th>
 <td>|<td>
 <td>{fields.priority.name}<td>
 <td>|<td>
