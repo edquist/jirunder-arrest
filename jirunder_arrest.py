@@ -408,10 +408,12 @@ _ignorepats = [
     ur'\s+(?=</a>)',
 ]
 
+_issuelinkpat = ur'<a href="%s/browse/([A-Z]+-[0-9]+)"([^>]*)>' % jira_url
+
 _subs = [
-    (ur'<span class="jira-issue-macro[^>]*>\s*'
-     ur'<a href="' + jira_url + ur'/browse/([A-Z]+-[0-9]+)"([^>]*)>'
+    (ur'<span class="jira-issue-macro[^>]*>\s*' + _issuelinkpat +
      ur'\s*([^<]*)\s*</a>\s*</span>', ur'<a href="?issue=\1"\2>\3</a>'),
+    (_issuelinkpat + ur'([^<]*)</a>', ur'<a href="?issue=\1"\2>\1</a>'),
     (ur'<a href="[^"]*" class="user-hover" [^>]*>([^<]*)</a>',
      ur'<a class="user-hover">\1</a>'),
 ]
