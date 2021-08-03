@@ -214,6 +214,7 @@ _status_nicknames = {
     "Ready for Testing"        : "RFT",
     "Ready for Release"        : "RFR",
     "Review Code"              : "Review",
+    "DocPending"               : "DocPend",
 }
 
 
