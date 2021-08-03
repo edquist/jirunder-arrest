@@ -529,6 +529,8 @@ login_page = u"""\
 <style>
   .btt  {{ font-family: monospace }}
   .btt  {{ font-weight: bold      }}
+
+  .sml  {{ font-size: small }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -544,6 +546,10 @@ login_page = u"""\
 <h3>That's good enough for me.</h3>
 
 <hr/>
+
+<p class="sml">
+(copy your cookie for atlassian.net from your browser and paste it here)
+</p>
 
 <p class="btt">cloud.session.token:</p>
 
