@@ -296,7 +296,7 @@ def get_add_comment_response_html(issue, body):
     return get_post_response_html(issue, resp)
 
 
-def get_post_response_html(issue, resp):
+def get_post_response_html__old(issue, resp):
     if resp_ok(resp):
         url = resp.geturl()
         resp_data = get_resp_data(resp)
@@ -308,6 +308,11 @@ def get_post_response_html(issue, resp):
         e._msg = resp.msg
         e.key = issue
         return templates.post_response_html.format(**e)
+
+
+def get_post_response_html(issue, resp):
+    if resp_ok(resp):
+        return redirect_page("?issue=%s" % issue)
     elif resp:
         return get_error_page_html(resp)
     else:
