@@ -28,7 +28,8 @@ def cookie_match(c, u):
 
 
 def line2cookie(line):
-    return Cookie(*line.rstrip('\n').split('\t'))
+    c = Cookie(*line.rstrip('\n').split('\t'))
+    return c._replace(expires=int(c.expires))
 
 
 def _read_cookies_gen(fn):
