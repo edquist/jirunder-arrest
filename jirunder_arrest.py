@@ -551,6 +551,14 @@ def get_cloud_token_user_id(token):
     return info and info.sub
 
 
+def redirect_page(dest, *extra_headers):
+    payload = "."
+    s_header = status_header(302, "Found")
+    r_header = redirect_header(dest)
+
+    return (s_header, r_header) + extra_headers, payload
+
+
 def login_page_redir(params):
     path = get_script_path()
     secure = not served_over_localhost()
@@ -558,12 +566,11 @@ def login_page_redir(params):
         exp = get_cloud_token_exp(params.token)
     else:
         exp = None
-    s_header = status_header(302, "Found")
-    r_header = redirect_header('.')
+
     c_header = set_cookie_header(cook_key, params.token, path=path,
                                  secure=secure, expires=exp)
 
-    return [s_header, r_header, c_header], "."
+    return redirect_page('.', c_header)
 
 
 def get_token_cookie():
