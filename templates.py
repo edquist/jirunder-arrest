@@ -73,10 +73,17 @@ issue_html1 = u"""\
     border-left: 4px groove;
     padding-left: 2em;
   }}
+
+  .homerow {{ text-align: right }}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
+<div class="homerow">
+<a href="." class="hbb nu2 nw">home</a> |
+<a href="?login=please" class="hbb nu2 nw">login</a>
+</div>
+<hr/>
 <h2>
 {key} : {_summary}
 </h2>
