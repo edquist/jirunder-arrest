@@ -517,6 +517,59 @@ Fail: cookies required
 </html>
 """
 
+login_extrahelp = u"""
+<p class="sml">
+Auth is required for editing jira issues, adding comments, and a couple other
+things like listing "epic links".  Otherwise most read-only actions work
+without auth.
+</p>
+<p class="sml">
+This site uses the cloud.session.token cookie for atlassian.net
+in order to make authenticated jira api calls.  This lets you piggy-back
+off your existing jira login without having to enter a password here
+(and without this site having to implement oauth, with all the hoops
+atlassian makes you do to get an api token).
+</p>
+<p class="sml">
+By pasting your cloud.session.token below and clicking Set Cookie,
+this site will instruct your browser to use your cookie for
+the current <a href=".">site</a> (as a session cookie, or, at your option,
+as a persistent cookie until it expires).  This site does not save or track
+your cookie or session information; it only forwards the cookie you provide
+to jira when making api calls, in the process of generating cgi pages.
+</p>
+<p class="sml">
+To obtain your <tt>cloud.session.token</tt> cookie:
+</p>
+<p class="sml">
+<em>In Firefox:</em>
+</p>
+<ul class="sml">
+  <li>Log in to <a href="{_jira}/login">jira</a></li>
+  <li>Open the Storage Inspector (Shift+F9)</li>
+  <li>Expand "Cookies" and find the entry for your jira domain<br/>
+      ({_jira})</li>
+  <li>Locate the cookie with the Name "cloud.session.token"</li>
+  <li>Double-click the Value, and copy it (Ctrl+C)</li>
+  <li>Return to this page and paste into the text area below</li>
+  <li>Click the Set Cookie button</li>
+</ul>
+
+<p class="sml">
+<em>In Chromium / Chrome:</em>
+</p>
+<ul class="sml">
+  <li>Log in to <a href="{_jira}/login">jira</a></li>
+  <li>Open the cookie settings in a new tab (chrome://settings/cookies)</li>
+  <li>Under "Site", find "atlassian.net" (you can also Search for it)</li>
+  <li>Click to expand the row for "atlassian.net"</li>
+  <li>Click the cookie for "cloud.session.token"</li>
+  <li>Select the value next to Content, and copy it (Ctrl+C)</li>
+  <li>Return to this page and paste into the text area below</li>
+  <li>Click the Set Cookie button</li>
+</ul>
+"""
+
 login_page = u"""\
 <!DOCTYPE html>
 <html>
@@ -542,9 +595,14 @@ login_page = u"""\
 <hr/>
 
 <p class="sml">
-(log in to <a href="{_jira}">jira</a>,
-copy your cookie for atlassian.net from your browser, and paste it here)
+(log in to <a href="{_jira}/login">jira</a>,
+copy your cloud.session.token cookie for atlassian.net from your browser,
+and paste it here)
+&nbsp;
+(<a href="?login=help" class="nu"><em>what?!</em></a>)
 </p>
+
+{_extrahelp}
 
 <p class="btt">cloud.session.token:</p>
 
