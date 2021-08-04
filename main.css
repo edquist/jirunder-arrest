@@ -7,6 +7,9 @@ table { text-align: left    }
 .sml  { font-size: small    }
 .unas { opacity: 0.5; font-style: italic }
 
+.btt  { font-family: monospace }
+.btt  { font-weight: bold      }
+
 div.comm, div.desc, .ilt { margin-left: 1em }
 
 a.user-hover { text-decoration: underline }
@@ -38,10 +41,10 @@ a.nu:hover                   { text-decoration: underline }
 
 .hbb               { border-color: transparent  }
 .hbb:hover , .hbb2 { border-color: currentcolor }
-.hbb       , .hbb2 { font-family: monospace }
-.hbb       , .hbb2 { margin-left: -5px      }
-.hbb       , .hbb2 { background-color: inherit }
-.hbb       , .hbb2 { color: inherit }
+.hbb       , .hbb2 { font-family: monospace     }
+.hbb       , .hbb2 { margin-left: -5px          }
+.hbb       , .hbb2 { background-color: inherit  }
+.hbb       , .hbb2 { color: inherit             }
 
 div.panelContent pre {
   overflow-x: auto;

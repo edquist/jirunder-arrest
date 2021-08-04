@@ -576,12 +576,6 @@ login_page = u"""\
 <head>
 <title>Cookie Mon Star :: Login</title>
 <link rel="stylesheet" type="text/css" href="main.css" />
-<style>
-  .btt  {{ font-family: monospace }}
-  .btt  {{ font-weight: bold      }}
-
-  .sml  {{ font-size: small }}
-</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
