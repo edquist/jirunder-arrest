@@ -497,13 +497,7 @@ landing_html = u"""\
 </tr>
 </table>
 
-<p>
-...
-</p>
 
-<p>
-<a href="?login=please">Cookie Login</a>
-</p>
 </body>
 </html>
 """
