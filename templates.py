@@ -397,7 +397,7 @@ issue_transition = u"""\
 
 issue_transition_radio = u"""\
 <input type="radio" id="{id}" name="transition_id" value="{id}" />
-<label for="{id}">{name}</label><br>
+<label for="{id}">{name}</label><br/>
 """
 
 
@@ -613,9 +613,9 @@ and paste it here)
 <p>
 
 <input type="radio" id="session_radio" name="expiry" value="session" />
-<label for="session_radio">Session-only</label><br>
+<label for="session_radio">Session-only</label><br/>
 <input type="radio" id="persist_radio" name="expiry" value="persist" checked />
-<label for="persist_radio">Persist until expiry {_expiry_date}</label><br>
+<label for="persist_radio">Persist until expiry {_expiry_date}</label><br/>
 
 </p>
 
