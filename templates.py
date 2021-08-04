@@ -526,9 +526,9 @@ without auth.
 <p class="sml">
 This site uses the cloud.session.token cookie for atlassian.net
 in order to make authenticated jira api calls.  This lets you piggy-back
-off your existing jira login without having to enter a password here
-(and without this site having to implement oauth, with all the hoops
-atlassian makes you do to get an api token).
+off your existing jira login without having to enter a password here.
+(And without this site having to implement oauth, with all the hoops
+atlassian makes you do to get an api token.)
 </p>
 <p class="sml">
 By pasting your cloud.session.token below and clicking Set Cookie,
