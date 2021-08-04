@@ -532,11 +532,11 @@ atlassian makes you do to get an api token.)
 </p>
 <p class="sml">
 By pasting your cloud.session.token below and clicking Set Cookie,
-this site will instruct your browser to use your cookie for
-the current <a href=".">site</a> (as a session cookie, or, at your option,
-as a persistent cookie until it expires).  This site does not save or track
-your cookie or session information; it only forwards the cookie you provide
-to jira when making api calls, while generating cgi pages.
+this site will instruct your browser to use this cookie for the current
+<a href=".">site</a>. (Either as a session cookie, or, at your option, as a
+persistent cookie until it expires.)  This site does not save or track
+your cookie or session information; it only forwards your cookie to jira
+when making api calls, while generating cgi pages.
 </p>
 <p class="sml">
 To obtain your <tt>cloud.session.token</tt> cookie:
