@@ -29,19 +29,19 @@ a.nu         , a.nu2         { color: inherit             }
 a.nu:link    , a.nu2:link    { text-decoration: none      }
 a.nu:visited , a.nu2:visited { text-decoration: none      }
 a.nu:hover                   { text-decoration: underline }
-a.nu2:hover                  { text-decoration: none      }
+               a.nu2:hover   { text-decoration: none      }
 
-.hbb, .boxy { border-style: solid }
-.hbb, .boxy { border-width:  1px  }
-.hbb, .boxy { border-radius: 3px  }
-.hbb, .boxy { padding:   1px 4px  }
+.hbb, .boxy, .hbb2 { border-style: solid }
+.hbb, .boxy, .hbb2 { border-width:  1px  }
+.hbb, .boxy, .hbb2 { border-radius: 3px  }
+.hbb, .boxy, .hbb2 { padding:   1px 4px  }
 
-.hbb       { border-color: transparent  }
-.hbb:hover { border-color: currentcolor }
-.hbb       { font-family: monospace }
-.hbb       { margin-left: -5px      }
-.hbb       { background-color: inherit }
-.hbb       { color: inherit }
+.hbb               { border-color: transparent  }
+.hbb:hover , .hbb2 { border-color: currentcolor }
+.hbb       , .hbb2 { font-family: monospace }
+.hbb       , .hbb2 { margin-left: -5px      }
+.hbb       , .hbb2 { background-color: inherit }
+.hbb       , .hbb2 { color: inherit }
 
 div.panelContent pre {
   overflow-x: auto;
