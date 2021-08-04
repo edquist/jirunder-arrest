@@ -542,7 +542,8 @@ login_page = u"""\
 <hr/>
 
 <p class="sml">
-(copy your cookie for atlassian.net from your browser and paste it here)
+(log in to <a href="{_jira}">jira</a>,
+copy your cookie for atlassian.net from your browser, and paste it here)
 </p>
 
 <p class="btt">cloud.session.token:</p>

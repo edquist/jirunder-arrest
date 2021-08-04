@@ -628,6 +628,7 @@ def login_page(params):
     e._token = escape_html(token) if token else ''
     e._expiry_date = expiry_date
     e._homerow = get_homerow_html(token)
+    e._jira = jira_url
     html = templates.login_page.format(**e)
 
     return html
