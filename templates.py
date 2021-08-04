@@ -1,6 +1,21 @@
 #!/usr/bin/python
 
 
+homerow = u"""\
+<div class="homerow">
+<a href="." class="hbb nu2">home</a> |
+<a href="?login=please" class="hbb nu2">login</a>
+</div>
+"""
+
+user_homerow = u"""\
+<div class="homerow">
+<a href="." class="hbb nu2">home</a> |
+<a href="?user={_userid}" class="hbb nu2 nw">my issues</a> |
+<a href="?login=please" class="hbb nu2">login</a>
+</div>
+"""
+
 issue_html1 = u"""\
 <!DOCTYPE html>
 <html>
@@ -10,10 +25,7 @@ issue_html1 = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 <h2>
 {key} : {_summary}
@@ -226,10 +238,7 @@ user_issue_html_links1 = """\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 
 <h3>
@@ -283,11 +292,7 @@ add_comment_html = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 
 <h2>
@@ -365,11 +370,7 @@ issue_transition = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 
 <h2>
@@ -472,11 +473,7 @@ landing_html = u"""\
 </style>
 </head>
 <body>
-
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 
 <h2>jirunder-arrest !</h2>
@@ -535,10 +532,7 @@ login_page = u"""\
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<div class="homerow">
-<a href="." class="hbb nu2 nw">home</a> |
-<a href="?login=please" class="hbb nu2 nw">login</a>
-</div>
+{_homerow}
 <hr/>
 
 <h2>C is for Cookie</h2>

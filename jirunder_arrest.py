@@ -232,6 +232,8 @@ def get_transition_issue_html(issue, status, summary):
     e._status = status
     e._transition_radios = "".join(
         templates.issue_transition_radio.format(**t) for t in e.transitions )
+    token = get_jira_token()
+    e._homerow = get_homerow_html(token)
     return templates.issue_transition.format(**e)
 
 
@@ -282,10 +284,13 @@ def user_issue_sortkey(x):
 def get_user_issues_html(user):
     resp = get_user_issues(user)
     e = get_resp_data(resp)
-
     users = get_user_lookup_d()
+    token = get_jira_token()
 
-    html = templates.user_issue_html_links1.format(_user=users.get(user, user))
+    f = easydict()
+    f._user = users.get(user, user)
+    f._homerow = get_homerow_html(token)
+    html = templates.user_issue_html_links1.format(**f)
     for isu in sorted(e.issues, reverse=True, key=user_issue_sortkey):
         html += add_user_issue_fields(isu)
     html += templates.user_issue_html_links3
@@ -360,6 +365,14 @@ def get_user_select_options_html(token):
     return ''.join( templates.user_select_option.format(**u) for u in uu )
 
 
+def get_homerow_html(token):
+    if token:
+        uid = get_cloud_token_user_id(token)
+        return templates.user_homerow.format(_userid=uid)
+    else:
+        return templates.homerow
+
+
 def get_add_comment_html(params):
     e = easydict()
     e.key = params.comment
@@ -380,6 +393,8 @@ def get_add_comment_html(params):
         e._rbox = ''
         e._jml = ''
 
+    token = get_jira_token()
+    e._homerow = get_homerow_html(token)
     return templates.add_comment_html.format(**e)
 
 
@@ -451,6 +466,9 @@ def set_fancy_issue_status(e):
 
 
 def issue_to_html(e):
+    token = get_jira_token()
+
+    e._homerow     = get_homerow_html(token)
     e._fixversions = cjoin(names(e.fields.fixVersions)) or '-'
     e._components  = cjoin(names(e.fields.components)) or '-'
     e._labels      = cjoin(e.fields.labels) or '-'
@@ -516,6 +534,7 @@ def landing_page():
     e._none_selected = "selected" if not token else ""
     s = easydict()
     s._user_select = templates.user_select.format(**e)
+    s._homerow = get_homerow_html(token)
     return templates.landing_html.format(**s)
 
 
@@ -608,6 +627,7 @@ def login_page(params):
             expiry_date = "(%s)" % format_date(c.expires)
     e._token = escape_html(token) if token else ''
     e._expiry_date = expiry_date
+    e._homerow = get_homerow_html(token)
     html = templates.login_page.format(**e)
 
     return html
